@@ -1,0 +1,105 @@
+/* Formulário Elegante e Moderno */
+.contact-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2.5rem;
+    background: var(--dark-20);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--dark-30);
+}
+
+.contact-form-container .form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.contact-form-container label {
+    display: block;
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.contact-text {
+    font-family: "Archivo";
+    color: var(--text-light);
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+}
+
+.contact-form-container input,
+.contact-form-container textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    border: 1px solid var(--dark-30);
+    background-color: var(--dark-20);
+    color: var(--white);
+    font-family: 'Archivo', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form-container input:focus,
+.contact-form-container textarea:focus {
+    outline: none;
+    border-color: var(--brand-color);
+    box-shadow: 0 0 0 3px rgba(151, 237, 170, 0.2);
+    transform: translateY(-1px);
+}
+
+.contact-form-container textarea {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.contact-form-container button {
+    width: 100%;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, var(--brand-color), var(--brand-color-darker));
+    color: var(--dark-bg);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(151, 237, 170, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-form-container button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(151, 237, 170, 0.4);
+}
+
+.contact-form-container button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(151, 237, 170, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-form-container {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form-container {
+        padding: 1rem;
+        border-radius: 12px;
+    }
+}

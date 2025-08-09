@@ -5,9 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/src/css/style.css">
+    <link rel="stylesheet" href="/src/css/form-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <title>Gabriel Fernandes | Developer Front-End</title>
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="/src/js/script.js"></script>
+    <meta name="description"
+        content="Portfólio de Gabriel Fernandes - Desenvolvedor Frontend & UI Designer freelancer. Especializado em React, Next.js, JavaScript e criação de interfaces modernas.">
+    <meta name="keywords"
+        content="desenvolvedor frontend, react, next.js, javascript, ui designer, freelancer, gabriel fernandes">
+    <meta name="author" content="Gabriel Fernandes">
+    <meta property="og:title" content="Gabriel Fernandes | Developer Front-End">
+    <meta property="og:description"
+        content="Desenvolvedor Frontend & UI Designer freelancer. Criando interfaces modernas e responsivas.">
+    <meta property="og:type" content="website">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -21,6 +31,8 @@
                 <li><a class="nav-link" href="#projects">Projetos</a></li>
                 <li><a class="nav-link" href="#servicos">Serviços</a></li>
                 <li><a class="nav-link" href="#skills">Habilidades</a></li>
+                <li><a class="nav-link" href="#contato">Contato</a></li>
+
             </ul>
         </nav>
         <!-- Menu Mobile -->
@@ -39,6 +51,7 @@
                 <li><a class="nav-link" href="#projects">Projetos</a></li>
                 <li><a class="nav-link" href="#servicos">Serviços</a></li>
                 <li><a class="nav-link" href="#skills">Habilidades</a></li>
+                <li><a class="nav-link" href="#contato">Contato</a></li>
             </ul>
         </nav>
     </header>
@@ -46,12 +59,16 @@
         <section class="hero">
             <div class="hero-content efeito-hero-content">
                 <div class="content-hero efeito-hero-content-textimg">
-                    <p class="hero-text-sup">Olá, eu sou</p>
-                    <h1>Gabriel Fernandes</h1>
-                    <p class="hero-text-sub">Desenvolvedor Frontend & Qa...</p>
+                    <p class="hero-text-sup" style="opacity: 0; transition: opacity 0.5s;">Olá, eu sou</p>
+                    <h1 class="typing-effect" data-text="Gabriel Fernandes">&nbsp;</h1>
+                    <p class="hero-text-sub typing-effect" data-text="Desenvolvedor Frontend & QA...">&nbsp;</p>
                     <br>
-                    <a class="curriculo-download" href="assets/curriculo/Marcos Vicente Hashtag 2025.pdf" download>
+                    <a class="curriculo-download" href="#" download="Curriculo-Gabriel-Fernandes.pdf">
                         Baixar Currículo</a>
+                    <div class="hero-socials desktop-only">
+                        <a href="https://www.linkedin.com/in/gabrielfernandes" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="https://github.com/Gabbfernyh" target="_blank" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                    </div>
                 </div>
                 <img src="/src/assets/img/icons/Devcode/image.svg" alt="Avatar" class="avatar-img">
             </div>
@@ -73,12 +90,12 @@
             <div class="contacts efeito-about-icons contact-container">
                 <div class="contact-item">
                     <img src="/src/assets/img/icons/Devcode/smile.svg" alt="Avatar" class="contact-icon">
-                    <h3 class="contact-title"">Nome</h3>
+                    <h3 class="contact-title">Nome</h3>
                     <p class=" contact-detail">Gabriel Fernandes</p>
                 </div>
                 <div class="contact-item">
                     <img src="/src/assets/img/icons/Devcode/mail.svg" alt="Email Icon" class="contact-icon">
-                    <h3 class="contact-title"" >E-mail</h3>
+                    <h3 class="contact-title">E-mail</h3>
                     <p class=" contact-detail">bielmgfv.python@gmail.com</p>
                 </div>
                 <div class="contact-item">
@@ -126,8 +143,10 @@
                     <h3 class="project-title">Previsão do Tempo</h3>
                     <p class="project-techs">HTML5, CSS3, JavaScript, API</p>
                     <div class="project-buttons">
-                        <a href="#" class="access-project">Acessar o projeto</a>
-                        <a href="#" class="access-repo">Acessar repositório</a>
+                        <a href="https://previsao-do-tempo-six-orcin.vercel.app/" class="access-project">Acessar o
+                            projeto</a>
+                        <a href="https://github.com/Gabbfernyh/Previs-o-do-Tempo" class="access-repo">Acessar
+                            repositório</a>
                     </div>
                 </div>
                 <div class="project-item project-card">
@@ -138,15 +157,16 @@
                     <p class="project-techs">HTML5, CSS3, JavaScript</p>
                     <div class="project-buttons">
                         <a href="https://projeto-pokedevs-ten.vercel.app/" class="access-project">Acessar o projeto</a>
-                        <a href="https://github.com/Gabbfernyh/projeto-pokedevs" class="access-repo">Acessar repositório</a>
+                        <a href="https://github.com/Gabbfernyh/projeto-pokedevs" class="access-repo">Acessar
+                            repositório</a>
                     </div>
                 </div>
                 <div class="project-item project-card">
                     <div class="project-image">
                         Imagem projeto
                     </div>
-                    <h3 class="project-title">Projeto 4</h3>
-                    <p class="project-techs">Tecnologias usadas no projeto</p>
+                    <h3 class="project-title">My Linktree</h3>
+                    <p class="project-techs">HTML5, CSS3, JavaScript</p>
                     <div class="project-buttons">
                         <a href="#" class="access-project">Acessar o projeto</a>
                         <a href="#" class="access-repo">Acessar repositório</a>
@@ -159,19 +179,24 @@
             <div class="servicos-container">
                 <div class="box-grid">
                     <img src="/src/assets/img/icons/Devcode/code.svg" alt="code-icon" class="box-icon">
-                    <h2 class="box-title">Criação de Sites</h2>
+                    <h2 class="box-title">Criação<br>de Sites</h2>
                 </div>
                 <div class="box-grid">
                     <img src="/src/assets/img/icons/Devcode/figma.svg" alt="figma" class="box-icon">
-                    <h2 class="box-title">UI / UX
-                        Designer</h2>
+                    <h2 class="box-title">UI / UX<br>Designer</h2>
                 </div>
                 <div class="box-grid">
                     <img src="/src/assets/img/icons/Devcode/smartphone.svg" alt="mobile" class="box-icon">
-                    <h2 class="box-title">Sites
-                        responsivos</h2>
+                    <h2 class="box-title">Sites<br>Responsivos</h2>
                 </div>
-            </div>
+                <div class="box-grid">
+                    <img src="/src/assets/img/icons/Devcode/network.svg" alt="hospedagem" class="box-icon">
+                    <h2 class="box-title">Hospedagem</h2>
+                </div>
+                <div class="box-grid">
+                    <img src="/src/assets/img/icons/Devcode/network.svg" alt="Manuntenção" class="box-icon">
+                    <h2 class="box-title">Manuntenção</h2>
+                </div>
             </div>
         </section>
         <section class="skills" id="skills">
@@ -184,14 +209,67 @@
                 <div class="skill-box"><img src="/src/assets/img/icons/Devcode/react.svg" alt="React"></div>
                 <div class="skill-box"><img src="/src/assets/img/icons/Devcode/next.svg" alt="Next.js"></div>
             </div>
+        </section>
+        <section class="contact-form" id="contato">
+            <h2 class="tags">Entre em Contato</h2>
+            <br>
+            <p class="contact-text"> Se você deseja entrar em contato comigo, preencha o formulário abaixo ou entre em contato pelas redes
+                sociais <span class="only-mobile contact-text"> (que estarão disponíveis no botão flutuante na sua parte direita da
+                    tela). </span> </p>
+            <div class="popup-content">
+                <form action="https://formspree.io/f/xovedwlz" method="POST" class="contact-form-container"> <label
+                        for="name">Seu nome:</label> <input type="text" id="name" name="name" required
+                        placeholder="Seu nome completo"> <label for="email">Seu
+                        email:</label> <input type="email" id="email" name="email" required
+                        placeholder="Email completo">
+                    <label for="phone">Seu número para contato rápido:</label> <input type="tel" id="phone" name="phone"
+                        placeholder="Telefone (opcional)"> <label for="message">Mensagem:</label> <textarea id="message"
+                        name="message" required placeholder="Digite sua mensagem/assunto aqui..."></textarea> <button
+                        type="submit">Enviar</button>
+                </form>
             </div>
+            <p class="formspree-separation">------OU------</p> <!-- Botões interativos -->
+            <div class="social-buttons desktop-only"> <a href="https://www.instagram.com" target="_blank"
+                    class="social-btn instagram" aria-label="Instagram"> <i class="fab fa-instagram"></i> <span
+                        class="social-label">Instagram</span>
+                </a> <a href="https://github.com/Gabbfernyh" target="_blank" class="social-btn github"
+                    aria-label="GitHub">
+                    <i class="fab fa-github"></i> <span class="social-label">GitHub</span> </a> <a
+                    href="mailto:bielmgfv.python@gmail.com" class="social-btn gmail" aria-label="Gmail"> <i
+                        class="fas fa-envelope"></i> <span class="social-label">Gmail</span> </a> <a
+                    href="https://discord.com" target="_blank" class="social-btn discord" aria-label="Discord"> <i
+                        class="fab fa-discord"></i> <span class="social-label">Discord</span> </a> </div>
+        </section> <!-- Fim da seção de contato -->
+
     </main>
     <footer>
-        <p class="footer-text">@ 2025 - Gabbfernyh</p>
+        <p class="footer-text footer-text-right">@ 2025 - Gabbfernyh</p>
         <span class="footer-powered">
             Powered by <img src="/src/assets/img/icons/Devcode/logo.svg" alt="logo">
         </span>
     </footer>
+
+    <!-- FAB para Mobile -->
+    <div class="fab-container">
+        <button class="fab-button">
+            <i class="fas fa-share-alt"></i>
+        </button>
+        <div class="fab-links">
+            <a href="https://www.instagram.com/gabe__fernyh/" target="_blank" class="fab-link instagram" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://github.com/Gabbfernyh" target="_blank" class="fab-link github" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:bielmgfv.python@gmail.com" class="fab-link gmail" aria-label="Gmail">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://discord.com/users/835243201874493502" target="_blank" class="fab-link discord" aria-label="Discord">
+                <i class="fab fa-discord"></i>
+            </a>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="/src/js/script.js"></script>
 </body>
