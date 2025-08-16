@@ -1,0 +1,98 @@
+:root {
+    --brand-color: #97edaa;
+    --brand-color-darker: #7bd88f;
+    /* Cor usada nos botões */
+
+    --dark-10: #0b0b0b;
+    --dark-20: #101010;
+    --dark-30: #1f1f1f;
+    --dark-bg: #121212;
+
+    --white: #ffffff;
+    --text-light: #eeeeee;
+}
+
+/* Estilos para notificação temporária com barra de progresso */
+.custom-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--brand-color-darker) 0%, var(--dark-30) 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    min-width: 300px;
+    max-width: 400px;
+    z-index: 10000;
+    animation: slideIn 0.3s ease-out;
+}
+
+.notification-content {
+    margin-bottom: 10px;
+}
+
+.notification-message {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.progress-bar-container {
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #fff;
+    width: 100%;
+    animation: progressShrink linear;
+    transform-origin: left;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+@keyframes progressShrink {
+    from {
+        transform: scaleX(1);
+    }
+
+    to {
+        transform: scaleX(0);
+    }
+}
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+    .custom-notification {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        min-width: auto;
+        max-width: none;
+    }
+}
