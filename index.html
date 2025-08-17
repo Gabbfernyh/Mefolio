@@ -144,7 +144,7 @@
                 animações, responsividade e SEO.
 
                 Além disso, estou constantemente buscando expandir meus conhecimentos em diversas áreas da tecnologia,
-                incluindo cibersegurança, Quality Assurance (QA), DevOps e desenvolvimento Full-Stack. Meu objetivo é
+                incluindo cibersegurança, Quality Assurance (QA), DevOps, desenvolvimento Full-Stack... Meu objetivo é
                 integrar essas habilidades para criar soluções eficientes e inovadoras.
             </p>
             <div class="contacts efeito-about-icons contact-container">
@@ -240,24 +240,40 @@
             <h2 class="tags">Serviços</h2>
             <div class="servicos-container">
                 <div class="box-grid">
-                    <img src="/src/assets/img/icons/Devcode/code.svg" alt="code-icon" class="box-icon">
-                    <h2 class="box-title">Criação<br>de Sites</h2>
+                    <div class="box-grid-inner">
+                        <img src="/src/assets/img/icons/Devcode/code.svg" alt="code-icon" class="box-icon">
+                        <h2 class="box-title">Criação<br>de Sites</h2>
+                    </div>
                 </div>
                 <div class="box-grid">
-                    <img src="/src/assets/img/icons/Devcode/figma.svg" alt="figma" class="box-icon">
-                    <h2 class="box-title">UI / UX<br>Designer</h2>
+                    <div class="box-grid-inner">
+                        <img src="/src/assets/img/icons/Devcode/figma.svg" alt="figma" class="box-icon">
+                        <h2 class="box-title">UI / UX<br>Designer</h2>
+                    </div>
                 </div>
                 <div class="box-grid">
-                    <img src="/src/assets/img/icons/Devcode/smartphone.svg" alt="mobile" class="box-icon">
-                    <h2 class="box-title">Sites<br>Responsivos</h2>
+                    <div class="box-grid-inner">
+                        <img src="/src/assets/img/icons/Devcode/smartphone.svg" alt="mobile" class="box-icon">
+                        <h2 class="box-title">Sites<br>Responsivos</h2>
+                    </div>
                 </div>
                 <div class="box-grid">
-                    <img src="/src/assets/img/icons/Devcode/network.svg" alt="hospedagem" class="box-icon">
-                    <h2 class="box-title">Hospedagem</h2>
+                    <div class="box-grid-inner">
+                        <img src="/src/assets/img/icons/Devcode/network.svg" alt="hospedagem" class="box-icon">
+                        <h2 class="box-title">Hospedagem</h2>
+                    </div>
                 </div>
                 <div class="box-grid">
-                    <img src="/src/assets/img/icons/Devcode/network.svg" alt="Manuntenção" class="box-icon">
-                    <h2 class="box-title">Manuntenção</h2>
+                    <div class="box-grid-inner">
+                        <img src="/src/assets/img/icons/Devcode/wrench.svg" alt="Manutenção" class="box-icon">
+                        <h2 class="box-title">Manutenção</h2>
+                    </div>
+                </div>
+                <div class="box-grid">
+                    <div class="box-grid-inner">
+                        <img src="/src/assets/img/icons/Devcode/trending-up.svg" alt="SEO" class="box-icon">
+                        <h2 class="box-title">SEO &<br>Performance</h2>
+                    </div>
                 </div>
             </div>
             <div class="servicos-dots"></div>
@@ -312,13 +328,31 @@
                 </div>
                 <!-- Coluna da Direita: Formulário -->
                 <div class="contact-form-right">
-                    <form action="https://formspree.io/f/xovedwlz" method="POST" class="contact-form-container">
-                        <input type="text" id="name" name="name" required placeholder="Seu nome completo">
-                        <input type="email" id="email" name="email" required placeholder="Seu melhor e-mail (exemplo@gmail.com)">
-                        <input type="tel" id="phone" name="phone" placeholder="Telefone (opcional)">
-                        <textarea id="message" name="message" required
-                            placeholder="Digite sua mensagem aqui..."></textarea>
+                    <form action="https://formspree.io/f/xovedwlz" method="POST" class="contact-form-container"
+                        id="contact-form">
+                        <!-- Campo "Honeypot" para proteção contra spam. Invisível para usuários. -->
+                        <input type="text" name="_gotcha" class="honeypot-field" tabindex="-1" autocomplete="off">
+
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required placeholder="" data-placeholder="Seu nome completo" autocomplete="name">
+                            <label for="name">Nome Completo <span class="required-indicator">*</span></label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder="" data-placeholder="exemplo@email.com" autocomplete="email">
+                            <label for="email">E-mail <span class="required-indicator">*</span></label>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="" data-placeholder="(11) 98765-4321" autocomplete="tel">
+                            <label for="phone">Telefone (Opcional)</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" required placeholder="" data-placeholder="Digite sua mensagem aqui..."
+                                rows="5"></textarea>
+                            <label for="message">Mensagem <span class="required-indicator">*</span></label>
+                        </div>
                         <button type="submit">Enviar Mensagem</button>
+                        <!-- Container para exibir mensagens de sucesso ou erro -->
+                        <div id="form-status"></div>
                     </form>
                 </div>
             </div>

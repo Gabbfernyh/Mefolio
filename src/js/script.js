@@ -25,10 +25,11 @@ function typeWriter(element, text, speed = 75, callback) {
 function initScrollReveal() {
     const defaultOptions = {
         origin: 'bottom',
-        distance: '40px',
-        duration: 1000,
+        distance: '30px', // Reduzido para um efeito mais "leve"
+        duration: 1200,  // Aumentado para um efeito mais "lento"
         opacity: 0,
         reset: false,
+        easing: 'cubic-bezier(0.5, 0, 0, 1)', // Curva de animação mais suave
     };
 
     // Animação para o conteúdo do Hero (texto, botões)
@@ -91,12 +92,23 @@ function initScrollReveal() {
     if (servicosContainer) {
         // Animação para os cards de serviço. Funciona tanto no desktop (scroll da página)
         // quanto no mobile (aparecem quando a seção entra na tela).
-        ScrollReveal().reveal('.servicos-container .box-grid', {
+        const isMobile = window.innerWidth <= 900;
+
+        const servicosRevealOptions = {
             ...defaultOptions,
-            interval: 120,
+            origin: 'top', // Origem diferente para variar a animação
+            interval: 150,
             delay: 200,
-            container: servicosContainer
-        });
+        };
+
+        // No desktop, a animação é acionada pelo scroll da página (window).
+        // No mobile, a animação é acionada pelo scroll do próprio container (carrossel).
+        // Adicionar a opção 'container' apenas no mobile corrige o bug do desktop.
+        if (isMobile) {
+            servicosRevealOptions.container = servicosContainer;
+        }
+
+        ScrollReveal().reveal('.servicos-container .box-grid', servicosRevealOptions);
     }
 
     // Animações para a seção de Contato
@@ -110,49 +122,96 @@ function initScrollReveal() {
  * Inicializa a lógica do carrossel de serviços para telas móveis.
  */
 function initServiceCarousel() {
-    const servicosContainer = document.querySelector('.servicos-container');
-    const servicosItems = document.querySelectorAll('.servicos-container .box-grid');
+    const container = document.querySelector('.servicos-container');
     const dotsContainer = document.querySelector('.servicos-dots');
 
-    if (!servicosContainer || !dotsContainer || window.innerWidth > 900) return;
+    // --- Guard Clauses ---
+    if (!container || !dotsContainer) return;
 
-    servicosItems.forEach((_, index) => {
+    // Lógica de Desktop: limpa o estado do carrossel se existir
+    if (window.innerWidth > 900) {
+        if (container.dataset.initialized) {
+            dotsContainer.innerHTML = '';
+            // Remove a classe 'card-active' de todos os itens
+            container.querySelectorAll('.box-grid').forEach(item => item.classList.remove('card-active'));
+            delete container.dataset.initialized;
+        }
+        return;
+    }
+
+    // Lógica Mobile: inicializa o carrossel
+    if (container.dataset.initialized) return; // Já inicializado para mobile
+
+    const allItems = Array.from(container.children);
+    if (allItems.length <= 1) return;
+
+    container.dataset.initialized = 'true';
+    let currentIndex = 0; // Começa no primeiro item (índice 0)
+
+    // --- Setup dos Pontos (Dots) ---
+    dotsContainer.innerHTML = '';
+    allItems.forEach((_, index) => {
         const dot = document.createElement('button');
         dot.classList.add('dot');
         dot.setAttribute('aria-label', `Ir para o serviço ${index + 1}`);
-        if (index === 0) dot.classList.add('active');
+        dot.dataset.targetIndex = index; // O índice do dot corresponde ao índice do item
         dotsContainer.appendChild(dot);
     });
-
     const dots = dotsContainer.querySelectorAll('.dot');
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const itemIndex = Array.from(servicosItems).indexOf(entry.target);
-                dots.forEach((dot, dotIndex) => dot.classList.toggle('active', dotIndex === itemIndex));
+    // --- Funções Principais ---
+    const updateActiveState = () => {
+        // Atualiza o ponto ativo
+        dots.forEach((dot, index) => dot.classList.toggle('active', index === currentIndex));
+        // Atualiza o card ativo
+        allItems.forEach((item, index) => item.classList.toggle('card-active', index === currentIndex));
+    };
+
+    // --- Event Listeners ---
+    dots.forEach(dot => {
+        dot.addEventListener('click', (e) => {
+            const targetIndex = parseInt(e.target.dataset.targetIndex, 10);
+            const targetItem = allItems[targetIndex];
+            // Usa scrollIntoView para um efeito suave.
+            if (targetItem) {
+                targetItem.scrollIntoView({ behavior: 'smooth', inline: 'center' });
             }
         });
-    }, { root: servicosContainer, threshold: 0.6 });
-
-    servicosItems.forEach(item => observer.observe(item));
-
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            servicosItems[index].scrollIntoView({ behavior: 'smooth', inline: 'start' });
-        });
     });
 
-    servicosContainer.addEventListener('scroll', () => {
-        const { scrollLeft, clientWidth, scrollWidth } = servicosContainer;
-        // Check if scrolled to the end (with a small tolerance)
-        if (scrollLeft + clientWidth >= scrollWidth - 1) {
-            // Use a timeout to allow the scroll snap to finish
-            setTimeout(() => {
-                servicosContainer.scrollTo({ left: 0, behavior: 'smooth' });
-            }, 500); // Adjust timeout as needed
-        }
+    // Atualiza o estado do card ativo após a rolagem
+    let scrollEndTimer;
+    container.addEventListener('scroll', () => {
+        // Usa um temporizador para detectar o fim da rolagem.
+        // Isso é crucial para que a lógica de "item ativo" seja executada apenas
+        // quando o scroll-snap do navegador terminar de ajustar a posição, evitando que itens sejam "pulados".
+        clearTimeout(scrollEndTimer);
+        scrollEndTimer = setTimeout(() => {
+            const containerCenter = container.scrollLeft + (container.offsetWidth / 2);
+            let minDistance = Infinity;
+            let newActiveIndex = -1;
+
+            allItems.forEach((item, index) => {
+                const itemCenter = item.offsetLeft + (item.offsetWidth / 2);
+                const distance = Math.abs(containerCenter - itemCenter);
+
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    newActiveIndex = index;
+                }
+            });
+
+            // Atualiza o estado apenas se o índice realmente mudou
+            if (newActiveIndex !== -1 && currentIndex !== newActiveIndex) {
+                currentIndex = newActiveIndex;
+                updateActiveState();
+            }
+        }, 100); // Um timeout curto é suficiente para detectar o fim do scroll.
     });
+
+    // --- Inicialização ---
+    // Define o primeiro item como ativo ao carregar.
+    updateActiveState();
 }
 
 /**
@@ -266,6 +325,129 @@ function addEventListeners() {
     }
 }
 
+/**
+ * Lida com o envio do formulário de contato usando AJAX para exibir mensagens de sucesso/erro.
+ */
+function initContactForm() {
+    const form = document.getElementById('contact-form');
+    const statusDiv = document.getElementById('form-status');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const phoneInput = document.getElementById('phone');
+    const messageInput = document.getElementById('message');
+
+    if (!form || !statusDiv || !nameInput || !emailInput || !messageInput || !phoneInput) return;
+
+    // Função para validar os campos do formulário
+    const validateForm = () => {
+        let isValid = true;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // Reseta os erros anteriores
+        [nameInput, emailInput, messageInput].forEach(input => input.classList.remove('invalid-field'));
+
+        // Validação do Nome
+        if (nameInput.value.trim() === '') {
+            isValid = false;
+            nameInput.classList.add('invalid-field');
+        }
+
+        // Validação do E-mail
+        if (emailInput.value.trim() === '' || !emailRegex.test(emailInput.value.trim())) {
+            isValid = false;
+            emailInput.classList.add('invalid-field');
+        }
+
+        // Validação da Mensagem
+        if (messageInput.value.trim() === '') {
+            isValid = false;
+            messageInput.classList.add('invalid-field');
+        }
+
+        return isValid;
+    };
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+
+        // Executa a validação antes de enviar
+        if (!validateForm()) {
+            statusDiv.textContent = 'Por favor, corrija os campos destacados.';
+            statusDiv.className = 'error';
+            statusDiv.style.display = 'block';
+            // Esconde a mensagem de erro após alguns segundos para não poluir a tela
+            setTimeout(() => {
+                if (statusDiv.classList.contains('error')) {
+                    statusDiv.style.display = 'none';
+                }
+            }, 4000);
+            return; // Impede o envio do formulário
+        }
+
+        const data = new FormData(event.target);
+
+        // Exibe uma mensagem de "Enviando..."
+        statusDiv.textContent = 'Enviando...';
+        statusDiv.className = ''; // Reseta classes anteriores
+        statusDiv.style.display = 'block';
+
+        try {
+            const response = await fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                statusDiv.textContent = "Mensagem enviada com sucesso! Obrigado.";
+                statusDiv.classList.add('success');
+                form.reset();
+            } else {
+                const responseData = await response.json();
+                if (Object.hasOwn(responseData, 'errors')) {
+                    statusDiv.textContent = responseData["errors"].map(error => error["message"]).join(", ");
+                } else {
+                    statusDiv.textContent = "Ocorreu um erro ao enviar. Tente novamente.";
+                }
+                statusDiv.classList.add('error');
+            }
+        } catch (error) {
+            statusDiv.textContent = "Erro de conexão. Verifique sua internet e tente novamente.";
+            statusDiv.classList.add('error');
+        } finally {
+            // Esconde a mensagem após alguns segundos
+            setTimeout(() => {
+                statusDiv.style.display = 'none';
+            }, 6000);
+        }
+    }
+
+    form.addEventListener("submit", handleSubmit);
+
+    // Lógica para labels flutuantes, placeholders dinâmicos e feedback de validação
+    const allInputs = [nameInput, emailInput, phoneInput, messageInput];
+    allInputs.forEach(input => {
+        // Mostra o placeholder de exemplo quando o campo ganha foco
+        input.addEventListener('focus', () => {
+            input.placeholder = input.dataset.placeholder || '';
+        });
+
+        // Esconde o placeholder se o campo estiver vazio ao perder o foco,
+        // permitindo que o label retorne à posição inicial.
+        input.addEventListener('blur', () => {
+            if (input.value.trim() === '') {
+                input.placeholder = '';
+            }
+        });
+
+        // Remove a classe de erro enquanto o usuário digita
+        input.addEventListener('input', () => {
+            input.classList.remove('invalid-field');
+        });
+    });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
@@ -273,5 +455,15 @@ document.addEventListener('DOMContentLoaded', () => {
     initFab();
     initMobileNav();
     initSmoothScroll();
+    initContactForm();
     addEventListeners();
+
+    // Adiciona um listener para redimensionamento da janela para reinicializar o carrossel
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            initServiceCarousel();
+        }, 250);
+    });
 });

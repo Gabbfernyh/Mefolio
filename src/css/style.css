@@ -196,10 +196,10 @@ html {
     .hero-text-container {
         min-height: 160px;
         /* Altura mínima para acomodar todo o texto e evitar que o conteúdo abaixo se mova */
-        margin-bottom: 1.5rem;
         /* Espaçamento que substitui o <br> removido */
         display: flex;
         flex-direction: column;
+        margin-bottom: 1.5rem;
     }
 
     /* Efeito de digitação */
@@ -456,19 +456,7 @@ html {
         /* Borda sutil como no design */
         border-radius: 1px;
         box-shadow: var(--brand-color) 0px 1px;
-        padding: 1.75rem;
-        /* Espaçamento interno para respiro */
-        display: flex;
-        flex-direction: column;
-        /* Empilha o ícone e o texto */
-        justify-content: center;
-        /* Centraliza verticalmente */
-        align-items: flex-start;
-        /* Alinha os itens à esquerda */
-        gap: 10px;
-        /* Espaço entre ícone e texto */
-        transition: border-color 0.3s ease, transform 0.3s ease;
-
+        transition: border-color 0.3s ease;
         /* Tamanho fixo para garantir que todos sejam idênticos */
         width: 225px;
         /* Aumentando a largura dos cards */
@@ -478,10 +466,25 @@ html {
         /* Impede que os cards encolham */
     }
 
+    .box-grid-inner {
+        width: 100%;
+        height: 100%;
+        padding: 1.75rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 10px;
+        transition: transform 0.3s ease;
+    }
+
     .box-grid:hover {
         border-color: var(--brand-color);
-        transform: translateY(-4px);
         /* Efeito de elevação sutil */
+    }
+
+    .box-grid:hover .box-grid-inner {
+        transform: translateY(-4px);
     }
 
     .box-grid .box-icon {
@@ -548,13 +551,58 @@ html {
     .contact-form-container {
         display: flex;
         flex-direction: column;
-        gap: 1.2rem;
-        /* Espaço entre os campos */
+        /* O gap foi removido, o espaçamento agora é controlado pelo margin-top do .form-group */
         width: 100%;
         background: transparent;
         padding: 0;
         border-radius: 0;
         box-shadow: none;
+    }
+
+    /* Novos estilos para estrutura e acessibilidade do formulário */
+    .form-group {
+        position: relative; /* Crucial para o posicionamento absoluto do label */
+        margin-top: 1.5rem; /* Espaçamento entre os campos */
+        width: 100%;
+    }
+
+    /* Estado inicial do label (dentro do campo, agindo como placeholder) */
+    .contact-form-container label {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--text-light);
+        opacity: 0.7;
+        pointer-events: none; /* Permite cliques através do label para o input */
+        transition: all 0.2s ease-out;
+    }
+
+    /* Estado ativo do label (acima, "cortando" a borda) */
+    .contact-form-container input:focus + label,
+    .contact-form-container input:not(:placeholder-shown) + label,
+    .contact-form-container textarea:focus + label,
+    .contact-form-container textarea:not(:placeholder-shown) + label {
+        top: -0.7rem;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.85rem;
+        color: var(--brand-color);
+        opacity: 1;
+        background-color: var(--dark-bg); /* Cor de fundo do body (desktop) */
+        padding: 0 0.4rem;
+    }
+
+    .required-indicator {
+        color: var(--brand-color);
+        font-weight: 600;
+        margin-left: 2px;
+    }
+
+    /* Campo "Honeypot" para spam: visualmente oculto, mas disponível para bots */
+    .honeypot-field {
+        display: none;
     }
 
     .contact-form-container input,
@@ -577,6 +625,12 @@ html {
         border-color: var(--brand-color);
         box-shadow: 0 0 0 3px rgba(151, 237, 170, 0.3);
         transform: translateY(-2px);
+    }
+
+    /* Estilo para campos de formulário inválidos (controlado via JS) */
+    .contact-form-container .invalid-field {
+        border-color: #ff8a8a;
+        box-shadow: 0 0 0 3px rgba(255, 100, 100, 0.3);
     }
 
     .contact-form-container textarea {
@@ -611,6 +665,29 @@ html {
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
+    /* Estilos para a mensagem de status do formulário (sucesso/erro) */
+    #form-status {
+        margin-top: 1rem;
+        padding: 0.8rem 1rem;
+        border-radius: 8px;
+        font-weight: 500;
+        text-align: center;
+        display: none; /* Oculto por padrão, controlado via JS */
+        transition: opacity 0.3s ease;
+    }
+
+    #form-status.success {
+        background-color: rgba(151, 237, 170, 0.15);
+        color: var(--brand-color);
+        border: 1px solid var(--brand-color);
+    }
+
+    #form-status.error {
+        background-color: rgba(255, 100, 100, 0.15);
+        color: #ff8a8a;
+        border: 1px solid #ff8a8a;
+    }
+
     .formspree {
         display: flex;
         flex-direction: column;
@@ -624,7 +701,7 @@ html {
 
     /* New Contact Section Layout */
     #contato {
-        padding: 4rem 2rem;
+        padding: 3rem 2rem; /* Reduzido o espaçamento superior */
         margin-top: 2rem;
     }
 
@@ -632,7 +709,7 @@ html {
         display: flex;
         gap: 4rem;
         /* Espaço entre as colunas */
-        max-width: 1100px;
+        max-width: 980px; /* Reduzido de 1100px para um layout mais compacto */
         margin: 2rem auto 0;
         align-items: flex-start;
     }
@@ -884,7 +961,7 @@ html {
     }
 
     /* Header e nav */
-    @media (max-width: 800px) {
+    @media (max-width: 1024px) {
         header {
             padding: 0.7rem 1rem;
             position: fixed;
@@ -913,6 +990,12 @@ html {
 
         .content-hero {
             margin: 0;
+            /* Centraliza os elementos filhos (texto, botão, sociais) */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            /* Espaçamento consistente entre texto, botão e ícones sociais */
         }
 
         .avatar-img {
@@ -927,6 +1010,11 @@ html {
 
         .content-hero p {
             font-size: 1.1rem;
+        }
+
+        .hero-text-container {
+            /* Remove a margem inferior, pois o 'gap' no pai (.content-hero) já cuida do espaçamento */
+            margin-bottom: 0;
         }
 
         .project-grid {
@@ -970,34 +1058,58 @@ html {
             overflow-y: hidden;
             flex-wrap: nowrap;
             gap: 1rem;
-            scroll-snap-type: x mandatory;
+            scroll-snap-type: x mandatory; /* Mantém o snap obrigatório */
+            /* A propriedade 'scroll-padding-inline' garante que haja espaço suficiente no início e no fim do carrossel para que QUALQUER card, incluindo o primeiro e o último, possa ser perfeitamente centralizado. */
+            scroll-padding-inline: calc(50% - 120px); /* 50% da tela - metade da largura do card (240px / 2) */
             -webkit-overflow-scrolling: touch;
-            padding: 1.2rem 0.5rem;
-            /* padding lateral para não cortar o primeiro/último */
+            /* O padding horizontal é removido para não interferir com o cálculo do scroll-padding. O 'gap' já cuida do espaçamento entre os cards. */
+            padding: 1.2rem 0;
             margin: 0;
             width: 100%;
-            /* Esconde a barra de rolagem padrão */
-            -ms-overflow-style: none;
-            /* IE and Edge */
-            scrollbar-width: none;
-            /* Firefox */
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
             box-sizing: border-box;
-            justify-content: flex-start;
             align-items: stretch;
         }
 
+        /* Esconde a barra de rolagem no WebKit (Chrome, Safari) */
+        .servicos-container::-webkit-scrollbar {
+            display: none;
+        }
+
         .box-grid {
-            min-width: 240px;
+            /* Define uma largura fixa para garantir que o cálculo do 'scroll-padding' seja sempre preciso. */
+            width: 240px;
             flex: 0 0 auto;
-            scroll-snap-align: start;
+            scroll-snap-align: center; /* Centraliza o card no snap */
             background: #181818;
             border-radius: 12px;
             box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
             margin: 0;
+            /* Layout e padding movidos para o .box-grid-inner */
+            transition: box-shadow 0.4s ease, border-color 0.4s ease;
+            overflow: hidden; /* Garante que o conteúdo escalado não vaze */
+        }
+
+        .box-grid-inner {
+            width: 100%;
+            height: 100%;
             padding: 1.2rem 1rem;
             display: flex;
             flex-direction: column;
             align-items: center;
+            transition: transform 0.4s ease;
+        }
+
+        /* Estilo para o card ativo (centralizado) com efeito de zoom */
+        .box-grid.card-active {
+            border-color: var(--brand-color);
+            box-shadow: 0 4px 16px rgba(151, 237, 170, 0.2);
+        }
+
+        .box-grid.card-active .box-grid-inner {
+            /* Efeito de zoom para o card ativo (centralizado) */
+            transform: scale(1.05);
         }
 
         /* Mostra e estiliza os pontos de navegação no mobile */
@@ -1039,6 +1151,26 @@ html {
         .contact-info-left .contact-text {
             text-align: left;
             /* Mantém o texto do parágrafo alinhado à esquerda para melhor leitura */
+        }
+
+        /* Restaura a aparência de "card" para o formulário em tablets e mobile */
+        .contact-form-container {
+            background: var(--dark-20);
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+            border: 1px solid var(--dark-30);
+            padding: 2rem;
+            gap: 1.5rem;
+            max-width: 600px; /* Evita que o formulário fique muito largo */
+            margin: 0 auto; /* Centraliza o formulário na coluna */
+        }
+
+        /* Ajusta a cor de fundo do label no mobile para corresponder ao fundo do formulário */
+        .contact-form-container input:focus + label,
+        .contact-form-container input:not(:placeholder-shown) + label,
+        .contact-form-container textarea:focus + label,
+        .contact-form-container textarea:not(:placeholder-shown) + label {
+            background-color: var(--dark-20);
         }
     }
 
@@ -1128,7 +1260,7 @@ html {
 }
 
 /* Media query to show mobile header and hide desktop nav */
-@media (max-width: 800px) {
+@media (max-width: 1024px) {
     header > nav {
         display: none; /* Hide desktop nav */
     }
@@ -1259,7 +1391,7 @@ html {
         box-sizing: border-box;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 1024px) {
         main {
             /* Ajusta o padding para a altura do header mobile */
             padding-top: 60px;
