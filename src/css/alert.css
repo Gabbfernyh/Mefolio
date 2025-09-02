@@ -1,24 +1,10 @@
-:root {
-    --brand-color: #97edaa;
-    --brand-color-darker: #7bd88f;
-    /* Cor usada nos botões */
-
-    --dark-10: #0b0b0b;
-    --dark-20: #101010;
-    --dark-30: #1f1f1f;
-    --dark-bg: #121212;
-
-    --white: #ffffff;
-    --text-light: #eeeeee;
-}
-
 /* Estilos para notificação temporária com barra de progresso */
 .custom-notification {
     position: fixed;
     top: 20px;
     right: 20px;
-    background: linear-gradient(135deg, var(--brand-color-darker) 0%, var(--dark-30) 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--c-brand-dark) 0%, var(--c-bg-mute) 100%);
+    color: var(--c-text);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -39,14 +25,14 @@
 
 .progress-bar-container {
     height: 4px;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: var(--c-bg-progress-bar);
     border-radius: 2px;
     overflow: hidden;
 }
 
 .progress-bar {
     height: 100%;
-    background-color: #fff;
+    background-color: var(--c-text);
     width: 100%;
     animation: progressShrink linear;
     transform-origin: left;

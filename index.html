@@ -62,8 +62,11 @@
                 <li><a class="nav-link" href="#servicos">Serviços</a></li>
                 <li><a class="nav-link" href="#skills">Habilidades</a></li>
                 <li><a class="nav-link" href="#contato">Contato</a></li>
-
             </ul>
+            <button class="theme-toggle-btn" id="theme-toggle-desktop" aria-label="Alternar tema">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+            </button>
         </nav>
         <!-- New Mobile Header Structure -->
         <div class="mobile-header">
@@ -91,6 +94,13 @@
                 <li><a class="nav-link" href="#skills">Habilidades</a></li>
                 <li><a class="nav-link" href="#contato">Contato</a></li>
             </ul>
+            <div class="sidebar-footer">
+                <button class="theme-toggle-btn" id="theme-toggle-mobile" aria-label="Alternar tema">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                    <span>Alternar Tema</span>
+                </button>
+            </div>
         </div>
     </header>
     <main>
@@ -138,11 +148,12 @@
         <section class="about" id="about">
             <h2 class="tags">Sobre Mim</h2>
             <p class="about-text efeito-about-text">
-                Meu nome é Gabriel Fernandes, conhecido como “Gabbfernyh”. Tenho 15
-                anos e atualmente atuo como freelancer nas áreas de Frontend Development e UI Design. Minha experiência
+                Meu nome é Gabriel Fernandes, conhecido como “Gabbfernyh”. <br> Tenho 15
+                anos e atualmente atuo como freelancer nas áreas de Frontend Development e UI Design.
+                Minha experiência
                 se concentra no desenvolvimento de interfaces modernas e de alta qualidade, com foco em performance,
                 animações, responsividade e SEO.
-
+                <br>
                 Além disso, estou constantemente buscando expandir meus conhecimentos em diversas áreas da tecnologia,
                 incluindo cibersegurança, Quality Assurance (QA), DevOps, desenvolvimento Full-Stack... Meu objetivo é
                 integrar essas habilidades para criar soluções eficientes e inovadoras.
@@ -234,11 +245,23 @@
                         <a href="https://github.com/Gabbfernyh/Linktree2" class="access-repo">Acessar repositório</a>
                     </div>
                 </div>
+                <div class="project-item project-card">
+                    <div class="project-image">
+                        <img src="/src/assets/img/projects/prev-mylinktree.png" alt="My Linktree">
+                    </div>
+                    <h3 class="project-title">My Linktree</h3>
+                    <p class="project-techs">HTML5, CSS3, JavaScript</p>
+                    <div class="project-buttons">
+                        <a href="https://mylinktree-conectecomgabb.vercel.app/" class="access-project">Acessar o
+                            projeto</a>
+                        <a href="https://github.com/Gabbfernyh/Linktree2" class="access-repo">Acessar repositório</a>
+                    </div>
+                </div>
             </div>
         </Section>
         <section class="servicos" id="servicos">
             <h2 class="tags">Serviços</h2>
-            <div class="servicos-container">
+            <div class="servicos-container servicos-carousel">
                 <div class="box-grid">
                     <div class="box-grid-inner">
                         <img src="/src/assets/img/icons/Devcode/code.svg" alt="code-icon" class="box-icon">
@@ -284,12 +307,15 @@
                 <div class="skill-box"><img src="/src/assets/img/icons/Devcode/html.svg" alt="HTML5"></div>
                 <div class="skill-box"><img src="/src/assets/img/icons/Devcode/css.svg" alt="CSS3"></div>
                 <div class="skill-box"><img src="/src/assets/img/icons/Devcode/javascript.svg" alt="JavaScript"></div>
-                <div class="skill-box"><img src="/src/assets/img/icons/Devcode/typescript.svg" alt="TypeScript"></div>
+                <div class="skill-box"><img src="/src/assets/img/icons/Devcode/icons8-typescript.svg" alt="TypeScript">
+                </div>
                 <div class="skill-box"><img src="/src/assets/img/icons/Devcode/react.svg" alt="React"></div>
                 <div class="skill-box"><img src="/src/assets/img/icons/Devcode/next.svg" alt="Next.js"></div>
                 <div class="skill-box"><img src="/src/assets/img/icons/Devcode/tailwind.svg" alt="Tailwind CSS"></div>
-                <div class="skill-box"><img src="/src/assets/img/icons/Devcode/nodejs.svg" alt="Node.js"></div>
-                <div class="skill-box"><img src="/src/assets/img/icons/Devcode/git.svg" alt="Git"></div>
+                <div class="skill-box"><img src="/src/assets/img/icons/Devcode/node-js-brands-solid-full.svg"
+                        alt="Node.js"></div>
+                <div class="skill-box"><img src="/src/assets/img/icons/Devcode/git-alt-brands-solid-full.svg" alt="Git">
+                </div>
                 <div class="skill-box"><img src="/src/assets/img/icons/Devcode/figma.svg" alt="Figma"></div>
                 <div class="skill-box"><img src="/src/assets/img/icons/Devcode/figma.svg" alt="Figma"></div>
                 <div class="skill-box"><img src="/src/assets/img/icons/Devcode/figma.svg" alt="Figma"></div>
@@ -329,25 +355,28 @@
                 <!-- Coluna da Direita: Formulário -->
                 <div class="contact-form-right">
                     <form action="https://formspree.io/f/xovedwlz" method="POST" class="contact-form-container"
-                        id="contact-form">
+                        novalidate id="contact-form">
                         <!-- Campo "Honeypot" para proteção contra spam. Invisível para usuários. -->
                         <input type="text" name="_gotcha" class="honeypot-field" tabindex="-1" autocomplete="off">
 
                         <div class="form-group">
-                            <input type="text" id="name" name="name" required placeholder="" data-placeholder="Seu nome completo" autocomplete="name">
+                            <input type="text" id="name" name="name" required placeholder=""
+                                data-placeholder="Seu nome completo" autocomplete="name">
                             <label for="name">Nome Completo <span class="required-indicator">*</span></label>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" required placeholder="" data-placeholder="exemplo@email.com" autocomplete="email">
+                            <input type="email" id="email" name="email" required placeholder=""
+                                data-placeholder="exemplo@email.com" autocomplete="email">
                             <label for="email">E-mail <span class="required-indicator">*</span></label>
                         </div>
                         <div class="form-group">
-                            <input type="tel" id="phone" name="phone" placeholder="" data-placeholder="(11) 98765-4321" autocomplete="tel">
+                            <input type="tel" id="phone" name="phone" placeholder="" data-placeholder="(11) 98765-4321"
+                                autocomplete="tel" inputmode="numeric">
                             <label for="phone">Telefone (Opcional)</label>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" required placeholder="" data-placeholder="Digite sua mensagem aqui..."
-                                rows="5"></textarea>
+                            <textarea id="message" name="message" required placeholder=""
+                                data-placeholder="Digite sua mensagem aqui..." rows="5"></textarea>
                             <label for="message">Mensagem <span class="required-indicator">*</span></label>
                         </div>
                         <button type="submit">Enviar Mensagem</button>

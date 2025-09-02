@@ -335,9 +335,20 @@ function initContactForm() {
     const emailInput = document.getElementById('email');
     const phoneInput = document.getElementById('phone');
     const messageInput = document.getElementById('message');
+    const allInputs = [nameInput, emailInput, phoneInput, messageInput];
 
-    if (!form || !statusDiv || !nameInput || !emailInput || !messageInput || !phoneInput) return;
+    if (!form || !statusDiv || !allInputs.every(Boolean)) {
+        console.error("Um ou mais elementos do formulário de contato não foram encontrados.");
+        return;
+    }
 
+    // Adiciona um listener para o campo de telefone para permitir apenas números
+    if (phoneInput) {
+        phoneInput.addEventListener('input', (e) => {
+            // Remove tudo que não for dígito, mantendo o valor atualizado no campo
+            e.target.value = e.target.value.replace(/\D/g, '');
+        });
+    }
     // Função para validar os campos do formulário
     const validateForm = () => {
         let isValid = true;
@@ -372,62 +383,67 @@ function initContactForm() {
 
         // Executa a validação antes de enviar
         if (!validateForm()) {
-            statusDiv.textContent = 'Por favor, corrija os campos destacados.';
-            statusDiv.className = 'error';
-            statusDiv.style.display = 'block';
-            // Esconde a mensagem de erro após alguns segundos para não poluir a tela
-            setTimeout(() => {
-                if (statusDiv.classList.contains('error')) {
-                    statusDiv.style.display = 'none';
-                }
-            }, 4000);
+            statusDiv.textContent = "Por favor, corrija os campos destacados.";
+            statusDiv.className = "error";
+            statusDiv.style.display = "block";
+            setTimeout(() => { statusDiv.style.display = "none"; }, 5000);
             return; // Impede o envio do formulário
         }
 
         const data = new FormData(event.target);
 
         // Exibe uma mensagem de "Enviando..."
-        statusDiv.textContent = 'Enviando...';
-        statusDiv.className = ''; // Reseta classes anteriores
-        statusDiv.style.display = 'block';
+        statusDiv.textContent = "Enviando...";
+        statusDiv.className = "sending";
+        statusDiv.style.display = "block";
 
         try {
             const response = await fetch(event.target.action, {
                 method: form.method,
                 body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
+                headers: { Accept: "application/json" },
             });
 
             if (response.ok) {
                 statusDiv.textContent = "Mensagem enviada com sucesso! Obrigado.";
-                statusDiv.classList.add('success');
+                statusDiv.className = "success";
                 form.reset();
+                // Limpa os placeholders para os labels voltarem ao estado inicial
+                allInputs.forEach((input) => { input.placeholder = ""; });
+                setTimeout(() => { statusDiv.style.display = "none"; }, 8000);
             } else {
-                const responseData = await response.json();
-                if (Object.hasOwn(responseData, 'errors')) {
-                    statusDiv.textContent = responseData["errors"].map(error => error["message"]).join(", ");
-                } else {
-                    statusDiv.textContent = "Ocorreu um erro ao enviar. Tente novamente.";
+                // LOG ADICIONADO PARA DEBUG
+                console.error("Formspree respondeu com um erro.", {
+                    status: response.status,
+                    statusText: response.statusText,
+                });
+                let errorMsg = "Ocorreu um erro ao enviar. Tente novamente.";
+                try {
+                    const responseData = await response.json();
+                    // LOG ADICIONADO PARA DEBUG
+                    console.error("Dados do erro do Formspree:", responseData);
+                    if (responseData && responseData.errors) {
+                        errorMsg = responseData.errors.map(error => error.message).join(", ");
+                    }
+                } catch (jsonError) {
+                    console.error("Não foi possível analisar a resposta do servidor como JSON.", jsonError);
                 }
-                statusDiv.classList.add('error');
+                statusDiv.textContent = errorMsg;
+                statusDiv.className = "error";
+                setTimeout(() => { statusDiv.style.display = "none"; }, 8000);
             }
         } catch (error) {
+            // LOG ADICIONADO PARA DEBUG
+            console.error("Falha na requisição fetch para o Formspree. Isso pode ser um problema de rede ou CORS.", error);
             statusDiv.textContent = "Erro de conexão. Verifique sua internet e tente novamente.";
-            statusDiv.classList.add('error');
-        } finally {
-            // Esconde a mensagem após alguns segundos
-            setTimeout(() => {
-                statusDiv.style.display = 'none';
-            }, 6000);
+            statusDiv.className = "error";
+            setTimeout(() => { statusDiv.style.display = "none"; }, 8000);
         }
     }
 
     form.addEventListener("submit", handleSubmit);
 
     // Lógica para labels flutuantes, placeholders dinâmicos e feedback de validação
-    const allInputs = [nameInput, emailInput, phoneInput, messageInput];
     allInputs.forEach(input => {
         // Mostra o placeholder de exemplo quando o campo ganha foco
         input.addEventListener('focus', () => {
@@ -449,21 +465,114 @@ function initContactForm() {
     });
 }
 
+/**
+ * Inicializa o botão de alternância de tema (claro/escuro).
+ */
+function initThemeToggle() {
+    const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
+    const body = document.body;
+
+    if (themeToggleBtns.length === 0) return;
+
+    // Função para aplicar o tema e salvar a preferência
+    const applyTheme = (theme) => {
+        if (theme === 'light') {
+            body.classList.add('light-theme');
+        } else {
+            body.classList.remove('light-theme');
+        }
+        localStorage.setItem('theme', theme);
+    };
+
+    // Função para alternar o tema
+    const toggleTheme = () => {
+        const currentTheme = body.classList.contains('light-theme') ? 'dark' : 'light';
+        applyTheme(currentTheme);
+    };
+
+    // Adiciona o evento de clique a todos os botões de tema
+    themeToggleBtns.forEach(btn => {
+        btn.addEventListener('click', toggleTheme);
+    });
+
+    // No carregamento inicial, verifica o tema salvo ou a preferência do sistema
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        applyTheme(savedTheme);
+    } else {
+        // Define o tema escuro como padrão se nenhuma preferência for encontrada
+        applyTheme('dark');
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
-    initServiceCarousel();
+    initServicosCarouselMobile(); // Só esta função para o carrossel!
     initFab();
     initMobileNav();
     initSmoothScroll();
     initContactForm();
+    initThemeToggle();
     addEventListeners();
-
-    // Adiciona um listener para redimensionamento da janela para reinicializar o carrossel
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-            initServiceCarousel();
-        }, 250);
-    });
 });
+
+/**
+ * Inicializa o carrossel de serviços para telas móveis.
+ */
+function initServicosCarouselMobile() {
+    if (window.innerWidth > 900) return; // Só roda no mobile
+
+    const container = document.querySelector('.servicos-container');
+    const cards = Array.from(container.querySelectorAll('.box-grid'));
+    const dotsContainer = document.querySelector('.servicos-dots');
+    let current = 0;
+    let interval;
+
+    // Exibe apenas o card ativo
+    function updateCarousel() {
+        cards.forEach((card, idx) => {
+            card.style.display = idx === current ? 'flex' : 'none';
+            card.classList.toggle('active', idx === current);
+        });
+        dotsContainer.querySelectorAll('.dot').forEach((dot, idx) => {
+            dot.classList.toggle('active', idx === current);
+        });
+    }
+
+    // Cria os dots
+    dotsContainer.innerHTML = '';
+    cards.forEach((_, idx) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (idx === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+            current = idx;
+            updateCarousel();
+            restartInterval();
+        });
+        dotsContainer.appendChild(dot);
+    });
+
+    function nextCard() {
+        current = (current + 1) % cards.length;
+        updateCarousel();
+    }
+
+    function restartInterval() {
+        clearInterval(interval);
+        interval = setInterval(nextCard, 4000); // Mais lento
+    }
+
+    updateCarousel();
+    interval = setInterval(nextCard, 4000);
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 900) {
+            cards.forEach(card => card.style.display = 'flex');
+            clearInterval(interval);
+        } else {
+            updateCarousel();
+            restartInterval();
+        }
+    });
+}
