@@ -520,38 +520,18 @@ document.addEventListener('DOMContentLoaded', () => {
  * Inicializa o carrossel de serviços para telas móveis.
  */
 function initServicosCarouselMobile() {
-    if (window.innerWidth > 900) return; // Só roda no mobile
+    if (window.innerWidth > 900) return; // Só no mobile
 
     const container = document.querySelector('.servicos-container');
     const cards = Array.from(container.querySelectorAll('.box-grid'));
-    const dotsContainer = document.querySelector('.servicos-dots');
     let current = 0;
     let interval;
 
-    // Exibe apenas o card ativo
     function updateCarousel() {
         cards.forEach((card, idx) => {
-            card.style.display = idx === current ? 'flex' : 'none';
             card.classList.toggle('active', idx === current);
         });
-        dotsContainer.querySelectorAll('.dot').forEach((dot, idx) => {
-            dot.classList.toggle('active', idx === current);
-        });
     }
-
-    // Cria os dots
-    dotsContainer.innerHTML = '';
-    cards.forEach((_, idx) => {
-        const dot = document.createElement('span');
-        dot.classList.add('dot');
-        if (idx === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => {
-            current = idx;
-            updateCarousel();
-            restartInterval();
-        });
-        dotsContainer.appendChild(dot);
-    });
 
     function nextCard() {
         current = (current + 1) % cards.length;
@@ -560,16 +540,16 @@ function initServicosCarouselMobile() {
 
     function restartInterval() {
         clearInterval(interval);
-        interval = setInterval(nextCard, 4000); // Mais lento
+        interval = setInterval(nextCard, 3500);
     }
 
     updateCarousel();
-    interval = setInterval(nextCard, 4000);
+    interval = setInterval(nextCard, 3500);
 
     window.addEventListener('resize', () => {
         if (window.innerWidth > 900) {
-            cards.forEach(card => card.style.display = 'flex');
             clearInterval(interval);
+            cards.forEach(card => card.classList.add('active'));
         } else {
             updateCarousel();
             restartInterval();

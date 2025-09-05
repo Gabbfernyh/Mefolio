@@ -22,18 +22,30 @@
 }
 
 body.light-theme {
-    --c-brand: #22c55e;           /* Verde forte para destaques */
-    --c-brand-dark: #16a34a;      /* Verde escuro para botões/títulos */
-    --c-bg: #f5f6fa;              /* Fundo claro */
-    --c-bg-soft: #f0f2f5;         /* Cards mais neutros */
-    --c-bg-mute: #e3e6ea;         /* Fundo secundário */
-    --c-bg-input: #f8fafc;        /* Inputs com leve cinza */
-    --c-border: #d1d5db;          /* Bordas suaves */
-    --c-text: #222;               /* Texto principal escuro */
-    --c-text-soft: #555;          /* Texto secundário */
-    --c-text-inverse: #fff;       /* Texto invertido */
-    --c-shadow: rgba(34, 197, 94, 0.08); /* Sombra verde forte e suave */
-    --c-shadow-brand: rgba(34, 197, 94, 0.18); /* Sombra verde forte */
+    --c-brand: #22c55e;
+    /* Verde forte para destaques */
+    --c-brand-dark: #16a34a;
+    /* Verde escuro para botões/títulos */
+    --c-bg: #f5f6fa;
+    /* Fundo claro */
+    --c-bg-soft: #f0f2f5;
+    /* Cards mais neutros */
+    --c-bg-mute: #e3e6ea;
+    /* Fundo secundário */
+    --c-bg-input: #f8fafc;
+    /* Inputs com leve cinza */
+    --c-border: #d1d5db;
+    /* Bordas suaves */
+    --c-text: #222;
+    /* Texto principal escuro */
+    --c-text-soft: #555;
+    /* Texto secundário */
+    --c-text-inverse: #fff;
+    /* Texto invertido */
+    --c-shadow: rgba(34, 197, 94, 0.08);
+    /* Sombra verde forte e suave */
+    --c-shadow-brand: rgba(34, 197, 94, 0.18);
+    /* Sombra verde forte */
     --c-bg-progress-bar: rgba(34, 197, 94, 0.12);
 }
 
@@ -92,11 +104,11 @@ body.light-theme .contact-form-container button:hover {
     box-shadow: 0 8px 32px var(--c-shadow-brand);
 }
 
-body.light-theme .dot {
+body.light-theme {
     border: 1px solid var(--c-brand-dark);
 }
 
-body.light-theme .dot.active {
+body.light-theme .active {
     background-color: var(--c-brand-dark);
 }
 
@@ -574,11 +586,6 @@ body.light-theme .theme-toggle-btn .fa-moon {
     padding: 0 1rem;
     flex-wrap: nowrap;
     /* Garante que todos os cards fiquem em uma linha */
-}
-
-/* Esconde os pontos de navegação no desktop */
-.servicos-dots {
-    display: none;
 }
 
 .box-grid {
@@ -1183,18 +1190,19 @@ html {
 /* Skills: quadrados menores e menos espaço */
 @media (max-width: 700px) {
     .skills-container {
-        gap: 16px;
-        grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+        gap: 1.5rem;
+        /* 16px */
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
     }
 
     .skill-box {
-        width: 70px;
-        height: 70px;
+        width: 100px;
+        height: 100px;
     }
 
     .skill-box img {
-        max-width: 36px;
-        max-height: 36px;
+        max-width: 48px;
+        max-height: 48px;
     }
 }
 
@@ -1204,7 +1212,7 @@ html {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
+        width: 100vw;
         height: 200px;
         overflow: hidden;
         position: relative;
@@ -1214,60 +1222,28 @@ html {
     }
 
     .box-grid {
-        display: flex !important;
-        /* Sempre flex, mas controlado pelo JS */
-        min-width: 240px;
-        max-width: 240px;
-        width: 240px;
+        display: none;
+        width: 270px;
+        min-width: 270px;
+        max-width: 270px;
         height: 160px;
         margin: 0 auto;
-        transition: transform 0.5s cubic-bezier(.4, 1.4, .6, 1), box-shadow 0.5s, opacity 0.5s;
         background: var(--c-bg-soft);
-        border-radius: 12px;
-        box-shadow: 0 2px 8px var(--c-shadow);
+        border-radius: 16px;
+        box-shadow: 0 2px 12px var(--c-shadow-brand);
         align-items: center;
         justify-content: center;
-        opacity: 0;
-        pointer-events: none;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
+        border: 1.5px solid var(--c-brand);
+        transition: box-shadow 0.5s;
     }
 
     .box-grid.active {
-        opacity: 1;
-        pointer-events: auto;
-        position: relative;
-        z-index: 2;
-        transform: scale(1.07);
-        box-shadow: 0 4px 24px var(--c-shadow-brand);
-        margin: 0 auto;
-    }
-
-    .servicos-dots {
         display: flex;
-        justify-content: center;
-        gap: 8px;
-        margin-top: 1rem;
-    }
-
-    .dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background-color: var(--c-bg-mute);
-        border: 1px solid var(--c-brand);
-        cursor: pointer;
-        transition: background-color 0.3s;
-        padding: 0;
-    }
-
-    .dot.active {
-        background-color: var(--c-brand);
+        box-shadow: 0 4px 24px var(--c-shadow-brand);
+        border-color: var(--c-brand-dark);
     }
 }
+/* <-- ESTA CHAVE FECHA O @media (max-width: 900px) */
 
 /* Contato: layout de coluna no mobile */
 @media (max-width: 900px) {
@@ -1802,8 +1778,4 @@ body.light-theme .contact-form-container button:hover {
 
 body.light-theme .dot {
     border: 1px solid var(--c-brand-dark);
-}
-
-body.light-theme .dot.active {
-    background-color: var(--c-brand-dark);
 }
