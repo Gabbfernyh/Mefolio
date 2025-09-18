@@ -331,136 +331,71 @@ function addEventListeners() {
 function initContactForm() {
     const form = document.getElementById('contact-form');
     const statusDiv = document.getElementById('form-status');
-    const nameInput = document.getElementById('name');
-    const emailInput = document.getElementById('email');
-    const phoneInput = document.getElementById('phone');
-    const messageInput = document.getElementById('message');
-    const allInputs = [nameInput, emailInput, phoneInput, messageInput];
+    const allInputs = Array.from(form.querySelectorAll('input, textarea'));
 
-    if (!form || !statusDiv || !allInputs.every(Boolean)) {
-        console.error("Um ou mais elementos do formulário de contato não foram encontrados.");
+    if (!form || !statusDiv) {
+        console.error("O formulário de contato ou a div de status não foram encontrados.");
         return;
     }
 
-    // Adiciona um listener para o campo de telefone para permitir apenas números
-    if (phoneInput) {
-        phoneInput.addEventListener('input', (e) => {
-            // Remove tudo que não for dígito, mantendo o valor atualizado no campo
-            e.target.value = e.target.value.replace(/\D/g, '');
-        });
-    }
-    // Função para validar os campos do formulário
-    const validateForm = () => {
-        let isValid = true;
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        // Reseta os erros anteriores
-        [nameInput, emailInput, messageInput].forEach(input => input.classList.remove('invalid-field'));
-
-        // Validação do Nome
-        if (nameInput.value.trim() === '') {
-            isValid = false;
-            nameInput.classList.add('invalid-field');
-        }
-
-        // Validação do E-mail
-        if (emailInput.value.trim() === '' || !emailRegex.test(emailInput.value.trim())) {
-            isValid = false;
-            emailInput.classList.add('invalid-field');
-        }
-
-        // Validação da Mensagem
-        if (messageInput.value.trim() === '') {
-            isValid = false;
-            messageInput.classList.add('invalid-field');
-        }
-
-        return isValid;
-    };
-
     async function handleSubmit(event) {
         event.preventDefault();
-
-        // Executa a validação antes de enviar
-        if (!validateForm()) {
-            statusDiv.textContent = "Por favor, corrija os campos destacados.";
-            statusDiv.className = "error";
-            statusDiv.style.display = "block";
-            setTimeout(() => { statusDiv.style.display = "none"; }, 5000);
-            return; // Impede o envio do formulário
-        }
-
         const data = new FormData(event.target);
 
         // Exibe uma mensagem de "Enviando..."
         statusDiv.textContent = "Enviando...";
-        statusDiv.className = "sending";
+        statusDiv.className = "sending"; // You can style this class if you want
         statusDiv.style.display = "block";
 
         try {
             const response = await fetch(event.target.action, {
                 method: form.method,
                 body: data,
-                headers: { Accept: "application/json" },
+                headers: {
+                    'Accept': 'application/json'
+                }
             });
 
             if (response.ok) {
-                statusDiv.textContent = "Mensagem enviada com sucesso! Obrigado.";
+                statusDiv.textContent = "Mensagem enviada com sucesso!";
                 statusDiv.className = "success";
                 form.reset();
-                // Limpa os placeholders para os labels voltarem ao estado inicial
-                allInputs.forEach((input) => { input.placeholder = ""; });
-                setTimeout(() => { statusDiv.style.display = "none"; }, 8000);
             } else {
-                // LOG ADICIONADO PARA DEBUG
-                console.error("Formspree respondeu com um erro.", {
-                    status: response.status,
-                    statusText: response.statusText,
-                });
-                let errorMsg = "Ocorreu um erro ao enviar. Tente novamente.";
-                try {
-                    const responseData = await response.json();
-                    // LOG ADICIONADO PARA DEBUG
-                    console.error("Dados do erro do Formspree:", responseData);
-                    if (responseData && responseData.errors) {
-                        errorMsg = responseData.errors.map(error => error.message).join(", ");
-                    }
-                } catch (jsonError) {
-                    console.error("Não foi possível analisar a resposta do servidor como JSON.", jsonError);
+                const responseData = await response.json();
+                if (Object.hasOwn(responseData, 'errors')) {
+                    const errorMessages = responseData.errors.map(error => error.message).join(", ");
+                    statusDiv.textContent = `Erro: ${errorMessages}`;
+                } else {
+                    statusDiv.textContent = "Oops! Ocorreu um problema ao enviar seu formulário.";
                 }
-                statusDiv.textContent = errorMsg;
                 statusDiv.className = "error";
-                setTimeout(() => { statusDiv.style.display = "none"; }, 8000);
             }
         } catch (error) {
-            // LOG ADICIONADO PARA DEBUG
-            console.error("Falha na requisição fetch para o Formspree. Isso pode ser um problema de rede ou CORS.", error);
-            statusDiv.textContent = "Erro de conexão. Verifique sua internet e tente novamente.";
+            statusDiv.textContent = "Oops! Ocorreu um problema de conexão.";
             statusDiv.className = "error";
-            setTimeout(() => { statusDiv.style.display = "none"; }, 8000);
+            console.error("Erro de rede ou CORS ao enviar para o Formspree:", error);
+        } finally {
+            // Esconde a mensagem de status após alguns segundos
+            setTimeout(() => {
+                statusDiv.style.display = "none";
+            }, 6000);
         }
     }
 
     form.addEventListener("submit", handleSubmit);
-
-    // Lógica para labels flutuantes, placeholders dinâmicos e feedback de validação
+    
+    // A lógica para os labels flutuantes pode ser mantida, pois é uma boa funcionalidade de UI.
     allInputs.forEach(input => {
-        // Mostra o placeholder de exemplo quando o campo ganha foco
+        if (!input.dataset.placeholder) return;
+
         input.addEventListener('focus', () => {
-            input.placeholder = input.dataset.placeholder || '';
+            input.placeholder = input.dataset.placeholder;
         });
 
-        // Esconde o placeholder se o campo estiver vazio ao perder o foco,
-        // permitindo que o label retorne à posição inicial.
         input.addEventListener('blur', () => {
             if (input.value.trim() === '') {
                 input.placeholder = '';
             }
-        });
-
-        // Remove a classe de erro enquanto o usuário digita
-        input.addEventListener('input', () => {
-            input.classList.remove('invalid-field');
         });
     });
 }
@@ -507,7 +442,6 @@ function initThemeToggle() {
 
 document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
-    initServicosCarouselMobile(); // Só esta função para o carrossel!
     initFab();
     initMobileNav();
     initSmoothScroll();
@@ -516,43 +450,3 @@ document.addEventListener('DOMContentLoaded', () => {
     addEventListeners();
 });
 
-/**
- * Inicializa o carrossel de serviços para telas móveis.
- */
-function initServicosCarouselMobile() {
-    if (window.innerWidth > 900) return; // Só no mobile
-
-    const container = document.querySelector('.servicos-container');
-    const cards = Array.from(container.querySelectorAll('.box-grid'));
-    let current = 0;
-    let interval;
-
-    function updateCarousel() {
-        cards.forEach((card, idx) => {
-            card.classList.toggle('active', idx === current);
-        });
-    }
-
-    function nextCard() {
-        current = (current + 1) % cards.length;
-        updateCarousel();
-    }
-
-    function restartInterval() {
-        clearInterval(interval);
-        interval = setInterval(nextCard, 3500);
-    }
-
-    updateCarousel();
-    interval = setInterval(nextCard, 3500);
-
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 900) {
-            clearInterval(interval);
-            cards.forEach(card => card.classList.add('active'));
-        } else {
-            updateCarousel();
-            restartInterval();
-        }
-    });
-}

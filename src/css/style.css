@@ -108,7 +108,7 @@ body.light-theme {
     border: 1px solid var(--c-brand-dark);
 }
 
-body.light-theme .active {
+body.light-theme {
     background-color: var(--c-brand-dark);
 }
 
@@ -129,10 +129,11 @@ html {
 ::-webkit-scrollbar {
     width: 6px;
     /* Deixa a barra de rolagem mais fina */
+    background: transparent;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--c-bg-input);
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -201,17 +202,36 @@ nav {
     list-style: none;
 }
 
+
 .nav-link {
     color: var(--c-text);
-    text-decoration: none;
+    cursor: pointer;
     font-size: 1rem;
     margin: 0 1rem;
     transition: color 0.3s ease;
+    position: relative;
 }
 
 .nav-link:hover {
     color: var(--c-brand);
-    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--c-brand);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 .theme-toggle-btn {
@@ -308,6 +328,7 @@ body.light-theme .theme-toggle-btn .fa-moon {
 .curriculo-download:hover {
     color: var(--c-brand);
     background-color: var(--c-bg-mute);
+
 }
 
 .hero-socials {
@@ -372,6 +393,8 @@ body.light-theme .theme-toggle-btn .fa-moon {
     justify-content: center;
     color: var(--c-brand);
     font-weight: 400;
+    padding: 10px 0 15px;
+
 }
 
 .about-text {
@@ -673,6 +696,8 @@ body.light-theme .theme-toggle-btn .fa-moon {
     border-radius: 0;
     box-shadow: none;
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    /* Essencial para o tooltip */
 }
 
 .skill-box:hover {
@@ -875,18 +900,23 @@ body.light-theme .theme-toggle-btn .fa-moon {
     font-size: 2rem;
     color: var(--c-brand);
     margin-bottom: 1rem;
-    font-weight: 600;
-}
-
-.contact-info-left .contact-text {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--c-text-soft);
-    margin-bottom: 2rem;
+    font-weight: 500;
 }
 
 .contact-form-right {
     flex: 1.5;
+}
+
+.contact-text-container {
+    margin-bottom: 1.5rem;
+    color: var(--c-text);
+}
+
+.contact-text-container p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: initial;
+    color: var(--c-text);
 }
 
 /* Ajustes nos botões sociais para a coluna esquerda */
@@ -902,6 +932,14 @@ body.light-theme .theme-toggle-btn .fa-moon {
     /* Limita a largura dos botões */
     justify-content: flex-start;
 }
+
+#contato .social-btn:hover {
+    transform: scale(1.05);
+    /* Leve aumento ao passar o mouse */
+    transition: transform 0.3s ease;
+}
+
+/* Mostra o texto "Para um contato mais rápido, use o botão flutuante." apenas no mobile */
 
 .only-mobile {
     display: none !important;
@@ -928,7 +966,7 @@ body.light-theme .theme-toggle-btn .fa-moon {
     /* 16px */
     margin-top: 1.25rem;
     /* 20px */
-    flex-wrap: wrap;
+    flex-direction: column;
     /* Permite que os botões quebrem a linha em telas menores */
 }
 
@@ -937,15 +975,12 @@ body.light-theme .theme-toggle-btn .fa-moon {
     display: inline-flex;
     /* Usar inline-flex para melhor alinhamento */
     align-items: center;
-    gap: 0.5rem;
-    /* 8px */
-    padding: 0.6rem 1.2rem;
-    /* Ajuste no padding para consistência */
+    gap: 0.7rem;
+    padding: 0.8rem 1.5rem;
     border-radius: 4px;
     /* Mesmo border-radius dos outros botões */
     text-decoration: none;
-    font-size: 0.95rem;
-    /* Mesmo tamanho de fonte dos botões de projeto */
+    font-size: 1.1rem;
     font-weight: 500;
     cursor: pointer;
     user-select: none;
@@ -1206,120 +1241,86 @@ html {
     }
 }
 
-/* Serviços: carrossel horizontal no mobile */
+/* Serviços: layout em grade no mobile */
 @media (max-width: 900px) {
     .servicos-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100vw;
-        height: 200px;
-        overflow: hidden;
-        position: relative;
-        padding: 0;
-        margin: 0 auto;
-        background: transparent;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        gap: 1.5rem;
+        padding: 1.5rem 1rem;
+        height: auto; /* Altura automática */
     }
 
     .box-grid {
-        display: none;
-        width: 270px;
-        min-width: 270px;
-        max-width: 270px;
-        height: 160px;
-        margin: 0 auto;
+        display: block; /* Mostrar todos os cards */
+        width: 100%; /* Ocupar a largura da coluna da grade */
+        max-width: none; /* Remover largura máxima */
+        min-width: 0; /* Remover largura mínima */
+        height: 160px; /* Manter altura fixa se desejado, ou usar 'auto' */
+        margin: 0; /* Remover margem automática */
         background: var(--c-bg-soft);
         border-radius: 16px;
         box-shadow: 0 2px 12px var(--c-shadow-brand);
-        align-items: center;
-        justify-content: center;
         border: 1.5px solid var(--c-brand);
         transition: box-shadow 0.5s;
     }
 
-    .box-grid.active {
-        display: flex;
-        box-shadow: 0 4px 24px var(--c-shadow-brand);
-        border-color: var(--c-brand-dark);
-    }
-}
-/* <-- ESTA CHAVE FECHA O @media (max-width: 900px) */
+    /* <-- ESTA CHAVE FECHA O @media (max-width: 900px) */
 
-/* Contato: layout de coluna no mobile */
-@media (max-width: 900px) {
+    /* Contato: layout de coluna no mobile */
     .contact-layout {
+        /* Empilha as colunas */
         flex-direction: column;
+        /* Centraliza as colunas no container */
+        align-items: center;
         gap: 3rem;
     }
 
     .contact-info-left {
+        /* Permite que a coluna de texto ocupe a largura necessária */
         max-width: 100%;
+        /* Centraliza todo o conteúdo (título, parágrafo, botões) */
         text-align: center;
     }
 
-    .contact-info-left .contact-text {
-        text-align: left;
-        /* Mantém o texto do parágrafo alinhado à esquerda para melhor leitura */
+    .contact-text-container p {
+        /* Garante que o parágrafo também seja centralizado */
+        text-align: center;
     }
 
-    /* Restaura a aparência de "card" para o formulário em tablets e mobile */
+    #contato .social-buttons {
+        /* Centraliza os botões sociais */
+        align-items: center;
+    }
+
+    .contact-form-right {
+        /* Garante que a coluna do formulário ocupe toda a largura */
+        width: 100%;
+        padding: 0 1rem;
+        /* Adiciona um respiro lateral */
+    }
+
+    /* O formulário em si já tem um max-width e margin: auto, o que é bom. */
+    /* Apenas garantimos que ele tenha uma aparência de "card" no mobile. */
     .contact-form-container {
-        background: var(--c-bg-input);
-
-        /* Sobre Mim - Desktop */
-        .about-text {
-            max-width: 700px;
-            margin: 2rem auto;
-            padding: 2.5rem 2.5rem;
-            background: linear-gradient(135deg, var(--c-bg-soft) 80%, #c8fadd 100%);
-            /* verde mais leve no canto inferior direito */
-            border-radius: 16px;
-            box-shadow: 0 4px 32px var(--c-shadow-brand);
-            font-size: 1.18rem;
-            line-height: 1.85;
-            color: var(--c-text);
-            text-align: left;
-            border: 2px solid transparent;
-            transition: border-color 0.3s, box-shadow 0.3s;
-            letter-spacing: 0.01em;
-        }
-
-        .about-text:hover {
-            border-color: var(--c-brand);
-            box-shadow: 0 8px 40px var(--c-shadow-brand);
-        }
-
-        /* Sobre Mim - Mobile */
-        @media (max-width: 600px) {
-            .about-text {
-                padding: 1.2rem 0.7rem;
-                font-size: 1.05rem;
-                border-radius: 12px;
-                text-align: center;
-                margin: 1.2rem 0.5rem;
-                background: linear-gradient(135deg, var(--c-bg-soft) 90%, var(--c-brand) 100%);
-                box-shadow: 0 2px 16px var(--c-shadow-brand);
-            }
-        }
-
+        background: var(--c-bg-soft);
+        /* Um fundo para destacar */
+        padding: 2rem 1.5rem;
         border-radius: 16px;
-        box-shadow: 0 4px 24px var(--c-shadow);
         border: 1px solid var(--c-border);
-        padding: 2rem;
-        gap: 1.5rem;
-        max-width: 600px;
-        /* Evita que o formulário fique muito largo */
+        box-shadow: 0 4px 24px var(--c-shadow);
         margin: 0 auto;
-        /* Centraliza o formulário na coluna */
+        /* Garante a centralização */
     }
 
-    /* Ajusta a cor de fundo do label no mobile para corresponder ao fundo do formulário */
+    /* Ajusta a cor de fundo do label flutuante para o novo fundo do card */
     .contact-form-container input:focus+label,
     .contact-form-container input:not(:placeholder-shown)+label,
     .contact-form-container textarea:focus+label,
     .contact-form-container textarea:not(:placeholder-shown)+label {
-        background-color: var(--c-bg-input);
+        background-color: var(--c-bg-soft);
     }
+
 }
 
 /* Contatos: coluna no mobile */
@@ -1653,74 +1654,8 @@ main {
     }
 }
 
-/* Formulário - Desktop e Mobile */
-.contact-form-container {
-    background: linear-gradient(120deg, var(--c-bg-soft) 85%, var(--c-brand) 100%);
-    border-radius: 18px;
-    box-shadow: 0 4px 32px var(--c-shadow-brand);
-    border: 2px solid transparent;
-    padding: 2.5rem 2rem;
-    gap: 1.7rem;
-    max-width: 600px;
-    margin: 0 auto;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
 
-.contact-form-container:focus-within {
-    border-color: var(--c-brand);
-    box-shadow: 0 8px 40px var(--c-shadow-brand);
-}
 
-.contact-form-container label {
-    font-size: 1.08rem;
-    font-weight: 500;
-    color: var(--c-brand);
-    opacity: 0.85;
-    letter-spacing: 0.01em;
-}
-
-.contact-form-container input,
-.contact-form-container textarea {
-    background-color: var(--c-bg-input);
-    color: var(--c-text);
-    font-size: 1.08rem;
-    border-radius: 10px;
-    border: 2px solid var(--c-border);
-    padding: 1.1rem;
-    margin-bottom: 0.7rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
-    box-shadow: 0 2px 8px var(--c-shadow);
-}
-
-.contact-form-container input:focus,
-.contact-form-container textarea:focus {
-    border-color: var(--c-brand);
-    box-shadow: 0 0 0 4px var(--c-shadow-brand);
-}
-
-.contact-form-container button {
-    padding: 1.1rem 2.2rem;
-    border-radius: 10px;
-    font-size: 1.12rem;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    box-shadow: 0 4px 16px var(--c-shadow-brand);
-    transition: background 0.3s, box-shadow 0.3s;
-}
-
-.contact-form-container button:hover {
-    background: linear-gradient(90deg, var(--c-brand-dark), var(--c-brand));
-    box-shadow: 0 8px 32px var(--c-shadow-brand);
-}
-
-/* Mensagem de status */
-#form-status {
-    font-size: 1.05rem;
-    border-radius: 10px;
-    padding: 1rem;
-    margin-top: 1.2rem;
-    box-shadow: 0 2px 12px var(--c-shadow-brand);
-}
 
 body.light-theme .logo-name,
 body.light-theme .tags,
@@ -1778,4 +1713,54 @@ body.light-theme .contact-form-container button:hover {
 
 body.light-theme .dot {
     border: 1px solid var(--c-brand-dark);
+}
+
+/* =========================
+   Tooltip Styles
+   ========================= */
+
+/* O texto do tooltip (a "nuvem") */
+.tooltip-text {
+    visibility: hidden;
+    /* Escondido por padrão */
+    width: 120px;
+    background-color: #333;
+    /* Cor de fundo da nuvem */
+    color: #fff;
+    /* Cor do texto */
+    text-align: center;
+    border-radius: 6px;
+    /* Bordas arredondadas */
+    padding: 5px 0;
+
+    /* Posicionamento */
+    position: absolute;
+    z-index: 1;
+    bottom: 110%;
+    /* Posição acima da imagem */
+    left: 50%;
+    margin-left: -60px;
+    /* Metade da largura (width) para centralizar */
+
+    /* Efeito de transição suave */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Flecha para baixo (opcional, mas dá um visual legal) */
+.tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+/* Mostra o tooltip quando o mouse passa por cima do skill-box */
+.skill-box:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
 }

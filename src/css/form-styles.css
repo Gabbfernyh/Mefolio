@@ -2,10 +2,8 @@
 .contact-form-container {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
     width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
     padding: 2.5rem;
     background: linear-gradient(135deg, var(--c-bg-input) 80%, var(--c-brand) 120%);
     border-radius: 18px;
@@ -98,7 +96,7 @@
 @media (max-width: 768px) {
     .contact-form-container {
         padding: 1.3rem;
-        margin: 1rem;
+        margin: 0 auto;
         border-radius: 14px;
     }
     .contact-form-container button {
