@@ -1,0 +1,135 @@
+/* =========================
+   BOTÕES
+   ========================= */
+
+/* Button Base */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    background: none;
+    font-family: inherit;
+}
+
+/* Primary Button */
+.btn-primary {
+    color: var(--c-text-inverse);
+    background-color: var(--c-brand);
+    border-color: var(--c-brand);
+}
+
+.btn-primary:hover {
+    background-color: var(--c-brand-dark);
+    border-color: var(--c-brand-dark);
+    color: var(--c-text-inverse);
+}
+
+/* Secondary Button */
+.btn-secondary {
+    color: var(--c-brand);
+    background-color: transparent;
+    border-color: var(--c-brand);
+}
+
+.btn-secondary:hover {
+    background-color: var(--c-brand);
+    color: var(--c-text-inverse);
+}
+
+/* Outline Button */
+.btn-outline {
+    color: var(--c-text);
+    background-color: transparent;
+    border-color: var(--c-border);
+}
+
+.btn-outline:hover {
+    background-color: var(--c-bg-soft);
+    border-color: var(--c-brand);
+    color: var(--c-brand);
+}
+
+/* Button Sizes */
+.btn-sm {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+.btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.125rem;
+}
+
+/* Specific Buttons */
+.curriculo-download {
+    color: var(--c-text-inverse);
+    text-decoration: none;
+    border: solid var(--c-brand);
+    border-radius: var(--radius-sm);
+    background-color: var(--c-brand);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    transition: all var(--transition-normal);
+}
+
+.curriculo-download:hover {
+    color: var(--c-brand);
+    background-color: var(--c-bg-mute);
+}
+
+/* Social Buttons */
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all var(--transition-normal);
+    border: 1px solid transparent;
+}
+
+.social-btn.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+}
+
+.social-btn.github {
+    background-color: #333;
+    color: white;
+}
+
+.social-btn.gmail {
+    background-color: #ea4335;
+    color: white;
+}
+
+.social-btn.discord {
+    background-color: #5865f2;
+    color: white;
+}
+
+.social-btn.linkedin {
+    background-color: #0077b5;
+    color: white;
+}
+
+.social-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--c-shadow);
+}
