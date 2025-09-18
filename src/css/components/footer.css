@@ -1,0 +1,121 @@
+/* =========================
+   FOOTER E FAB
+   ========================= */
+
+footer {
+    background-color: var(--c-bg-input);
+    padding: var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--c-border);
+}
+
+.footer-text {
+    color: var(--c-text-soft);
+    font-size: 0.9rem;
+}
+
+.footer-powered {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--c-text-soft);
+    font-size: 0.9rem;
+}
+
+.footer-powered img {
+    width: 20px;
+    height: 20px;
+}
+
+/* FAB (Floating Action Button) */
+.fab-container {
+    position: fixed;
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+    z-index: var(--z-fixed);
+}
+
+.fab-button {
+    width: 56px;
+    height: 56px;
+    background-color: var(--c-brand);
+    color: var(--c-text-inverse);
+    border: none;
+    border-radius: var(--radius-full);
+    box-shadow: 0 4px 12px var(--c-shadow-brand);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all var(--transition-normal);
+}
+
+.fab-button:hover {
+    background-color: var(--c-brand-dark);
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px var(--c-shadow-brand);
+}
+
+.fab-menu {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    background-color: var(--c-bg-soft);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 20px var(--c-shadow);
+    padding: var(--spacing-sm);
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all var(--transition-normal);
+}
+
+.fab-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.fab-menu-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs);
+    color: var(--c-text);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: background-color var(--transition-normal);
+}
+
+.fab-menu-item:hover {
+    background-color: var(--c-bg-mute);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        text-align: center;
+    }
+    
+    .fab-container {
+        bottom: var(--spacing-sm);
+        right: var(--spacing-sm);
+    }
+    
+    .fab-menu {
+        right: -150px;
+        bottom: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .fab-container {
+        display: none;
+    }
+}
