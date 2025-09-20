@@ -1,0 +1,30 @@
+@media (max-width: 768px) {
+    /* Estilos para o Carrossel de Serviços */
+    .servicos-container {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        justify-content: flex-start;
+        gap: 1rem;
+        /* Padding horizontal aumentado para 3rem */
+        padding: 1.5rem 3rem;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .servicos-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .servicos-container {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .servicos-container .box-grid {
+        flex-shrink: 0;
+        /* Largura aumentada para 280px */
+        width: 280px;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+    }
+}
