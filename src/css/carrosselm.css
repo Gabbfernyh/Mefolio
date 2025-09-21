@@ -27,4 +27,24 @@
         scroll-snap-align: center;
         scroll-snap-stop: always;
     }
+
+    .servicos-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 1rem;
+    }
+    .servicos-dots .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: var(--c-border);
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .servicos-dots .dot.active {
+        background-color: var(--c-brand);
+    }
 }

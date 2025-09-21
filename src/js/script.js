@@ -119,99 +119,131 @@ function initScrollReveal() {
 }
 
 /**
- * Inicializa a lógica do carrossel de serviços para telas móveis.
+ * Inicializa a lógica do carrossel de serviços para telas móveis com efeito infinito.
  */
 function initServiceCarousel() {
     const container = document.querySelector('.servicos-container');
     const dotsContainer = document.querySelector('.servicos-dots');
 
-    // --- Guard Clauses ---
-    if (!container || !dotsContainer) return;
+    if (!container) return;
 
-    // Lógica de Desktop: limpa o estado do carrossel se existir
-    if (window.innerWidth > 900) {
+    const isMobile = window.innerWidth <= 900;
+
+    // Se não for mobile, garante que o estado do carrossel seja limpo.
+    if (!isMobile) {
         if (container.dataset.initialized) {
-            dotsContainer.innerHTML = '';
-            // Remove a classe 'card-active' de todos os itens
-            container.querySelectorAll('.box-grid').forEach(item => item.classList.remove('card-active'));
+            if (dotsContainer) dotsContainer.innerHTML = '';
+            // Remove clones se existirem
+            container.querySelectorAll('[data-is-clone]').forEach(clone => clone.remove());
             delete container.dataset.initialized;
         }
         return;
     }
 
-    // Lógica Mobile: inicializa o carrossel
-    if (container.dataset.initialized) return; // Já inicializado para mobile
+    // Se for mobile e já estiver inicializado, não faz nada.
+    if (container.dataset.initialized) return;
 
-    const allItems = Array.from(container.children);
-    if (allItems.length <= 1) return;
+    const realItems = Array.from(container.children);
+    if (realItems.length <= 1) return;
 
     container.dataset.initialized = 'true';
-    let currentIndex = 0; // Começa no primeiro item (índice 0)
+    let isJumping = false; // Flag para controlar o salto do carrossel infinito
+
+    // --- Lógica do Carrossel Infinito ---
+    const firstClone = realItems[0].cloneNode(true);
+    firstClone.dataset.isClone = 'true';
+    const lastClone = realItems[realItems.length - 1].cloneNode(true);
+    lastClone.dataset.isClone = 'true';
+
+    container.appendChild(firstClone);
+    container.insertBefore(lastClone, realItems[0]);
+
+    const allItemsWithClones = Array.from(container.children);
+
+    // Posiciona o carrossel no primeiro item real sem animação
+    container.style.scrollBehavior = 'auto';
+    container.scrollLeft = allItemsWithClones[1].offsetLeft;
+    container.style.scrollBehavior = 'smooth';
 
     // --- Setup dos Pontos (Dots) ---
-    dotsContainer.innerHTML = '';
-    allItems.forEach((_, index) => {
-        const dot = document.createElement('button');
-        dot.classList.add('dot');
-        dot.setAttribute('aria-label', `Ir para o serviço ${index + 1}`);
-        dot.dataset.targetIndex = index; // O índice do dot corresponde ao índice do item
-        dotsContainer.appendChild(dot);
-    });
-    const dots = dotsContainer.querySelectorAll('.dot');
-
-    // --- Funções Principais ---
-    const updateActiveState = () => {
-        // Atualiza o ponto ativo
-        dots.forEach((dot, index) => dot.classList.toggle('active', index === currentIndex));
-        // Atualiza o card ativo
-        allItems.forEach((item, index) => item.classList.toggle('card-active', index === currentIndex));
-    };
-
-    // --- Event Listeners ---
-    dots.forEach(dot => {
-        dot.addEventListener('click', (e) => {
-            const targetIndex = parseInt(e.target.dataset.targetIndex, 10);
-            const targetItem = allItems[targetIndex];
-            // Usa scrollIntoView para um efeito suave.
-            if (targetItem) {
-                targetItem.scrollIntoView({ behavior: 'smooth', inline: 'center' });
-            }
-        });
-    });
-
-    // Atualiza o estado do card ativo após a rolagem
-    let scrollEndTimer;
-    container.addEventListener('scroll', () => {
-        // Usa um temporizador para detectar o fim da rolagem.
-        // Isso é crucial para que a lógica de "item ativo" seja executada apenas
-        // quando o scroll-snap do navegador terminar de ajustar a posição, evitando que itens sejam "pulados".
-        clearTimeout(scrollEndTimer);
-        scrollEndTimer = setTimeout(() => {
-            const containerCenter = container.scrollLeft + (container.offsetWidth / 2);
-            let minDistance = Infinity;
-            let newActiveIndex = -1;
-
-            allItems.forEach((item, index) => {
-                const itemCenter = item.offsetLeft + (item.offsetWidth / 2);
-                const distance = Math.abs(containerCenter - itemCenter);
-
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    newActiveIndex = index;
+    if (dotsContainer) {
+        dotsContainer.innerHTML = '';
+        realItems.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.classList.add('dot');
+            dot.setAttribute('aria-label', `Ir para o serviço ${index + 1}`);
+            dot.addEventListener('click', () => {
+                // O índice do item real é index + 1 no array com clones
+                const targetItem = allItemsWithClones[index + 1];
+                if (targetItem) {
+                    isJumping = true;
+                    targetItem.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+                    setTimeout(() => isJumping = false, 500); // Previne detecção de scroll durante o salto
                 }
             });
+            dotsContainer.appendChild(dot);
+        });
+    }
+    const dots = dotsContainer ? dotsContainer.querySelectorAll('.dot') : [];
 
-            // Atualiza o estado apenas se o índice realmente mudou
-            if (newActiveIndex !== -1 && currentIndex !== newActiveIndex) {
-                currentIndex = newActiveIndex;
-                updateActiveState();
+    const updateActiveDot = () => {
+        if (dots.length === 0) return;
+        
+        const containerCenter = container.scrollLeft + (container.offsetWidth / 2);
+        let minDistance = Infinity;
+        let activeIndexInClones = -1;
+
+        allItemsWithClones.forEach((item, index) => {
+            const itemCenter = item.offsetLeft + (item.offsetWidth / 2);
+            const distance = Math.abs(containerCenter - itemCenter);
+            if (distance < minDistance) {
+                minDistance = distance;
+                activeIndexInClones = index;
             }
-        }, 100); // Um timeout curto é suficiente para detectar o fim do scroll.
-    });
+        });
+
+        let realIndex = (activeIndexInClones - 1 + realItems.length) % realItems.length;
+        
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === realIndex);
+        });
+    };
+
+    // --- Evento de Scroll ---
+    let scrollEndTimer;
+    container.addEventListener('scroll', () => {
+        if (isJumping) return;
+
+        updateActiveDot();
+
+        clearTimeout(scrollEndTimer);
+        scrollEndTimer = setTimeout(() => {
+            const scrollLeft = container.scrollLeft;
+            const firstItemOffset = allItemsWithClones[1].offsetLeft;
+            const lastItemOffset = allItemsWithClones[allItemsWithClones.length - 2].offsetLeft;
+
+            // Se chegou no clone do final (à direita)
+            if (scrollLeft >= lastItemOffset + (realItems[0].offsetWidth / 2)) {
+                isJumping = true;
+                container.style.scrollBehavior = 'auto';
+                container.scrollLeft = firstItemOffset;
+                container.style.scrollBehavior = 'smooth';
+                setTimeout(() => isJumping = false, 50);
+            }
+
+            // Se chegou no clone do início (à esquerda)
+            if (scrollLeft <= firstItemOffset - (realItems[0].offsetWidth / 2)) {
+                isJumping = true;
+                container.style.scrollBehavior = 'auto';
+                container.scrollLeft = lastItemOffset;
+                container.style.scrollBehavior = 'smooth';
+                setTimeout(() => isJumping = false, 50);
+            }
+        }, 150);
+    }, { passive: true });
 
     // --- Inicialização ---
-    // Define o primeiro item como ativo ao carregar.
-    updateActiveState();
+    updateActiveDot();
 }
 
 /**
@@ -449,4 +481,3 @@ document.addEventListener('DOMContentLoaded', () => {
     initThemeToggle();
     addEventListeners();
 });
-
