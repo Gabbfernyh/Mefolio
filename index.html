@@ -44,6 +44,7 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
+        <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/src/css/style.css">
     <link rel="stylesheet" href="/src/css/alert.css">
     <link rel="stylesheet" href="/src/css/form-styles.css">
@@ -117,37 +118,24 @@
                         download="Curriculo-Gabriel-Fernandes.pdf">
                         Baixar Currículo</a>
                     <div class="hero-socials desktop-only">
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="js-linkedin-alert" aria-label="LinkedIn"><i
-                                class="fab fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="js-linkedin-alert"
+                            aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
 
-                        <a href="https://github.com/Gabbfernyh" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
-                                class="fab fa-github" aria-hidden="true"></i></a>
+                        <a href="https://github.com/Gabbfernyh" target="_blank" rel="noopener noreferrer"
+                            aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <img src="/src/assets/img/icons/Devcode/image.svg" alt="Avatar" class="avatar-img">
                 <div class="scroll-down-arrow">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
-                        <g fill="none" stroke="#97edaa" stroke-dasharray="12" stroke-dashoffset="12"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7">
-                            <path d="M12 22l-7 -7M12 22l7 -7">
-                                <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.10s" values="12;0" />
-                            </path>
-                            <path d="M12 16l-7 -7M12 16l7 -7">
-                                <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.27s" dur="0.10s"
-                                    values="12;0" />
-                            </path>
-                            <path d="M12 10l-7 -7M12 10l7 -7">
-                                <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.54s" dur="0.10s"
-                                    values="12;0" />
-                            </path>
-                        </g>
+                    <svg class="size-6 animate-bounce" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 12.5a.75.75 0 0 1-.53-.22l-4.25-4.25a.75.75 0 1 1 1.06-1.06L10 10.69l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-.53.22Z" clip-rule="evenodd" />
                     </svg>
                 </div>
             </div>
         </section>
 
         <h2 class="tags" id="about">Sobre Mim</h2>
-        <section class="about" >
+        <section class="about">
             <p class="about-text efeito-about-text">
                 Meu nome é Gabriel Fernandes, conhecido como “Gabbfernyh”. <br> Tenho 15
                 anos e atualmente atuo como freelancer nas áreas de Frontend Development e Suporte de TI.
@@ -156,7 +144,8 @@
                 animações, responsividade e SEO.
                 <br>
                 Além disso, estou constantemente buscando expandir meus conhecimentos em diversas áreas da tecnologia,
-                incluindo cibersegurança, Quality Assurance (<abbr title="Quality Assurance">QA</abbr>), DevOps, desenvolvimento Full-Stack... Meu objetivo é
+                incluindo cibersegurança, Quality Assurance (<abbr title="Quality Assurance">QA</abbr>), DevOps,
+                desenvolvimento Full-Stack... Meu objetivo é
                 integrar essas habilidades para criar soluções eficientes e inovadoras.
             </p>
             <div class="contacts efeito-about-icons contact-container">
@@ -166,12 +155,14 @@
                     <p class=" contact-detail">Gabriel Fernandes</p>
                 </div>
                 <div class="contact-item">
-                    <img src="/src/assets/img/icons/Devcode/mail.svg" alt="Email Icon" class="contact-icon" loading="lazy">
+                    <img src="/src/assets/img/icons/Devcode/mail.svg" alt="Email Icon" class="contact-icon"
+                        loading="lazy">
                     <h3 class="contact-title">E-mail</h3>
                     <p class=" contact-detail">bielmgfv.python@gmail.com</p>
                 </div>
                 <div class="contact-item">
-                    <img src="/src/assets/img/icons/Devcode/instagram.svg" alt="Instagram Icon" class="contact-icon" loading="lazy">
+                    <img src="/src/assets/img/icons/Devcode/instagram.svg" alt="Instagram Icon" class="contact-icon"
+                        loading="lazy">
                     <h3 class="contact-title">Instagram</h3>
                     <p class="contact-detail">@gabe__fernyh</p>
                 </div>
@@ -182,7 +173,8 @@
                     <p class="contact-detail">?????</p>
                 </div>
                 <div class="contact-item">
-                    <img src="/src/assets/img/icons/Devcode/github.svg" alt="GitHub Icon" class="contact-icon" loading="lazy">
+                    <img src="/src/assets/img/icons/Devcode/github.svg" alt="GitHub Icon" class="contact-icon"
+                        loading="lazy">
                     <h3 class="contact-title">GitHub</h3>
                     <p class="contact-detail">Gabbfernyh</p>
                 </div>
@@ -190,7 +182,7 @@
         </section>
 
         <h2 class="tags" id="projects">Projetos</h2>
-        <Section class="projects" >
+        <Section class="projects">
             <div class="project-grid efeito-prejects">
                 <div class="project-item project-card">
                     <div class="project-image">
@@ -199,20 +191,25 @@
                     <h3 class="project-title">NewTech-store</h3>
                     <p class="project-techs">HTML5, CSS3, JavaScript</p>
                     <div class="project-buttons">
-                        <a href="https://newtech-store.vercel.app/" class="access-project" target="_blank" rel="noopener noreferrer">Acessar o projeto</a>
-                        <a href="https://github.com/Gabbfernyh/NewTech" class="access-repo" target="_blank" rel="noopener noreferrer">Acessar repositório</a>
+                        <a href="https://newtech-store.vercel.app/" class="access-project" target="_blank"
+                            rel="noopener noreferrer">Acessar o projeto</a>
+                        <a href="https://github.com/Gabbfernyh/NewTech" class="access-repo" target="_blank"
+                            rel="noopener noreferrer">Acessar repositório</a>
                     </div>
                 </div>
                 <div class="project-item project-card">
                     <div class="project-image">
-                        <img src="/src/assets/img/projects/prev-previsao-do-tempo.png" alt="Previsão do Tempo" loading="lazy">
+                        <img src="/src/assets/img/projects/prev-previsao-do-tempo.png" alt="Previsão do Tempo"
+                            loading="lazy">
                     </div>
                     <h3 class="project-title">Previsão do Tempo</h3>
                     <p class="project-techs">HTML5, CSS3, JavaScript, API</p>
                     <div class="project-buttons">
-                        <a href="https://previsao-do-tempo-six-orcin.vercel.app/" class="access-project" target="_blank" rel="noopener noreferrer">Acessar o
+                        <a href="https://previsao-do-tempo-six-orcin.vercel.app/" class="access-project" target="_blank"
+                            rel="noopener noreferrer">Acessar o
                             projeto</a>
-                        <a href="https://github.com/Gabbfernyh/Previs-o-do-Tempo" class="access-repo" target="_blank" rel="noopener noreferrer">Acessar
+                        <a href="https://github.com/Gabbfernyh/Previs-o-do-Tempo" class="access-repo" target="_blank"
+                            rel="noopener noreferrer">Acessar
                             repositório</a>
                     </div>
                 </div>
@@ -223,8 +220,10 @@
                     <h3 class="project-title">PokeDevs</h3>
                     <p class="project-techs">HTML5, CSS3, JavaScript</p>
                     <div class="project-buttons">
-                        <a href="https://projeto-pokedevs-ten.vercel.app/" class="access-project" target="_blank" rel="noopener noreferrer">Acessar o projeto</a>
-                        <a href="https://github.com/Gabbfernyh/projeto-pokedevs" class="access-repo" target="_blank" rel="noopener noreferrer">Acessar
+                        <a href="https://projeto-pokedevs-ten.vercel.app/" class="access-project" target="_blank"
+                            rel="noopener noreferrer">Acessar o projeto</a>
+                        <a href="https://github.com/Gabbfernyh/projeto-pokedevs" class="access-repo" target="_blank"
+                            rel="noopener noreferrer">Acessar
                             repositório</a>
                     </div>
                 </div>
@@ -235,9 +234,11 @@
                     <h3 class="project-title">My Linktree</h3>
                     <p class="project-techs">HTML5, CSS3, JavaScript</p>
                     <div class="project-buttons">
-                        <a href="https://mylinktree-conectecomgabb.vercel.app/" class="access-project" target="_blank" rel="noopener noreferrer">Acessar o
+                        <a href="https://mylinktree-conectecomgabb.vercel.app/" class="access-project" target="_blank"
+                            rel="noopener noreferrer">Acessar o
                             projeto</a>
-                        <a href="https://github.com/Gabbfernyh/Linktree2" class="access-repo" target="_blank" rel="noopener noreferrer">Acessar repositório</a>
+                        <a href="https://github.com/Gabbfernyh/Linktree2" class="access-repo" target="_blank"
+                            rel="noopener noreferrer">Acessar repositório</a>
                     </div>
                 </div>
                 <div class="project-item project-card">
@@ -247,9 +248,11 @@
                     <h3 class="project-title">Mefolio</h3>
                     <p class="project-techs">HTML5, CSS3, JavaScript</p>
                     <div class="project-buttons">
-                        <a href="https://mylinktree-conectecomgabb.vercel.app/" class="access-project" target="_blank" rel="noopener noreferrer">Acessar o
+                        <a href="https://mylinktree-conectecomgabb.vercel.app/" class="access-project" target="_blank"
+                            rel="noopener noreferrer">Acessar o
                             projeto</a>
-                        <a href="https://github.com/Gabbfernyh/Mefolio" class="access-repo" target="_blank" rel="noopener noreferrer">Acessar repositório</a>
+                        <a href="https://github.com/Gabbfernyh/Mefolio" class="access-repo" target="_blank"
+                            rel="noopener noreferrer">Acessar repositório</a>
                     </div>
                 </div>
                 <div class="project-item project-card">
@@ -259,9 +262,11 @@
                     <h3 class="project-title">My Linktree</h3>
                     <p class="project-techs">HTML5, CSS3, JavaScript</p>
                     <div class="project-buttons">
-                        <a href="https://mylinktree-conectecomgabb.vercel.app/" class="access-project" target="_blank" rel="noopener noreferrer">Acessar o
+                        <a href="https://mylinktree-conectecomgabb.vercel.app/" class="access-project" target="_blank"
+                            rel="noopener noreferrer">Acessar o
                             projeto</a>
-                        <a href="https://github.com/Gabbfernyh/Linktree2" class="access-repo" target="_blank" rel="noopener noreferrer">Acessar
+                        <a href="https://github.com/Gabbfernyh/Linktree2" class="access-repo" target="_blank"
+                            rel="noopener noreferrer">Acessar
                             repositório</a>
                     </div>
                 </div>
@@ -272,9 +277,11 @@
                     <h3 class="project-title">My Linktree</h3>
                     <p class="project-techs">HTML5, CSS3, JavaScript</p>
                     <div class="project-buttons">
-                        <a href="https://mylinktree-conectecomgabb.vercel.app/" class="access-project" target="_blank" rel="noopener noreferrer">Acessar o
+                        <a href="https://mylinktree-conectecomgabb.vercel.app/" class="access-project" target="_blank"
+                            rel="noopener noreferrer">Acessar o
                             projeto</a>
-                        <a href="https://github.com/Gabbfernyh/Linktree2" class="access-repo" target="_blank" rel="noopener noreferrer">Acessar
+                        <a href="https://github.com/Gabbfernyh/Linktree2" class="access-repo" target="_blank"
+                            rel="noopener noreferrer">Acessar
                             repositório</a>
                     </div>
                 </div>
@@ -285,31 +292,36 @@
                     <h3 class="project-title">My Linktree</h3>
                     <p class="project-techs">HTML5, CSS3, JavaScript</p>
                     <div class="project-buttons">
-                        <a href="https://mylinktree-conectecomgabb.vercel.app/" class="access-project" target="_blank" rel="noopener noreferrer">Acessar o
+                        <a href="https://mylinktree-conectecomgabb.vercel.app/" class="access-project" target="_blank"
+                            rel="noopener noreferrer">Acessar o
                             projeto</a>
-                        <a href="https://github.com/Gabbfernyh/Linktree2" class="access-repo" target="_blank" rel="noopener noreferrer">Acessar
+                        <a href="https://github.com/Gabbfernyh/Linktree2" class="access-repo" target="_blank"
+                            rel="noopener noreferrer">Acessar
                             repositório</a>
                     </div>
                 </div>
         </Section>
         <h2 class="tags" id="servicos">Serviços</h2>
-        <section class="servicos" >
+        <section class="servicos">
             <div class="servicos-container">
                 <div class="box-grid">
                     <div class="box-grid-inner">
-                        <img src="/src/assets/img/icons/Devcode/code.svg" alt="code-icon" class="box-icon" loading="lazy">
+                        <img src="/src/assets/img/icons/Devcode/code.svg" alt="code-icon" class="box-icon"
+                            loading="lazy">
                         <h2 class="box-title">Criação<br>de Sites</h2>
                     </div>
                 </div>
                 <div class="box-grid">
                     <div class="box-grid-inner">
-                        <img src="/src/assets/img/icons/Devcode/smartphone.svg" alt="mobile" class="box-icon" loading="lazy">
+                        <img src="/src/assets/img/icons/Devcode/smartphone.svg" alt="mobile" class="box-icon"
+                            loading="lazy">
                         <h2 class="box-title">Sites<br>Responsivos</h2>
                     </div>
                 </div>
                 <div class="box-grid">
                     <div class="box-grid-inner">
-                        <img src="/src/assets/img/icons/Devcode/network.svg" alt="hospedagem" class="box-icon" loading="lazy">
+                        <img src="/src/assets/img/icons/Devcode/network.svg" alt="hospedagem" class="box-icon"
+                            loading="lazy">
                         <h2 class="box-title">Hospedagem</h2>
                     </div>
                 </div>
@@ -322,14 +334,15 @@
                 </div>
                 <div class="box-grid">
                     <div class="box-grid-inner">
-                        <img src="/src/assets/img/icons/Devcode/chart-trend.svg" alt="SEO" class="box-icon" loading="lazy">
+                        <img src="/src/assets/img/icons/Devcode/chart-trend.svg" alt="SEO" class="box-icon"
+                            loading="lazy">
                         <h2 class="box-title">SEO &<br>Performance</h2>
                     </div>
                 </div>
             </div>
         </section>
         <h2 class="tags" id="skills">Habilidades</h2>
-        <section class="skills" >
+        <section class="skills">
             <div class="skills-container">
                 <div class="skill-box">
                     <img src="/src/assets/img/icons/Devcode/html.svg" alt="HTML5" loading="lazy">
@@ -379,7 +392,7 @@
                     <img src="/src/assets/img/icons/Devcode/cib--wordpress.svg" alt="Wordpress" loading="lazy">
                     <span class="tooltip-text">Wordpress</span>
                 </div>
-                
+
             </div>
         </section>
         <h2 class="tags" id="contato">Entre em Contato</h2>
@@ -397,21 +410,23 @@
                         </p>
                     </div>
                     <div class="social-buttons desktop-only">
-                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn instagram"
-                            aria-label="Instagram">
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"
+                            class="social-btn instagram" aria-label="Instagram">
                             <i class="fab fa-instagram"></i> <span class="social-label">Instagram</span>
                         </a>
-                        <a href="https://github.com/Gabbfernyh" target="_blank" rel="noopener noreferrer" class="social-btn github"
-                            aria-label="GitHub">
+                        <a href="https://github.com/Gabbfernyh" target="_blank" rel="noopener noreferrer"
+                            class="social-btn github" aria-label="GitHub">
                             <i class="fab fa-github"></i> <span class="social-label">GitHub</span>
                         </a>
                         <a href="mailto:bielmgfv.python@gmail.com" class="social-btn gmail" aria-label="Gmail">
                             <i class="fas fa-envelope"></i> <span class="social-label">Gmail</span>
                         </a>
-                        <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="social-btn discord" aria-label="Discord">
+                        <a href="https://discord.com" target="_blank" rel="noopener noreferrer"
+                            class="social-btn discord" aria-label="Discord">
                             <i class="fab fa-discord"></i> <span class="social-label">Discord</span>
                         </a>
-                        <a href="#" class="social-btn linkedin js-linkedin-alert" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                        <a href="#" class="social-btn linkedin js-linkedin-alert" aria-label="LinkedIn" target="_blank"
+                            rel="noopener noreferrer">
                             <i class="fab fa-linkedin"></i> <span class="social-label">Linkedin</span>
                         </a>
                     </div>
@@ -465,21 +480,23 @@
             <i class="fas fa-share-alt"></i>
         </button>
         <div class="fab-links">
-            <a href="#" target="_blank" rel="noopener noreferrer" class="fab-link linkedin js-linkedin-alert" aria-label="LinkedIn">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="fab-link linkedin js-linkedin-alert"
+                aria-label="LinkedIn">
                 <i class="fab fa-linkedin"></i>
             </a>
-            <a href="https://www.instagram.com/gabe__fernyh/" target="_blank" rel="noopener noreferrer" class="fab-link instagram"
-                aria-label="Instagram">
+            <a href="https://www.instagram.com/gabe__fernyh/" target="_blank" rel="noopener noreferrer"
+                class="fab-link instagram" aria-label="Instagram">
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="https://github.com/Gabbfernyh" target="_blank" rel="noopener noreferrer" class="fab-link github" aria-label="GitHub">
+            <a href="https://github.com/Gabbfernyh" target="_blank" rel="noopener noreferrer" class="fab-link github"
+                aria-label="GitHub">
                 <i class="fab fa-github"></i>
             </a>
             <a href="mailto:bielmgfv.python@gmail.com" class="fab-link gmail" aria-label="Gmail">
                 <i class="fas fa-envelope"></i>
             </a>
-            <a href="https://discord.com/users/835243201874493502" target="_blank" rel="noopener noreferrer" class="fab-link discord"
-                aria-label="Discord">
+            <a href="https://discord.com/users/835243201874493502" target="_blank" rel="noopener noreferrer"
+                class="fab-link discord" aria-label="Discord">
                 <i class="fab fa-discord"></i>
             </a>
         </div>

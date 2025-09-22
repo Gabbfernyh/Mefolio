@@ -390,6 +390,7 @@ body.light-theme .theme-toggle-btn .fa-moon {
     color: var(--c-brand);
     font-weight: 400;
     padding: 10px 0 15px;
+    font-size: 1.875rem; /* Restored font size */
 
 }
 
@@ -437,7 +438,7 @@ body.light-theme .theme-toggle-btn .fa-moon {
     text-align: center;
     width: 170px;
     /* Largura fixa para garantir o mesmo tamanho */
-    min-height: 160px;
+    height: 200px; /* Fixed height to ensure consistent size */
     /* Altura mínima para todos os cards */
     padding: 1.5rem 1rem;
     /* Espaçamento interno */
