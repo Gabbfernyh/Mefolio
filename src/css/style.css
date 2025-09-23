@@ -19,6 +19,7 @@
     --c-shadow: rgba(0, 0, 0, 0.2);
     --c-shadow-brand: rgba(151, 237, 170, 0.2);
     --c-bg-progress-bar: rgba(255, 255, 255, 0.3);
+    --c-bg-header-mobile: rgba(24, 24, 24, 0.75);
 }
 
 body.light-theme {
@@ -34,7 +35,7 @@ body.light-theme {
     /* Fundo secundário */
     --c-bg-input: #f8fafc;
     /* Inputs com leve cinza */
-    --c-border: #d1d5db;
+    --c-border: rgba(34, 34, 34, 0.1);
     /* Bordas suaves */
     --c-text: #222;
     /* Texto principal escuro */
@@ -42,11 +43,12 @@ body.light-theme {
     /* Texto secundário */
     --c-text-inverse: #fff;
     /* Texto invertido */
-    --c-shadow: rgba(34, 197, 94, 0.08);
+    --c-shadow: rgba(0, 0, 0, 0.06);
     /* Sombra verde forte e suave */
-    --c-shadow-brand: rgba(34, 197, 94, 0.18);
+    --c-shadow-brand: rgba(34, 197, 94, 0.1);
     /* Sombra verde forte */
     --c-bg-progress-bar: rgba(34, 197, 94, 0.12);
+    --c-bg-header-mobile: rgba(240, 242, 245, 0.75);
 }
 
 /* Elementos principais no modo claro */
@@ -1393,13 +1395,17 @@ html {
     justify-content: space-between;
     align-items: center;
     padding: 0.7rem 1rem;
-    background-color: var(--c-bg-input);
-    box-shadow: 0 1px 4px var(--c-shadow);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 99;
+
+    /* Efeito Glassmorphism */
+    background-color: var(--c-bg-header-mobile);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 1px 4px var(--c-shadow);
 }
 
 .mobile-header .logo-name {
@@ -1764,6 +1770,38 @@ body.light-theme .contact-form-container button:hover {
 
 body.light-theme .dot {
     border: 1px solid var(--c-brand-dark);
+}
+
+/* Light theme overrides for better component contrast */
+body.light-theme .skill-box,
+body.light-theme .project-card,
+body.light-theme .contact-item {
+    background-color: var(--c-bg-input);
+    /* Use a whiter background for contrast */
+    border: 1px solid #dde1e6;
+    /* Add a visible solid border */
+    box-shadow: 0 1px 4px var(--c-shadow);
+    /* Add a subtle shadow to lift the card */
+}
+
+body.light-theme .skill-box:hover,
+body.light-theme .project-card:hover,
+body.light-theme .contact-item:hover {
+    border-color: var(--c-brand);
+    box-shadow: 0 6px 16px var(--c-shadow-brand);
+    /* Enhance shadow on hover */
+}
+
+/* Specific override for .box-grid as it has a different base style */
+body.light-theme .box-grid {
+    background-color: var(--c-bg-input);
+    border: 1px solid #dde1e6;
+    box-shadow: 0 1px 4px var(--c-shadow);
+}
+
+body.light-theme .box-grid:hover {
+    border-color: var(--c-brand);
+    box-shadow: 0 6px 16px var(--c-shadow-brand);
 }
 
 /* =========================
