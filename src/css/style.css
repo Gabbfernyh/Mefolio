@@ -390,7 +390,8 @@ body.light-theme .theme-toggle-btn .fa-moon {
     color: var(--c-brand);
     font-weight: 400;
     padding: 10px 0 15px;
-    font-size: 1.875rem; /* Restored font size */
+    font-size: 1.875rem;
+    /* Restored font size */
 
 }
 
@@ -438,7 +439,8 @@ body.light-theme .theme-toggle-btn .fa-moon {
     text-align: center;
     width: 170px;
     /* Largura fixa para garantir o mesmo tamanho */
-    height: 200px; /* Fixed height to ensure consistent size */
+    height: 200px;
+    /* Fixed height to ensure consistent size */
     /* Altura mínima para todos os cards */
     padding: 1.5rem 1rem;
     /* Espaçamento interno */
@@ -1272,16 +1274,23 @@ html {
         grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
         gap: 1.5rem;
         padding: 1.5rem 1rem;
-        height: auto; /* Altura automática */
+        height: auto;
+        /* Altura automática */
     }
 
     .box-grid {
-        display: block; /* Mostrar todos os cards */
-        width: 100%; /* Ocupar a largura da coluna da grade */
-        max-width: none; /* Remover largura máxima */
-        min-width: 0; /* Remover largura mínima */
-        height: 160px; /* Manter altura fixa se desejado, ou usar 'auto' */
-        margin: 0; /* Remover margem automática */
+        display: block;
+        /* Mostrar todos os cards */
+        width: 100%;
+        /* Ocupar a largura da coluna da grade */
+        max-width: none;
+        /* Remover largura máxima */
+        min-width: 0;
+        /* Remover largura mínima */
+        height: 160px;
+        /* Manter altura fixa se desejado, ou usar 'auto' */
+        margin: 0;
+        /* Remover margem automática */
         background: var(--c-bg-soft);
         border-radius: 16px;
         box-shadow: 0 2px 12px var(--c-shadow-brand);
@@ -1669,14 +1678,30 @@ main {
         background: var(--c-bg-soft);
         border-radius: 10px;
         box-shadow: 0 1px 6px var(--c-shadow);
-        padding: 1rem;
+        padding: 1.5rem; /* Aumentar o padding para dar mais espaço */
         text-align: center;
         min-height: auto;
         /* Reseta a altura mínima para o conteúdo */
     }
 
     .contact-icon {
-        margin-bottom: 0.5rem;
+        width: 60px; /* Aumentar o tamanho do ícone */
+        height: 60px; /* Aumentar o tamanho do ícone */
+        margin-bottom: 0.75rem; /* Ajustar margem */
+    }
+
+    .contact-icon img,
+    .contact-icon svg {
+        width: 36px; /* Aumentar o tamanho da imagem/svg dentro do ícone */
+        height: 36px; /* Aumentar o tamanho da imagem/svg dentro do ícone */
+    }
+
+    .contact-title {
+        font-size: 1.2rem; /* Aumentar o tamanho da fonte do título */
+    }
+
+    .contact-detail {
+        font-size: 1.05rem; /* Aumentar o tamanho da fonte do detalhe */
     }
 }
 
