@@ -1,6 +1,5 @@
 # Mefolio - Portfólio de Gabriel Fernandes
 
-[![Deploy GitHub Pages](https://github.com/Gabbfernyh/Mefolio/actions/workflows/pages/pages-build-deployment/badge.svg)](https://gabbfernyh.github.io/Mefolio/)
 
 ![Prévia do Site](./src/assets/img/projects/portifolio-Preto&Branco.png)
 
