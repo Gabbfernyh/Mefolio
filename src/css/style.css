@@ -398,33 +398,29 @@ body.light-theme .theme-toggle-btn .fa-moon {
 }
 
 .about-text {
-    max-width: 75ch; /* Optimal line length for readability */
-    margin: 2rem auto; /* Center the block */
-    padding: 2.5rem; /* Default padding for desktop */
-    background: linear-gradient(135deg, var(--c-bg-soft) 85%, #c8fadd 200%);
-    border-radius: 16px;
-    box-shadow: 0 4px 32px var(--c-shadow-brand);
-    border: 2px solid transparent;
-    transition: border-color 0.3s, box-shadow 0.3s;
-    text-align: left; /* Default to left-align for readability */
-    letter-spacing: 0.01em;
-}
-
-.about-text p { /* Styles for paragraphs inside the about-text container */
-    font-family: "Archivo", sans-serif;
-    font-size: 1.18rem;
-    line-height: 1.85;
-    color: var(--c-text);
+    text-align: justify;
+    font-family: "Archivo";
+    /* Tamanho de fonte padrão e confortável para leitura */
+    font-size: 1.1rem;
     font-weight: 400;
-}
-
-.about-text p + p { /* Margin between paragraphs */
-    margin-top: 1.5rem;
-}
-
-.about-text:hover {
-    border-color: var(--c-brand);
-    box-shadow: 0 8px 40px var(--c-shadow-brand);
+    /* Peso de fonte regular para excelente legibilidade */
+    line-height: 1.7;
+    /* Espaçamento entre linhas confortável */
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    word-spacing: normal;
+    /* Espaçamento padrão entre palavras */
+    letter-spacing: normal;
+    /* Espaçamento padrão entre letras */
+    /* Limita a largura do texto para melhor legibilidade */
+    max-width: 75ch;
+    /* Centraliza o bloco de texto */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+    /* Adiciona espaçamento nas laterais em telas menores */
+    padding-top: 1rem;
 }
 
 /* Container for all contact items */
@@ -1654,15 +1650,13 @@ main {
 /* Sobre Mim - Mobile */
 @media (max-width: 600px) {
     .about-text {
-        margin: 1.2rem 0.5rem;
-        padding: 1.2rem 0.7rem; /* Keep mobile padding */
+        padding: 1.2rem 0.7rem;
+        font-size: 1.05rem;
         border-radius: 12px;
-        text-align: left; /* Change to left-align for mobile */
+        text-align: center;
+        margin: 1.2rem 0.5rem;
         background: linear-gradient(135deg, var(--c-bg-soft) 90%, var(--c-brand) 100%);
         box-shadow: 0 2px 16px var(--c-shadow-brand);
-    }
-    .about-text p { /* Adjust font size for mobile paragraphs */
-        font-size: 1.05rem;
     }
 }
 
