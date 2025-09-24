@@ -415,21 +415,34 @@ function initContactForm() {
     }
 
     form.addEventListener("submit", handleSubmit);
-    
-    // A lógica para os labels flutuantes pode ser mantida, pois é uma boa funcionalidade de UI.
+
+    // --- Lógica para Labels Flutuantes e Placeholders --- 
     allInputs.forEach(input => {
-        if (!input.dataset.placeholder) return;
+        // Garante que o estado inicial esteja correto no caso de autocompletar do navegador
+        if (input.value) {
+            input.classList.add('has-content');
+        }
 
         input.addEventListener('focus', () => {
-            input.placeholder = input.dataset.placeholder;
+            input.classList.add('has-content'); // Adiciona a classe para o label subir
         });
 
         input.addEventListener('blur', () => {
-            if (input.value.trim() === '') {
-                input.placeholder = '';
+            if (input.value === '') {
+                input.classList.remove('has-content'); // Remove a classe se o campo estiver vazio
+            }
+        });
+
+        // Adiciona um listener para o caso de o autocompletar preencher o campo sem foco
+        input.addEventListener('input', () => {
+            if (input.value) {
+                input.classList.add('has-content');
+            } else {
+                input.classList.remove('has-content');
             }
         });
     });
+    
 }
 
 /**
@@ -474,7 +487,7 @@ function initThemeToggle() {
 
 document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
-    initFab();
+    
     initMobileNav();
     initSmoothScroll();
     initContactForm();

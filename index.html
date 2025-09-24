@@ -51,6 +51,7 @@
     <link rel="stylesheet" href="/src/css/alert.css">
     <link rel="stylesheet" href="/src/css/form-styles.css">
     <link rel="stylesheet" href="/src/css/carrosselm.css">
+    <link rel="stylesheet" href="/src/css/translat.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
@@ -70,6 +71,9 @@
             <button class="theme-toggle-btn" id="theme-toggle-desktop" aria-label="Alternar tema">
                 <i class="fas fa-sun"></i>
                 <i class="fas fa-moon"></i>
+            </button>
+            <button class="translate-button" id="translate-button" aria-label="Alternar idioma">
+                <i class="fa-regular fa-language"></i>
             </button>
         </nav>
         <!-- New Mobile Header Structure -->
@@ -436,22 +440,22 @@
                         <input type="text" name="_gotcha" class="honeypot-field" tabindex="-1" autocomplete="off">
 
                         <div class="form-group">
-                            <input type="text" id="name" name="name" required placeholder=""
+                            <input type="text" id="name" name="name" required placeholder="Seu nome completo"
                                 data-placeholder="Seu nome completo" autocomplete="name">
                             <label for="name">Nome Completo <span class="required-indicator">*</span></label>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" required placeholder=""
+                            <input type="email" id="email" name="email" required placeholder="exemplo@email.com"
                                 data-placeholder="exemplo@email.com" autocomplete="email">
                             <label for="email">E-mail <span class="required-indicator">*</span></label>
                         </div>
                         <div class="form-group">
-                            <input type="tel" id="phone" name="phone" placeholder="" data-placeholder="(11) 98765-4321"
-                                autocomplete="tel" inputmode="numeric">
+                            <input type="tel" id="phone" name="phone" placeholder="(11) 98765-4321"
+                                data-placeholder="(11) 98765-4321" autocomplete="tel" inputmode="numeric">
                             <label for="phone">Telefone (Opcional)</label>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" required placeholder=""
+                            <textarea id="message" name="message" required placeholder="Digite sua mensagem aqui..."
                                 data-placeholder="Digite sua mensagem aqui..." rows="5"></textarea>
                             <label for="message">Mensagem <span class="required-indicator">*</span></label>
                         </div>
@@ -471,36 +475,10 @@
         </span>
     </footer>
 
-    <!-- FAB para Mobile -->
-    <div class="fab-container">
-        <button class="fab-button">
-            <i class="fas fa-share-alt"></i>
-        </button>
-        <div class="fab-links">
-            <a href="#" target="_blank" rel="noopener noreferrer" class="fab-link linkedin js-linkedin-alert"
-                aria-label="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://www.instagram.com/gabe__fernyh/" target="_blank" rel="noopener noreferrer"
-                class="fab-link instagram" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://github.com/Gabbfernyh" target="_blank" rel="noopener noreferrer" class="fab-link github"
-                aria-label="GitHub">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="mailto:bielmgfv.python@gmail.com" class="fab-link gmail" aria-label="Gmail">
-                <i class="fas fa-envelope"></i>
-            </a>
-            <a href="https://discord.com/users/835243201874493502" target="_blank" rel="noopener noreferrer"
-                class="fab-link discord" aria-label="Discord">
-                <i class="fab fa-discord"></i>
-            </a>
-        </div>
-    </div>
     <script src="https://unpkg.com/scrollreveal" defer></script>
     <script src="/src/js/alert.js" defer></script>
     <script src="/src/js/script.js" defer></script>
+    <script src="/src/js/translation.js" defer></script>
 </body>
 
 </html>

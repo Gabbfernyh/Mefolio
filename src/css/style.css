@@ -106,7 +106,7 @@ body.light-theme .contact-form-container button:hover {
     box-shadow: 0 8px 32px var(--c-shadow-brand);
 }
 
-body.light-theme {
+body.light-theme .dot {
     border: 1px solid var(--c-brand-dark);
 }
 
