@@ -25,7 +25,8 @@
         content="Desenvolvedor Frontend & UI Designer freelancer. Criando interfaces modernas e responsivas.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://gabbfernyh.github.io/Mefolio/">
-    <meta property="og:image" content="https://gabbfernyh.github.io/Mefolio/src/assets/img/projects/portifolio-Preto&Branco.png">
+    <meta property="og:image"
+        content="https://gabbfernyh.github.io/Mefolio/src/assets/img/projects/portifolio-Preto&Branco.png">
     <meta property="og:image:alt" content="Prévia do site do portfólio de Gabriel Fernandes">
     <meta property="og:locale" content="pt_BR">
 
@@ -34,14 +35,15 @@
     <meta name="twitter:title" content="Gabriel Fernandes | Developer Front-End">
     <meta name="twitter:description"
         content="Desenvolvedor Frontend & UI Designer freelancer. Criando interfaces modernas e responsivas.">
-    <meta name="twitter:image" content="https://gabbfernyh.github.io/Mefolio/src/assets/img/projects/portifolio-Preto&Branco.png">
+    <meta name="twitter:image"
+        content="https://gabbfernyh.github.io/Mefolio/src/assets/img/projects/portifolio-Preto&Branco.png">
     <meta name="twitter:image:alt" content="Prévia do site do portfólio de Gabriel Fernandes">
 
     <!-- Aparência, Performance e Favicons -->
     <meta name="theme-color" content="#97edaa"> <!-- Cor da barra de endereço no mobile -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="icon" href="/src/assets/img/icons/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/src/assets/img/icons/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -49,7 +51,6 @@
     <link rel="stylesheet" href="/src/css/alert.css">
     <link rel="stylesheet" href="/src/css/form-styles.css">
     <link rel="stylesheet" href="/src/css/carrosselm.css">
-    <link rel="stylesheet" href="/src/css/translat.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
@@ -69,9 +70,6 @@
             <button class="theme-toggle-btn" id="theme-toggle-desktop" aria-label="Alternar tema">
                 <i class="fas fa-sun"></i>
                 <i class="fas fa-moon"></i>
-            </button>
-            <button class="translate-button" id="translate-button" aria-label="Alternar idioma">
-                <i class="fa-regular fa-language"></i>
             </button>
         </nav>
         <!-- New Mobile Header Structure -->
@@ -143,18 +141,16 @@
 
         <h2 class="tags" id="about">Sobre Mim</h2>
         <section class="about">
-            <p class="about-text efeito-about-text">
-                Meu nome é Gabriel Fernandes, conhecido como “Gabbfernyh”. <br> Tenho 15
-                anos e atualmente atuo como freelancer nas áreas de Frontend Development e Suporte de TI.
-                Minha experiência
-                se concentra no desenvolvimento de interfaces modernas e de alta qualidade, com foco em performance,
-                animações, responsividade e SEO.
-                <br>
-                Além disso, estou constantemente buscando expandir meus conhecimentos em diversas áreas da tecnologia,
-                incluindo cibersegurança, Quality Assurance (<abbr title="Quality Assurance">QA</abbr>), DevOps,
-                desenvolvimento Full-Stack... Meu objetivo é
-                integrar essas habilidades para criar soluções eficientes e inovadoras.
-            </p>
+            <div class="about-text efeito-about-text">
+                <p>Meu nome é Gabriel Fernandes, conhecido como “Gabbfernyh”. Tenho 15 anos e atualmente atuo como
+                    freelancer nas áreas de Frontend Development e Suporte de TI.</p>
+                <p>Minha experiência se concentra no desenvolvimento de interfaces modernas e de alta qualidade, com
+                    foco em performance, animações, responsividade e SEO.</p>
+                <p>Além disso, estou constantemente buscando expandir meus conhecimentos em diversas áreas da
+                    tecnologia, incluindo cibersegurança, Quality Assurance (<abbr title="Quality Assurance">QA</abbr>),
+                    DevOps, desenvolvimento Full-Stack... Meu objetivo é integrar essas habilidades para criar soluções
+                    eficientes e inovadoras.</p>
+            </div>
             <div class="contacts efeito-about-icons contact-container">
                 <div class="contact-item">
                     <img src="/src/assets/img/icons/smile.svg" alt="Avatar" class="contact-icon" loading="lazy">
@@ -411,7 +407,7 @@
                         </p>
                     </div>
                     <div class="social-buttons desktop-only">
-                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"
+                        <a href="https://www.instagram.com/gabe__fernyh/" target="_blank" rel="noopener noreferrer"
                             class="social-btn instagram" aria-label="Instagram">
                             <i class="fab fa-instagram"></i> <span class="social-label">Instagram</span>
                         </a>
@@ -422,7 +418,7 @@
                         <a href="mailto:bielmgfv.python@gmail.com" class="social-btn gmail" aria-label="Gmail">
                             <i class="fas fa-envelope"></i> <span class="social-label">Gmail</span>
                         </a>
-                        <a href="https://discord.com" target="_blank" rel="noopener noreferrer"
+                        <a href="https://discord.com/users/835243201874493502" target="_blank" rel="noopener noreferrer"
                             class="social-btn discord" aria-label="Discord">
                             <i class="fab fa-discord"></i> <span class="social-label">Discord</span>
                         </a>
@@ -440,23 +436,20 @@
                         <input type="text" name="_gotcha" class="honeypot-field" tabindex="-1" autocomplete="off">
 
                         <div class="form-group">
-                            <input type="text" id="name" name="name" required placeholder="Seu nome completo"
-                                data-placeholder="Seu nome completo" autocomplete="name">
+                            <input type="text" id="name" name="name" required placeholder="" data-placeholder="Ex: João Silva" autocomplete="name">
                             <label for="name">Nome Completo <span class="required-indicator">*</span></label>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" required placeholder="exemplo@email.com"
-                                data-placeholder="exemplo@email.com" autocomplete="email">
+                            <input type="email" id="email" name="email" required placeholder="" data-placeholder="exemplo@email.com" autocomplete="email">
                             <label for="email">E-mail <span class="required-indicator">*</span></label>
                         </div>
                         <div class="form-group">
-                            <input type="tel" id="phone" name="phone" placeholder="(11) 98765-4321"
-                                data-placeholder="(11) 98765-4321" autocomplete="tel" inputmode="numeric">
+                            <input type="tel" id="phone" name="phone" placeholder="" data-placeholder="(11) 98765-4321" autocomplete="tel" inputmode="numeric">
                             <label for="phone">Telefone (Opcional)</label>
                         </div>
                         <div class="form-group">
                             <textarea id="message" name="message" required placeholder="Digite sua mensagem aqui..."
-                                data-placeholder="Digite sua mensagem aqui..." rows="5"></textarea>
+                                rows="5"></textarea>
                             <label for="message">Mensagem <span class="required-indicator">*</span></label>
                         </div>
                         <button type="submit">Enviar Mensagem</button>
@@ -475,10 +468,34 @@
         </span>
     </footer>
 
+    <!-- FAB Social para Mobile -->
+    <div class="fab-container">
+        <input type="checkbox" id="fab-toggle" class="fab-toggle" hidden>
+        <label for="fab-toggle" class="fab-button" aria-label="Ações rápidas">
+            <i class="fas fa-share-alt"></i>
+        </label>
+        <div class="fab-links">
+            <a href="https://www.instagram.com/gabe__fernyh/" class="fab-link instagram" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i> <span class="social-label">Instagram</span>
+            </a>
+            <a href="https://github.com/Gabbfernyh" class="fab-link github" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i> <span class="social-label">GitHub</span>
+            </a>
+            <a href="mailto:bielmgfv.python@gmail.com" class="fab-link gmail" aria-label="Gmail">
+                <i class="fas fa-envelope"></i> <span class="social-label">Gmail</span>
+            </a>
+            <a href="https://discord.com/users/835243201874493502" class="fab-link discord" target="_blank" aria-label="Discord">
+                <i class="fab fa-discord"></i> <span class="social-label">Discord</span>
+            </a>
+            <a href="#" class="fab-link linkedin js-linkedin-alert" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i> <span class="social-label">Linkedin</span>
+            </a>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/scrollreveal" defer></script>
     <script src="/src/js/alert.js" defer></script>
     <script src="/src/js/script.js" defer></script>
-    <script src="/src/js/translation.js" defer></script>
 </body>
 
 </html>

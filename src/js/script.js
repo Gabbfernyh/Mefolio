@@ -188,7 +188,7 @@ function initServiceCarousel() {
 
     const updateActiveDot = () => {
         if (dots.length === 0) return;
-        
+
         const containerCenter = container.scrollLeft + (container.offsetWidth / 2);
         let minDistance = Infinity;
         let activeIndexInClones = -1;
@@ -203,7 +203,7 @@ function initServiceCarousel() {
         });
 
         let realIndex = (activeIndexInClones - 1 + realItems.length) % realItems.length;
-        
+
         dots.forEach((dot, index) => {
             dot.classList.toggle('active', index === realIndex);
         });
@@ -266,6 +266,7 @@ function initFab() {
         });
     }
 }
+
 
 /**
  * Configura a navegação do menu mobile (hambúrguer e sidebar).
@@ -442,7 +443,17 @@ function initContactForm() {
             }
         });
     });
-    
+
+    document.querySelectorAll('.form-group input, .form-group textarea').forEach(input => {
+        input.addEventListener('focus', function () {
+            if (!this.value) {
+                this.setAttribute('placeholder', this.dataset.placeholder || '');
+            }
+        });
+        input.addEventListener('blur', function () {
+            this.setAttribute('placeholder', '');
+        });
+    });
 }
 
 /**
@@ -487,7 +498,7 @@ function initThemeToggle() {
 
 document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
-    
+
     initMobileNav();
     initSmoothScroll();
     initContactForm();

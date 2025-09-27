@@ -394,33 +394,43 @@ body.light-theme .theme-toggle-btn .fa-moon {
     padding: 10px 0 15px;
     font-size: 1.875rem;
     /* Restored font size */
-
+    z-index: 20;
 }
 
 .about-text {
-    text-align: justify;
-    font-family: "Archivo";
-    /* Tamanho de fonte padrão e confortável para leitura */
-    font-size: 1.1rem;
-    font-weight: 400;
-    /* Peso de fonte regular para excelente legibilidade */
-    line-height: 1.7;
-    /* Espaçamento entre linhas confortável */
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
-    hyphens: auto;
-    word-spacing: normal;
-    /* Espaçamento padrão entre palavras */
-    letter-spacing: normal;
-    /* Espaçamento padrão entre letras */
-    /* Limita a largura do texto para melhor legibilidade */
     max-width: 75ch;
-    /* Centraliza o bloco de texto */
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 1rem;
-    /* Adiciona espaçamento nas laterais em telas menores */
-    padding-top: 1rem;
+    /* Optimal line length for readability */
+    margin: 2rem auto;
+    /* Center the block */
+    padding: 2.5rem;
+    /* Default padding for desktop */
+    background: linear-gradient(135deg, var(--c-bg-soft) 85%, #c8fadd 200%);
+    border-radius: 16px;
+    box-shadow: 0 4px 32px var(--c-shadow-brand);
+    border: 2px solid transparent;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    text-align: left;
+    /* Default to left-align for readability */
+    letter-spacing: 0.01em;
+}
+
+.about-text p {
+    /* Styles for paragraphs inside the about-text container */
+    font-family: "Archivo", sans-serif;
+    font-size: 1.18rem;
+    line-height: 1.85;
+    color: var(--c-text);
+    font-weight: 400;
+}
+
+.about-text p+p {
+    /* Margin between paragraphs */
+    margin-top: 1.5rem;
+}
+
+.about-text:hover {
+    border-color: var(--c-brand);
+    box-shadow: 0 8px 40px var(--c-shadow-brand);
 }
 
 /* Container for all contact items */
@@ -511,7 +521,7 @@ body.light-theme .theme-toggle-btn .fa-moon {
 }
 
 /* =========================
-   4. COMPONENTES (CARDS, BOTÕES, ETC.)
+   4. COMPONENTES (CARDS, BOTÕES, ETC.
    ========================= */
 
 /* --- Grid de Projetos --- */
@@ -1030,119 +1040,82 @@ body.light-theme .theme-toggle-btn .fa-moon {
     text-decoration: none !important;
 }
 
-
-
-
 /* FAB (Floating Action Button) */
 .fab-container {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
+    bottom: 32px;
+    right: 24px;
+    z-index: 999;
     display: none;
-    /* Escondido por padrão, visível apenas em mobile */
+}
+
+@media (max-width: 900px) {
+    .fab-container {
+        display: block;
+    }
+    .desktop-only {
+        display: none !important;
+    }
+}
+
+.fab-toggle {
+    display: none;
 }
 
 .fab-button {
-    background-color: var(--c-brand);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--c-brand);
     color: var(--c-text-inverse);
     border: none;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    font-size: 24px;
+    box-shadow: 0 4px 16px var(--c-shadow-brand);
+    font-size: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
-}
-
-.fab-button:hover {
-    background-color: var(--c-brand-dark);
+    transition: background 0.3s, box-shadow 0.3s;
+    position: relative;
+    z-index: 2;
 }
 
 .fab-links {
-    display: none;
-    /* Escondido por padrão */
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 10px;
     position: absolute;
     bottom: 70px;
-    /* Posição acima do botão FAB */
     right: 0;
-    background-color: var(--c-bg-mute);
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 1;
 }
 
-.fab-links.show {
-    display: flex;
-    /* Mostra os links quando a classe 'show' é adicionada via JS */
+.fab-toggle:checked ~ .fab-links {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .fab-link {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    color: var(--c-text);
+    gap: 8px;
+    background: var(--c-bg-soft);
+    color: var(--c-brand-dark);
+    padding: 0.7rem 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px var(--c-shadow-brand);
+    font-size: 1.1rem;
     text-decoration: none;
-    font-size: 20px;
-    transition: background-color 0.3s ease;
-}
-
-.fab-link.linkedin {
-    background-color: #0077B5;
-    /* Cor oficial do LinkedIn */
-}
-
-.fab-link.instagram {
-    background-color: #E1306C;
-}
-
-.fab-link.github {
-    background-color: #333;
-}
-
-.fab-link.gmail {
-    background-color: #D44638;
-}
-
-.fab-link.discord {
-    background-color: #5865F2;
+    transition: background 0.3s, color 0.3s;
 }
 
 .fab-link:hover {
-    opacity: 0.8;
+    background: var(--c-brand);
+    color: var(--c-text-inverse);
 }
-
-/* Media Queries para o FAB e links sociais */
-@media (max-width: 768px) {
-    .fab-container {
-        display: block;
-        /* Mostra o FAB em telas menores */
-    }
-
-    .desktop-only {
-        display: none !important;
-        /* Oculta os links sociais originais em telas menores */
-    }
-}
-
-@media (min-width: 769px) {
-    .fab-container {
-        display: none;
-        /* Garante que o FAB não apareça em telas maiores */
-    }
-}
-
-/* ------ */
 
 /* =========================
    RESPONSIVIDADE
@@ -1196,6 +1169,7 @@ html {
         /* Necessário para o posicionamento absoluto da seta */
         padding-bottom: 5rem;
         /* Garante espaço para a seta no final da seção */
+        min-height: 99vh;
     }
 
     .scroll-down-arrow {
@@ -1650,13 +1624,19 @@ main {
 /* Sobre Mim - Mobile */
 @media (max-width: 600px) {
     .about-text {
-        padding: 1.2rem 0.7rem;
-        font-size: 1.05rem;
-        border-radius: 12px;
-        text-align: center;
         margin: 1.2rem 0.5rem;
+        padding: 1.2rem 0.7rem;
+        /* Keep mobile padding */
+        border-radius: 12px;
+        text-align: left;
+        /* Change to left-align for mobile */
         background: linear-gradient(135deg, var(--c-bg-soft) 90%, var(--c-brand) 100%);
         box-shadow: 0 2px 16px var(--c-shadow-brand);
+    }
+
+    .about-text p {
+        /* Adjust font size for mobile paragraphs */
+        font-size: 1.05rem;
     }
 }
 
@@ -1684,124 +1664,78 @@ main {
         background: var(--c-bg-soft);
         border-radius: 10px;
         box-shadow: 0 1px 6px var(--c-shadow);
-        padding: 1.5rem; /* Aumentar o padding para dar mais espaço */
+        padding: 1.5rem;
+        /* Aumentar o padding para dar mais espaço */
         text-align: center;
         min-height: auto;
         /* Reseta a altura mínima para o conteúdo */
     }
 
     .contact-icon {
-        width: 60px; /* Aumentar o tamanho do ícone */
-        height: 60px; /* Aumentar o tamanho do ícone */
-        margin-bottom: 0.75rem; /* Ajustar margem */
+        width: 60px;
+        /* Aumentar o tamanho do ícone */
+        height: 60px;
+        /* Aumentar o tamanho do ícone */
+        margin-bottom: 0.75rem;
+        /* Ajustar margem */
     }
 
     .contact-icon img,
     .contact-icon svg {
-        width: 36px; /* Aumentar o tamanho da imagem/svg dentro do ícone */
-        height: 36px; /* Aumentar o tamanho da imagem/svg dentro do ícone */
+        width: 36px;
+        /* Aumentar o tamanho da imagem/svg dentro do ícone */
+        height: 36px;
+        /* Aumentar o tamanho da imagem/svg dentro do ícone */
     }
 
     .contact-title {
-        font-size: 1.2rem; /* Aumentar o tamanho da fonte do título */
+        font-size: 1.2rem;
+        /* Aumentar o tamanho da fonte do título */
     }
 
     .contact-detail {
-        font-size: 1.05rem; /* Aumentar o tamanho da fonte do detalhe */
+        font-size: 1.05rem;
+        /* Aumentar o tamanho da fonte do detalhe */
     }
 }
 
-
-
-
-body.light-theme .logo-name,
-body.light-theme .tags,
-body.light-theme .contact-form-container label,
-body.light-theme .contact-title {
-    color: var(--c-brand);
+/* Header fixo e glass effect só no desktop */
+@media (min-width: 901px) {
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        z-index: 100;
+        background: transparent; /* Removido o rgba, agora é transparente */
+        backdrop-filter: blur(16px) saturate(1.2);
+        box-shadow: 0 2px 24px rgba(34, 197, 94, 0.08);
+        border-bottom: 1.5px solid rgba(123, 216, 143, 0.12);
+        transition: background 0.3s, box-shadow 0.3s;
+    }
+    main {
+        padding-top: 84px; /* altura do header fixo */
+    }
+    .tags {
+        scroll-margin-top: 100px;
+    }
 }
 
-body.light-theme .contact-icon {
-    background: var(--c-bg-soft);
-    color: var(--c-brand);
-    border: 1px solid var(--c-border);
-}
-
-body.light-theme .box-grid {
-    background-color: var(--c-bg-soft);
-    border: 1px solid var(--c-border);
-    box-shadow: 0 2px 8px var(--c-shadow-brand);
-}
-
-body.light-theme .about-text {
-    background: linear-gradient(135deg, var(--c-bg-soft) 85%, #d1fadf 100%);
-    /* Verde claro no canto inferior direito */
-    color: var(--c-text);
-    box-shadow: 0 4px 32px var(--c-shadow-brand);
-    border: 2px solid var(--c-brand);
-}
-
-body.light-theme .about-text:hover {
-    box-shadow: 0 8px 40px var(--c-shadow-brand);
-    border-color: var(--c-brand-dark);
-}
-
-body.light-theme .contact-form-container {
-    background: linear-gradient(120deg, var(--c-bg-soft) 85%, #d1fadf 100%);
-    box-shadow: 0 4px 32px var(--c-shadow-brand);
-    border: 2px solid var(--c-brand);
-}
-
-body.light-theme .contact-form-container:focus-within {
-    border-color: var(--c-brand-dark);
-    box-shadow: 0 8px 40px var(--c-shadow-brand);
-}
-
-body.light-theme .contact-form-container button {
-    background-color: var(--c-brand);
-    color: var(--c-text-inverse);
-    box-shadow: 0 4px 16px var(--c-shadow-brand);
-}
-
-body.light-theme .contact-form-container button:hover {
-    background: linear-gradient(90deg, var(--c-brand-dark), var(--c-brand));
-    box-shadow: 0 8px 32px var(--c-shadow-brand);
-}
-
-body.light-theme .dot {
-    border: 1px solid var(--c-brand-dark);
-}
-
-/* Light theme overrides for better component contrast */
-body.light-theme .skill-box,
-body.light-theme .project-card,
-body.light-theme .contact-item {
-    background-color: var(--c-bg-input);
-    /* Use a whiter background for contrast */
-    border: 1px solid #dde1e6;
-    /* Add a visible solid border */
-    box-shadow: 0 1px 4px var(--c-shadow);
-    /* Add a subtle shadow to lift the card */
-}
-
-body.light-theme .skill-box:hover,
-body.light-theme .project-card:hover,
-body.light-theme .contact-item:hover {
-    border-color: var(--c-brand);
-    box-shadow: 0 6px 16px var(--c-shadow-brand);
-    /* Enhance shadow on hover */
-}
-
-/* Specific override for .box-grid as it has a different base style */
-body.light-theme .box-grid {
-    background-color: var(--c-bg-input);
-    border: 1px solid #dde1e6;
-    box-shadow: 0 1px 4px var(--c-shadow);
-}
-
-body.light-theme .box-grid:hover {
-    border-color: var(--c-brand);
-    box-shadow: 0 6px 16px var(--c-shadow-brand);
+/* No mobile, header normal, não fixo */
+@media (max-width: 900px) {
+    header {
+        position: static;
+        background: var(--c-bg);
+        backdrop-filter: none;
+        box-shadow: none;
+        border-bottom: none;
+    }
+    main {
+        padding-top: 0;
+    }
+    .tags {
+        scroll-margin-top: 32px;
+    }
 }
 
 /* =========================
