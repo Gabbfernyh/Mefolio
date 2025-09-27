@@ -48,16 +48,6 @@ Este é um projeto frontend estático. Para executá-lo, siga os passos:
 
 E pronto! O site estará rodando localmente.
 
-## 🚀 Deploy no GitHub Pages
-
-Para fazer o deploy deste projeto no GitHub Pages, siga os passos:
-
-1. Vá para a aba **"Settings"** do seu repositório no GitHub.
-2. No menu lateral, clique em **"Pages"**.
-3. Na seção "Build and deployment", em "Source", selecione **"Deploy from a branch"**.
-4. Selecione a branch `main` (ou `master`) e a pasta `/(root)`.
-5. Clique em **"Save"**. O GitHub irá iniciar o processo de deploy e fornecer o link do site.
-
 ## 📄 Licença
 
 Distribuído sob a licença MIT.
