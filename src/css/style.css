@@ -1169,7 +1169,7 @@ html {
         /* Necessário para o posicionamento absoluto da seta */
         padding-bottom: 5rem;
         /* Garante espaço para a seta no final da seção */
-        min-height: 99vh;
+        min-height: 90vh;
     }
 
     .scroll-down-arrow {
