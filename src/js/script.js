@@ -390,7 +390,7 @@ function initContactForm() {
             });
 
             if (response.ok) {
-                statusDiv.textContent = "Mensagem enviada com sucesso!";
+                statusDiv.textContent = "Opaa... Mensagem enviada com sucesso! Muito obrigado por enviar seu contato! Em breve retornarei. 🚀";
                 statusDiv.className = "success";
                 form.reset();
             } else {
@@ -505,3 +505,84 @@ document.addEventListener('DOMContentLoaded', () => {
     initThemeToggle();
     addEventListeners();
 });
+
+(function () {
+    // Função para tentar abrir o composer do Gmail; se bloquear, usa mailto: como fallback
+    function openGmailComposer(email) {
+        if (!email) return;
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`;
+        // Tenta abrir em nova aba/janela
+        const newWin = window.open(gmailUrl, '_blank');
+        // Se window.open falhar (popup bloqueado) ou retorna null, usa mailto:
+        if (!newWin) {
+            window.location.href = `mailto:${email}`;
+            return;
+        }
+        // Em alguns navegadores window.open pode retornar um objeto, mas ser bloqueado.
+        // Verificar se foi realmente criado depois de um curto delay.
+        setTimeout(() => {
+            try {
+                if (!newWin || newWin.closed) {
+                    window.location.href = `mailto:${email}`;
+                }
+            } catch (err) {
+                // Se houver erro de cross-origin, considerar que abriu com sucesso e não fazer fallback.
+            }
+        }, 500);
+    }
+
+    // Adiciona event listeners a todos os elementos com classe .gmail (ancoras ou botões/FAB)
+    function attachGmailFallback() {
+        const elems = Array.from(document.querySelectorAll('.gmail'));
+        elems.forEach(el => {
+            // tenta extrair email de diferentes fontes: href (mailto:), data-email, data-href (mailto:)
+            let email = null;
+
+            if (el.tagName.toLowerCase() === 'a') {
+                const href = el.getAttribute('href') || '';
+                const mailtoMatch = href.match(/^mailto:([^?]+)/i);
+                email = mailtoMatch ? mailtoMatch[1] : null;
+            }
+
+            if (!email) {
+                email = el.dataset.email || null;
+                if (!email && el.dataset.href) {
+                    const m = el.dataset.href.match(/^mailto:([^?]+)/i);
+                    email = m ? m[1] : null;
+                }
+            }
+
+            el.addEventListener('click', function (e) {
+                if (!email) {
+                    // sem email configurado, deixa comportamento padrão
+                    return;
+                }
+
+                const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
+                // Se for âncora e mobile, deixar comportamento padrão para abrir apps nativos
+                if (isMobile && el.tagName.toLowerCase() === 'a') {
+                    return;
+                }
+
+                // Para botões em mobile, redireciona para mailto: para abrir app nativo
+                if (isMobile && el.tagName.toLowerCase() !== 'a') {
+                    e.preventDefault();
+                    window.location.href = `mailto:${email}`;
+                    return;
+                }
+
+                // Desktop: intercepta e tenta abrir composer do Gmail com fallback
+                e.preventDefault();
+                openGmailComposer(email);
+            });
+        });
+    }
+
+    // Inicializa ao DOM pronto
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', attachGmailFallback);
+    } else {
+        attachGmailFallback();
+    }
+})();

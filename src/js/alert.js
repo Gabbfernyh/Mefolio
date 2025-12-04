@@ -51,5 +51,11 @@ function portfolioAlert() {
     }, 100);
 }
 
+// function formAlert() {
+//     setTimeout(() => {
+//         createNotification("Opaa, Muito obrigado por enviar seu contato! Em breve retornarei. 🚀");
+//     }, 100);
+// }
+
 // Mostra o alerta de boas-vindas ao carregar a página
 document.addEventListener('DOMContentLoaded', portfolioAlert);
