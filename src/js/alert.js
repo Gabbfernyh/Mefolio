@@ -33,7 +33,7 @@ function createNotification(message, duration = 5000) {
 function linkedinAlert(event) {
     event.preventDefault();
     setTimeout(() => {
-        createNotification("Ops! Esta página ainda não está ativa. Aguarde 2026.");
+        createNotification("Ops! Esta página ainda não está ativa. Aguarde até 15 de Maio.");
     }, 100);
 }
 
