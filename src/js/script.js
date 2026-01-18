@@ -308,6 +308,41 @@ function initMobileNav() {
     });
 }
 
+// --- Modal de Zoom para Imagens ---
+document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById('modalZoom');
+    const modalImg = document.getElementById('imgModalTarget');
+    const closeBtn = document.querySelector('.modal-close');
+
+    // 1. Escuta cliques em qualquer lugar da página
+    document.addEventListener('click', function (e) {
+        // Se o elemento clicado tiver o atributo data-zoom
+        if (e.target.hasAttribute('data-zoom')) {
+            modal.style.display = "flex"; // Abre o modal
+            modalImg.src = e.target.src;  // Pega o caminho da imagem clicada
+        }
+    });
+
+    // 2. Fechar ao clicar no 'X'
+    closeBtn.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // 3. Fechar ao clicar fora da imagem (no fundo escuro)
+    modal.onclick = function (e) {
+        if (e.target !== modalImg) {
+            modal.style.display = "none";
+        }
+    }
+
+    // 4. Fechar ao apertar a tecla ESC
+    document.addEventListener('keydown', function (e) {
+        if (e.key === "Escape") {
+            modal.style.display = "none";
+        }
+    });
+});
+
 /**
  * Configura o scroll suave com deslocamento para o header fixo.
  */

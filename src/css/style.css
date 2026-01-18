@@ -276,10 +276,10 @@ body.light-theme .theme-toggle-btn .fa-moon {
 .hero-content {
     /* O padding-top será adicionado em 'main' para compensar o header fixo */
     padding: 4rem 2rem;
-    min-height: 90vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    gap: 217px;
+    gap: 13.563rem;
 }
 
 .scroll-down-arrow {
@@ -416,11 +416,11 @@ body.light-theme .theme-toggle-btn .fa-moon {
 
 .about-text p {
     /* Styles for paragraphs inside the about-text container */
-    font-family: "Archivo", sans-serif;
-    font-size: 1.18rem;
+    font-family: "segoe ui", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.20rem;
     line-height: 1.85;
     color: var(--c-text);
-    font-weight: 400;
+    font-weight: 390;
 }
 
 .about-text p+p {
@@ -711,7 +711,7 @@ body.light-theme .theme-toggle-btn .fa-moon {
 
 .skills-container {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     justify-content: center;
     gap: 2rem;
     margin-top: 2rem;
@@ -1053,6 +1053,7 @@ body.light-theme .theme-toggle-btn .fa-moon {
     .fab-container {
         display: block;
     }
+
     .desktop-only {
         display: none !important;
     }
@@ -1093,7 +1094,7 @@ body.light-theme .theme-toggle-btn .fa-moon {
     z-index: 1;
 }
 
-.fab-toggle:checked ~ .fab-links {
+.fab-toggle:checked~.fab-links {
     opacity: 1;
     pointer-events: auto;
 }
@@ -1707,15 +1708,19 @@ main {
         left: 0;
         width: 100vw;
         z-index: 100;
-        background: transparent; /* Removido o rgba, agora é transparente */
+        background: transparent;
+        /* Removido o rgba, agora é transparente */
         backdrop-filter: blur(16px) saturate(1.2);
         box-shadow: 0 2px 24px rgba(34, 197, 94, 0.08);
         border-bottom: 1.5px solid rgba(123, 216, 143, 0.12);
         transition: background 0.3s, box-shadow 0.3s;
     }
+
     main {
-        padding-top: 84px; /* altura do header fixo */
+        padding-top: 84px;
+        /* altura do header fixo */
     }
+
     .tags {
         scroll-margin-top: 100px;
     }
@@ -1730,9 +1735,11 @@ main {
         box-shadow: none;
         border-bottom: none;
     }
+
     main {
         padding-top: 0;
     }
+
     .tags {
         scroll-margin-top: 32px;
     }
@@ -1786,4 +1793,81 @@ main {
 .skill-box:hover .tooltip-text {
     visibility: visible;
     opacity: 1;
+}
+
+/* Container do Modal */
+.modal-container {
+    display: none;
+    /* Escondido por padrão */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Fundo preto 90% */
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+}
+
+/* No modal-content (a imagem ampliada) */
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    cursor: default;
+
+    /* MELHORIA DE QUALIDADE AQUI: */
+    image-rendering: -webkit-optimize-contrast;
+    /* Melhora contraste e nitidez */
+    image-rendering: crisp-edges;
+    /* Evita desfoque em redimensionamento */
+    transform: translateZ(0);
+    /* Força aceleração de hardware (GPU) */
+    backface-visibility: hidden;
+    /* Evita flickering em animações */
+
+    animation: zoomIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    /* Animação mais suave */
+}
+
+/* Botão Fechar */
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Efeito nas imagens que podem dar zoom */
+[data-zoom] {
+    cursor: zoom-in;
+    transition: 0.3s;
+    /* Melhora a renderização geral mesmo em tamanho pequeno */
+    image-rendering: auto;
+    object-fit: cover;
+    /* Garante que a imagem preencha o espaço sem distorcer */
+}
+
+[data-zoom]:hover {
+    opacity: 0.8;
+}
+
+/* Animação */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
