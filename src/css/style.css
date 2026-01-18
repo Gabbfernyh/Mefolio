@@ -955,6 +955,7 @@ body.light-theme .theme-toggle-btn .fa-moon {
     line-height: 1.6;
     text-align: initial;
     color: var(--c-text);
+    font-family: "segoe ui", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Ajustes nos botões sociais para a coluna esquerda */
