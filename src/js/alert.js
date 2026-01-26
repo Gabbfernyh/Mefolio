@@ -30,12 +30,14 @@ function createNotification(message, duration = 5000) {
     }, duration);
 }
 // Substituir alerts originais
-function linkedinAlert(event) {
-    event.preventDefault();
-    setTimeout(() => {
-        createNotification("Ops! Esta página ainda não está ativa. Aguarde até 15 de Maio.");
-    }, 100);
-}
+// function linkedinAlert(event) {
+//     event.preventDefault();
+//     setTimeout(() => {
+//         createNotification("Ops! Esta página ainda não está ativa. Aguarde até 15 de Maio.");
+//     }, 100);
+// }
+
+// class="js-linkedin-alert"
 
 function curriculoAlert(event) {
     event.preventDefault();
