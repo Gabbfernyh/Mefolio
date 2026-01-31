@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <!-- Meta Tags Essenciais -->
     <title>Gabriel Fernandes | Developer Front-End</title>
     <meta name="description"
@@ -92,10 +92,10 @@
                 <li><a class="nav-link" href="#skills">Habilidades</a></li>
                 <li><a class="nav-link" href="#contato">Contato</a></li>
             </ul>
-            <button class="theme-toggle-btn" id="theme-toggle-desktop" aria-label="Alternar tema">
+            <!-- <button class="theme-toggle-btn" id="theme-toggle-desktop" aria-label="Alternar tema">
                 <i class="fas fa-sun"></i>
                 <i class="fas fa-moon"></i>
-            </button>
+            </button> -->
         </nav>
         <!-- New Mobile Header Structure -->
         <div class="mobile-header">
@@ -124,13 +124,13 @@
                 <li><a class="nav-link" href="#skills">Habilidades</a></li>
                 <li><a class="nav-link" href="#contato">Contato</a></li>
             </ul>
-            <div class="sidebar-footer">
+            <!-- <div class="sidebar-footer">
                 <button class="theme-toggle-btn" id="theme-toggle-mobile" aria-label="Alternar tema">
                     <i class="fas fa-sun"></i>
                     <i class="fas fa-moon"></i>
                     <span>Alternar Tema</span>
                 </button>
-            </div>
+            </div> -->
         </div>
     </header>
     <main>
@@ -144,13 +144,40 @@
                     </div>
                     <a class="curriculo-download js-curriculo-alert" href="#"
                         download="Curriculo-Gabriel-Fernandes.pdf">
-                        Baixar Currículo</a>
+                        Baixar Currículo
+                    </a>
+
                     <div class="hero-socials desktop-only">
-                        <a href="https://www.linkedin.com/in/gabbfernyh/" target="_blank" rel="noopener noreferrer"
+                        <!-- <a href="https://www.linkedin.com/in/gabbfernyh/" target="_blank" rel="noopener noreferrer"
                             aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
 
                         <a href="https://github.com/Gabbfernyh" target="_blank" rel="noopener noreferrer"
-                            aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                            aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a> -->
+
+
+                        <a href="https://www.linkedin.com/in/gabbfernyh/" aria-label="LinkedIn Profile" target="_blank"
+                            rel="noopener noreferrer" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium
+                        h-10 w-10 border border-gray-200 dark:border-gray-700
+                        bg-gray-300 hover:bg-white dark:bg-gray-800 dark:hover:bg-gray-700
+                        transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="h-5 w-5">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect width="4" height="12" x="2" y="9"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+
+                        <a href="https://github.com/Gabbfernyh" aria-label="GitHub Profile" target="_blank"
+                            rel="noopener noreferrer" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium
+                        h-10 w-10 border border-gray-200 dark:border-gray-700
+                        bg-gray-300 hover:bg-white dark:bg-gray-800 dark:hover:bg-gray-700
+                        transition-colors"><i class="fab fa-github" aria-hidden="true"></i>
+
+                        </a>
                     </div>
                 </div>
                 <img src="src/assets/img/icons/image.svg" alt="Avatar" class="avatar-img">
@@ -174,7 +201,7 @@
                     foco em performance, animações, responsividade e SEO.</p>
                 <p>Além disso, estou constantemente buscando expandir meus conhecimentos em diversas áreas da
                     tecnologia, incluindo cibersegurança, Quality Assurance (<abbr title="Quality Assurance">QA</abbr>),
-                    DevOps, desenvolvimento Full-Stack... Meu objetivo é integrar essas habilidades para criar soluções
+                    DevOps, desenvolvimento Full-Stack...</p> <p>Meu objetivo é integrar essas habilidades para criar soluções
                     eficientes e inovadoras.</p>
             </div>
             <div class="contacts efeito-about-icons contact-container">
@@ -188,12 +215,12 @@
                     <h3 class="contact-title">E-mail</h3>
                     <p class=" contact-detail">Gabbfernyh@gmail.com</p>
                 </div>
-                <div class="contact-item">
+                <!-- <div class="contact-item">
                     <img src="src/assets/img/icons/instagram.svg" alt="Instagram Icon" class="contact-icon"
                         loading="lazy">
                     <h3 class="contact-title">Instagram</h3>
                     <p class="contact-detail">@gabe__fernyh</p>
-                </div>
+                </div> -->
                 <div class="contact-item">
                     <img src="src/assets/img/icons/linkedin-brands-solid-full.svg" alt="LinkedIn Icon"
                         class="contact-icon" loading="lazy">
@@ -364,6 +391,38 @@
                             repositório</a>
                     </div>
                 </div>
+                <div class="col-span-full">
+                    <div class="skill-card rounded-xl p-12 flex flex-col justify-center items-center text-center
+                transform transition-all duration-500 ease-in-out
+                hover:scale-[1.02] 
+                shadow-[0_10px_30px_rgba(34, 34, 34, 0.1)]
+                w-full mx-auto border border-white/10">
+
+                        <div class="space-y-6 max-w-3xl">
+                            <div class="w-24 h-24 mx-auto rounded-full
+                        bg-[#7bd88f]/10 dark:bg-[#97edaa]/20
+                        flex items-center justify-center
+                        border border-[#7bd88f]/20 dark:border-[#97edaa]/20">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="h-12 w-12 text-[#7bd88f] dark:text-[#97edaa]">
+                                    <path d="m18 16 4-4-4-4"></path>
+                                    <path d="m6 8-4 4 4 4"></path>
+                                    <path d="m14.5 4-5 16"></path>
+                                </svg>
+                            </div>
+
+                            <h3 class="text-3xl font-bold text-gray-900 dark:text-white">
+                                Mais projetos em breve
+                            </h3>
+
+                            <p class="text-lg text-gray-700 dark:text-gray-400 leading-relaxed">
+                                Novos projetos estão sendo desenvolvidos e serão adicionados em breve.
+                            </p>
+                        </div>
+                    </div>
+                </div>
         </Section>
         <h2 class="tags" id="servicos">Serviços</h2>
         <section class="servicos">
@@ -461,7 +520,7 @@
                 <!-- Coluna da Esquerda: Informações e Links Sociais -->
                 <div class="contact-info-left">
                     <div class="contact-text-container">
-                        <h3 class="contact-title">Vamos conversar!</h3>
+                        <h3 class="contact-title">Vamos conversar!</>
                         <p class="contact-text">
                             Se você tem um projeto em mente, uma pergunta ou apenas quer dizer um "oi", adoraria ouvir
                             de
@@ -470,10 +529,10 @@
                         </p>
                     </div>
                     <div class="social-buttons desktop-only">
-                        <a href="https://www.instagram.com/gabe__fernyh/" target="_blank" rel="noopener noreferrer"
+                        <!-- <a href="https://www.instagram.com/gabe__fernyh/" target="_blank" rel="noopener noreferrer"
                             class="social-btn instagram" aria-label="Instagram">
                             <i class="fab fa-instagram"></i> <span class="social-label">Instagram</span>
-                        </a>
+                        </a> -->
                         <a href="https://github.com/Gabbfernyh" target="_blank" rel="noopener noreferrer"
                             class="social-btn github" aria-label="GitHub">
                             <i class="fab fa-github"></i> <span class="social-label">GitHub</span>
@@ -485,8 +544,8 @@
                             class="social-btn discord" aria-label="Discord">
                             <i class="fab fa-discord"></i> <span class="social-label">Discord</span>
                         </a>
-                        <a href="https://www.linkedin.com/in/gabbfernyh/" class="social-btn linkedin" aria-label="LinkedIn" target="_blank"
-                            rel="noopener noreferrer">
+                        <a href="https://www.linkedin.com/in/gabbfernyh/" class="social-btn linkedin"
+                            aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-linkedin"></i> <span class="social-label">Linkedin</span>
                         </a>
                     </div>
@@ -528,7 +587,8 @@
 
     </main>
     <footer>
-        <p class="footer-text footer-text-right">@ 2025 - Gabbfernyh</p>
+        <p class="footer-text footer-text-right">© 2025 - Gabbfernyh</p>
+        <p class="text-xs text-gray-500 dark:text-gray-500 footer-text-center">todos direitos reservados</p>
         <span class="footer-powered">
             Powered by <img src="src/assets/img/icons/logo.svg" alt="logo" loading="lazy">
         </span>
@@ -541,10 +601,10 @@
             <i class="fas fa-share-alt"></i>
         </label>
         <div class="fab-links">
-            <a href="https://www.instagram.com/gabe__fernyh/" class="fab-link instagram" target="_blank"
+            <!-- <a href="https://www.instagram.com/gabe__fernyh/" class="fab-link instagram" target="_blank"
                 aria-label="Instagram">
                 <i class="fab fa-instagram"></i> <span class="social-label">Instagram</span>
-            </a>
+            </a> -->
             <a href="https://github.com/Gabbfernyh" class="fab-link github" target="_blank" aria-label="GitHub">
                 <i class="fab fa-github"></i> <span class="social-label">GitHub</span>
             </a>
@@ -555,7 +615,8 @@
                 aria-label="Discord">
                 <i class="fab fa-discord"></i> <span class="social-label">Discord</span>
             </a>
-            <a href="https://www.linkedin.com/in/gabbfernyh/" class="fab-link linkedin" target="_blank" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/gabbfernyh/" class="fab-link linkedin" target="_blank"
+                aria-label="LinkedIn">
                 <i class="fab fa-linkedin"></i> <span class="social-label">Linkedin</span>
             </a>
         </div>

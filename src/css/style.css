@@ -1296,7 +1296,8 @@ html {
 
     .contact-text-container p {
         /* Garante que o parágrafo também seja centralizado */
-        text-align: center;
+        text-align: initial;
+        padding: 0 1rem 0 1.5rem;
     }
 
     #contato .social-buttons {
