@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap");
 
 /* =========================
-   1. CONFIGURAÇÕES GLOBAIS E VARIÁVEIS
+   1. CONFIGURA??ES GLOBAIS E VARI?VEIS
    ========================= */
 :root {
     /* Dark Theme (default) */
@@ -26,13 +26,13 @@ body.light-theme {
     --c-brand: #22c55e;
     /* Verde forte para destaques */
     --c-brand-dark: #2abe61;
-    /* Verde escuro para botões/títulos */
+    /* Verde escuro para bot?es/t?tulos */
     --c-bg: #dedfe2ec;
     /* Fundo claro */
     --c-bg-soft: #f0f2f5;
     /* Cards mais neutros */
     --c-bg-mute: #e3e6ea;
-    /* Fundo secundário */
+    /* Fundo secund?rio */
     --c-bg-input: #f8fafc;
     /* Inputs com leve cinza */
     --c-border: rgba(34, 34, 34, 0.1);
@@ -40,7 +40,7 @@ body.light-theme {
     --c-text: #222;
     /* Texto principal escuro */
     --c-text-soft: #555;
-    /* Texto secundário */
+    /* Texto secund?rio */
     --c-text-inverse: #fff;
     /* Texto invertido */
     --c-shadow: rgba(0, 0, 0, 0.06);
@@ -152,7 +152,7 @@ body {
 }
 
 /* =========================
-   2. HEADER E NAVEGAÇÃO
+   2. HEADER E NAVEGA??O
    ========================= */
 header {
     padding: 1rem 2rem;
@@ -271,10 +271,10 @@ body.light-theme .theme-toggle-btn .fa-moon {
 }
 
 /* =========================
-   3. SEÇÕES PRINCIPAIS (HERO, ABOUT, ETC.)
+   3. SE??ES PRINCIPAIS (HERO, ABOUT, ETC.)
    ========================= */
 .hero-content {
-    /* O padding-top será adicionado em 'main' para compensar o header fixo */
+    /* O padding-top ser? adicionado em 'main' para compensar o header fixo */
     padding: 4rem 2rem;
     min-height: 100vh;
     display: flex;
@@ -347,19 +347,19 @@ body.light-theme .theme-toggle-btn .fa-moon {
     transform: scale(1.1);
 }
 
-/* Container para o texto do 'hero' para evitar 'layout shift' durante a animação de digitação */
+/* Container para o texto do 'hero' para evitar 'layout shift' durante a anima??o de digita??o */
 .hero-text-container {
     min-height: 160px;
-    /* Altura mínima para acomodar todo o texto e evitar que o conteúdo abaixo se mova */
-    /* Espaçamento que substitui o <br> removido */
+    /* Altura m?nima para acomodar todo o texto e evitar que o conte?do abaixo se mova */
+    /* Espa?amento que substitui o <br> removido */
     display: flex;
     flex-direction: column;
     margin-bottom: 1.5rem;
 }
 
-/* Efeito de digitação */
+/* Efeito de digita??o */
 .typing-effect {
-    /* Garante que o elemento não colapse quando vazio, evitando saltos no layout */
+    /* Garante que o elemento n?o colapse quando vazio, evitando saltos no layout */
     min-height: 1.2em;
 }
 
@@ -370,7 +370,7 @@ body.light-theme .theme-toggle-btn .fa-moon {
     color: var(--c-brand);
     font-weight: 300;
     margin-left: 0.2rem;
-    /* Pequeno espaço entre o texto e o cursor */
+    /* Pequeno espa?o entre o texto e o cursor */
 }
 
 @keyframes blink-caret {
@@ -453,11 +453,11 @@ body.light-theme .theme-toggle-btn .fa-moon {
     /* Largura fixa para garantir o mesmo tamanho */
     height: 200px;
     /* Fixed height to ensure consistent size */
-    /* Altura mínima para todos os cards */
+    /* Altura m?nima para todos os cards */
     padding: 1.5rem 1rem;
-    /* Espaçamento interno */
+    /* Espa?amento interno */
     justify-content: flex-start;
-    /* Alinha conteúdo no topo */
+    /* Alinha conte?do no topo */
 
     /* Estilo de card */
     background-color: var(--c-bg-soft);
@@ -474,8 +474,8 @@ body.light-theme .theme-toggle-btn .fa-moon {
 
 /* Circle background and icon */
 .contact-icon {
-    width: 48px;
-    height: 48px;
+    width: 46px;
+    height: 46px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -521,7 +521,7 @@ body.light-theme .theme-toggle-btn .fa-moon {
 }
 
 /* =========================
-   4. COMPONENTES (CARDS, BOTÕES, ETC.
+   4. COMPONENTES (CARDS, BOT?ES, ETC.
    ========================= */
 
 /* --- Grid de Projetos --- */
@@ -570,11 +570,11 @@ body.light-theme .theme-toggle-btn .fa-moon {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Imagem cobre todo o espaço mantendo proporção */
+    /* Imagem cobre todo o espa?o mantendo propor??o */
     display: block;
 }
 
-/* Título e tecnologias alinhados à esquerda */
+/* T?tulo e tecnologias alinhados ? esquerda */
 .project-title {
     font-weight: 600;
     font-size: 1.1rem;
@@ -589,16 +589,17 @@ body.light-theme .theme-toggle-btn .fa-moon {
     text-align: left;
 }
 
-/* Botões alinhados à esquerda */
+/* Bot?es alinhados ? esquerda */
 .project-buttons {
     display: flex;
     align-items: center;
     gap: 1rem;
     justify-content: flex-start;
     margin-top: 0.5rem;
+    flex-wrap: wrap;
 }
 
-/* Botões */
+/* Bot?es */
 .project-buttons .access-project,
 .project-buttons .access-repo {
     padding: 0.4rem 1.2rem;
@@ -634,7 +635,25 @@ body.light-theme .theme-toggle-btn .fa-moon {
     color: var(--c-text-inverse);
 }
 
-/* --- Seção de Serviços (Desktop) --- */
+.project-buttons .project-readme-btn {
+    padding: 0.4rem 1.2rem;
+    font-size: 0.92rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.25s, color 0.25s, border-color 0.25s;
+    min-width: 150px;
+    border: 1.5px solid var(--c-border);
+    background-color: transparent;
+    color: var(--c-text-soft);
+}
+
+.project-buttons .project-readme-btn:hover {
+    border-color: var(--c-brand);
+    color: var(--c-brand);
+    background: rgba(124, 255, 196, 0.06);
+}
+
+/* --- Se??o de Servi?os (Desktop) --- */
 .servicos-container {
     display: flex;
     justify-content: center;
@@ -657,7 +676,7 @@ body.light-theme .theme-toggle-btn .fa-moon {
     border-radius: 1px;
     box-shadow: var(--c-brand) 0px 1px;
     transition: border-color 0.3s ease;
-    /* Tamanho fixo para garantir que todos sejam idênticos */
+    /* Tamanho fixo para garantir que todos sejam id?nticos */
     width: 225px;
     /* Aumentando a largura dos cards */
     height: 155px;
@@ -680,7 +699,7 @@ body.light-theme .theme-toggle-btn .fa-moon {
 
 .box-grid:hover {
     border-color: var(--c-brand);
-    /* Efeito de elevação sutil */
+    /* Efeito de eleva??o sutil */
 }
 
 .box-grid:hover .box-grid-inner {
@@ -689,7 +708,7 @@ body.light-theme .theme-toggle-btn .fa-moon {
 
 .box-grid .box-icon {
     width: 48px;
-    /* Ícone um pouco menor para melhor balanço */
+    /* ?cone um pouco menor para melhor balan?o */
     height: 48px;
     flex-shrink: 0;
 }
@@ -702,16 +721,16 @@ body.light-theme .theme-toggle-btn .fa-moon {
     line-height: 1.3;
     color: var(--c-text-soft);
     text-align: left;
-    /* Alinha o texto à esquerda */
+    /* Alinha o texto ? esquerda */
     letter-spacing: 0%;
     opacity: 1;
     margin: 0;
-    /* Remove margens padrão do h2 */
+    /* Remove margens padr?o do h2 */
 }
 
 .skills-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     justify-content: center;
     gap: 2rem;
     margin-top: 2rem;
@@ -736,12 +755,23 @@ body.light-theme .theme-toggle-btn .fa-moon {
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     /* Essencial para o tooltip */
+    cursor: pointer;
 }
 
 .skill-box:hover {
     transform: translateY(-5px);
     border-color: var(--c-brand);
     box-shadow: 0 4px 15px var(--c-shadow);
+}
+
+.skill-box:focus-visible {
+    outline: 2px solid var(--c-brand);
+    outline-offset: 2px;
+}
+
+.skill-box.is-active {
+    border-color: var(--c-brand);
+    box-shadow: 0 0 0 1px rgba(151, 237, 170, 0.55), 0 8px 20px var(--c-shadow-brand);
 }
 
 .skill-box img {
@@ -759,7 +789,7 @@ body.light-theme .theme-toggle-btn .fa-moon {
 .contact-form-container {
     display: flex;
     flex-direction: column;
-    /* O gap foi removido, o espaçamento agora é controlado pelo margin-top do .form-group */
+    /* O gap foi removido, o espa?amento agora ? controlado pelo margin-top do .form-group */
     width: 100%;
     background: transparent;
     padding: 0;
@@ -767,12 +797,12 @@ body.light-theme .theme-toggle-btn .fa-moon {
     box-shadow: none;
 }
 
-/* Novos estilos para estrutura e acessibilidade do formulário */
+/* Novos estilos para estrutura e acessibilidade do formul?rio */
 .form-group {
     position: relative;
     /* Crucial para o posicionamento absoluto do label */
     margin-top: 1.5rem;
-    /* Espaçamento entre os campos */
+    /* Espa?amento entre os campos */
     width: 100%;
 }
 
@@ -786,13 +816,15 @@ body.light-theme .theme-toggle-btn .fa-moon {
     color: var(--c-text-soft);
     opacity: 0.7;
     pointer-events: none;
-    /* Permite cliques através do label para o input */
+    /* Permite cliques atrav?s do label para o input */
     transition: all 0.2s ease-out;
 }
 
 /* Estado ativo do label (acima, "cortando" a borda) */
 .contact-form-container input:focus+label,
 .contact-form-container input:not(:placeholder-shown)+label,
+.contact-form-container select:focus+label,
+.contact-form-container select.has-content+label,
 .contact-form-container textarea:focus+label,
 .contact-form-container textarea:not(:placeholder-shown)+label {
     top: -0.7rem;
@@ -812,12 +844,13 @@ body.light-theme .theme-toggle-btn .fa-moon {
     margin-left: 2px;
 }
 
-/* Campo "Honeypot" para spam: visualmente oculto, mas disponível para bots */
+/* Campo "Honeypot" para spam: visualmente oculto, mas dispon?vel para bots */
 .honeypot-field {
     display: none;
 }
 
 .contact-form-container input,
+.contact-form-container select,
 .contact-form-container textarea {
     width: 100%;
     padding: 1rem;
@@ -832,6 +865,7 @@ body.light-theme .theme-toggle-btn .fa-moon {
 }
 
 .contact-form-container input:focus,
+.contact-form-container select:focus,
 .contact-form-container textarea:focus {
     outline: none;
     border-color: var(--c-brand);
@@ -839,7 +873,7 @@ body.light-theme .theme-toggle-btn .fa-moon {
     transform: translateY(-2px);
 }
 
-/* Estilo para campos de formulário inválidos (controlado via JS) */
+/* Estilo para campos de formul?rio inv?lidos (controlado via JS) */
 .contact-form-container .invalid-field {
     border-color: #ff8a8a !important;
     box-shadow: 0 0 0 3px rgba(255, 100, 100, 0.3) !important;
@@ -872,12 +906,61 @@ body.light-theme .theme-toggle-btn .fa-moon {
     box-shadow: 0 6px 12px var(--c-shadow);
 }
 
+.status {
+    /* --- Positioning --- */
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+
+    /* --- Sizing & Layout --- */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    /* Adjusted padding */
+    margin: 0;
+    width: auto;
+    /* Remove margin as it's fixed now */
+    /* Let content define width */
+
+    /* --- Appearance --- */
+    color: var(--c-text);
+    font-weight: 500;
+    font-size: 1rem;
+    text-align: center;
+    background-color: rgba(24, 24, 24, 0.75);
+    /* Using a semi-transparent background */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--c-border);
+    /* No border at the very top */
+    border-radius: 12px;
+    /* Rounded bottom corners */
+    box-shadow: 0 4px 12px var(--c-shadow);
+}
+
+.status-indicator {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background-color: var(--c-brand-dark);
+}
+
+.status-text {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-left: 1rem;
+    font-size: 0.95rem;
+    color: var(--c-text-soft);
+}
+
 .contact-form-container button:active {
     transform: translateY(0);
     box-shadow: 0 2px 4px var(--c-shadow);
 }
 
-/* Estilos para a mensagem de status do formulário (sucesso/erro) */
+/* Estilos para a mensagem de status do formul?rio (sucesso/erro) */
 #form-status {
     margin-top: 1rem;
     padding: 0.8rem 1rem;
@@ -885,7 +968,7 @@ body.light-theme .theme-toggle-btn .fa-moon {
     font-weight: 500;
     text-align: center;
     display: none;
-    /* Oculto por padrão, controlado via JS */
+    /* Oculto por padr?o, controlado via JS */
     transition: opacity 0.3s ease;
 }
 
@@ -915,14 +998,14 @@ body.light-theme .theme-toggle-btn .fa-moon {
 /* New Contact Section Layout */
 #contato {
     padding: 3rem 2rem;
-    /* Reduzido o espaçamento superior */
+    /* Reduzido o espa?amento superior */
     margin-top: 2rem;
 }
 
 .contact-layout {
     display: flex;
     gap: 4rem;
-    /* Espaço entre as colunas */
+    /* Espa?o entre as colunas */
     max-width: 980px;
     /* Reduzido de 1100px para um layout mais compacto */
     margin: 2rem auto 0;
@@ -958,7 +1041,7 @@ body.light-theme .theme-toggle-btn .fa-moon {
     font-family: "segoe ui", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Ajustes nos botões sociais para a coluna esquerda */
+/* Ajustes nos bot?es sociais para a coluna esquerda */
 #contato .social-buttons {
     flex-direction: column;
     align-items: flex-start;
@@ -968,7 +1051,7 @@ body.light-theme .theme-toggle-btn .fa-moon {
 #contato .social-btn {
     width: 100%;
     max-width: 280px;
-    /* Limita a largura dos botões */
+    /* Limita a largura dos bot?es */
     justify-content: flex-start;
 }
 
@@ -978,7 +1061,7 @@ body.light-theme .theme-toggle-btn .fa-moon {
     transition: transform 0.3s ease;
 }
 
-/* Mostra o texto "Para um contato mais rápido, use o botão flutuante." apenas no mobile */
+/* Mostra o texto "Para um contato mais r?pido, use o bot?o flutuante." apenas no mobile */
 
 .only-mobile {
     display: none !important;
@@ -990,14 +1073,14 @@ body.light-theme .theme-toggle-btn .fa-moon {
     }
 }
 
-/* Esconde a separação "------OU------" no mobile */
+/* Esconde a separa??o "------OU------" no mobile */
 @media (max-width: 600px) {
     .formspree-separation {
         display: none !important;
     }
 }
 
-/* Contêiner dos botões sociais */
+/* Cont?iner dos bot?es sociais */
 .social-buttons {
     display: flex;
     justify-content: center;
@@ -1006,10 +1089,10 @@ body.light-theme .theme-toggle-btn .fa-moon {
     margin-top: 1.25rem;
     /* 20px */
     flex-direction: column;
-    /* Permite que os botões quebrem a linha em telas menores */
+    /* Permite que os bot?es quebrem a linha em telas menores */
 }
 
-/* Estilo geral dos botões sociais, alinhado com o design da página */
+/* Estilo geral dos bot?es sociais, alinhado com o design da p?gina */
 .social-btn {
     display: inline-flex;
     /* Usar inline-flex para melhor alinhamento */
@@ -1017,7 +1100,7 @@ body.light-theme .theme-toggle-btn .fa-moon {
     gap: 0.7rem;
     padding: 0.8rem 1.5rem;
     border-radius: 4px;
-    /* Mesmo border-radius dos outros botões */
+    /* Mesmo border-radius dos outros bot?es */
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 500;
@@ -1168,9 +1251,9 @@ html {
         padding-top: 4rem;
         text-align: center;
         position: relative;
-        /* Necessário para o posicionamento absoluto da seta */
+        /* Necess?rio para o posicionamento absoluto da seta */
         padding-bottom: 5rem;
-        /* Garante espaço para a seta no final da seção */
+        /* Garante espa?o para a seta no final da se??o */
         min-height: 90vh;
     }
 
@@ -1185,12 +1268,12 @@ html {
 
     .content-hero {
         margin: 0;
-        /* Centraliza os elementos filhos (texto, botão, sociais) */
+        /* Centraliza os elementos filhos (texto, bot?o, sociais) */
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 1.5rem;
-        /* Espaçamento consistente entre texto, botão e ícones sociais */
+        /* Espa?amento consistente entre texto, bot?o e ?cones sociais */
     }
 
     .avatar-img {
@@ -1208,7 +1291,7 @@ html {
     }
 
     .hero-text-container {
-        /* Remove a margem inferior, pois o 'gap' no pai (.content-hero) já cuida do espaçamento */
+        /* Remove a margem inferior, pois o 'gap' no pai (.content-hero) j? cuida do espa?amento */
         margin-bottom: 0;
     }
 
@@ -1220,13 +1303,13 @@ html {
     .project-card {
         width: 100%;
         max-width: 450px;
-        /* Ajusta o tamanho máximo do card */
+        /* Ajusta o tamanho m?ximo do card */
         margin: 0 auto;
         /* Centraliza os cards quando a grade tem 1 coluna */
     }
 }
 
-/* Skills: quadrados menores e menos espaço */
+/* Skills: quadrados menores e menos espa?o */
 @media (max-width: 700px) {
     .skills-container {
         gap: 1.5rem;
@@ -1245,7 +1328,28 @@ html {
     }
 }
 
-/* Serviços: layout em grade no mobile */
+@media (max-width: 900px) {
+    .status {
+        display: flex;
+        position: static;
+        transform: none;
+        margin: 2.9rem auto 0 auto;
+        max-width: 93%;
+        box-shadow: 0px 2px 6px var(--c-brand-dark);
+    }
+
+    .status-text {
+        font-size: 1rem;
+        margin-left: 0.5rem;
+    }
+
+    .status-indicator {
+        width: 9px;
+        height: 9px;
+    }
+}
+
+/* Servi?os: layout em grade no mobile */
 @media (max-width: 900px) {
     .servicos-container {
         display: grid;
@@ -1253,7 +1357,7 @@ html {
         gap: 1.5rem;
         padding: 1.5rem 1rem;
         height: auto;
-        /* Altura automática */
+        /* Altura autom?tica */
     }
 
     .box-grid {
@@ -1262,13 +1366,13 @@ html {
         width: 100%;
         /* Ocupar a largura da coluna da grade */
         max-width: none;
-        /* Remover largura máxima */
+        /* Remover largura m?xima */
         min-width: 0;
-        /* Remover largura mínima */
+        /* Remover largura m?nima */
         height: 160px;
         /* Manter altura fixa se desejado, ou usar 'auto' */
         margin: 0;
-        /* Remover margem automática */
+        /* Remover margem autom?tica */
         background: var(--c-bg-soft);
         border-radius: 16px;
         box-shadow: 0 2px 12px var(--c-shadow-brand);
@@ -1288,32 +1392,32 @@ html {
     }
 
     .contact-info-left {
-        /* Permite que a coluna de texto ocupe a largura necessária */
+        /* Permite que a coluna de texto ocupe a largura necess?ria */
         max-width: 100%;
-        /* Centraliza todo o conteúdo (título, parágrafo, botões) */
+        /* Centraliza todo o conte?do (t?tulo, par?grafo, bot?es) */
         text-align: center;
     }
 
     .contact-text-container p {
-        /* Garante que o parágrafo também seja centralizado */
+        /* Garante que o par?grafo tamb?m seja centralizado */
         text-align: initial;
         padding: 0 1rem 0 1.5rem;
     }
 
     #contato .social-buttons {
-        /* Centraliza os botões sociais */
+        /* Centraliza os bot?es sociais */
         align-items: center;
     }
 
     .contact-form-right {
-        /* Garante que a coluna do formulário ocupe toda a largura */
+        /* Garante que a coluna do formul?rio ocupe toda a largura */
         width: 100%;
         padding: 0 1rem;
         /* Adiciona um respiro lateral */
     }
 
-    /* O formulário em si já tem um max-width e margin: auto, o que é bom. */
-    /* Apenas garantimos que ele tenha uma aparência de "card" no mobile. */
+    /* O formul?rio em si j? tem um max-width e margin: auto, o que ? bom. */
+    /* Apenas garantimos que ele tenha uma apar?ncia de "card" no mobile. */
     .contact-form-container {
         background: var(--c-bg-soft);
         /* Um fundo para destacar */
@@ -1322,7 +1426,7 @@ html {
         border: 1px solid var(--c-border);
         box-shadow: 0 4px 24px var(--c-shadow);
         margin: 0 auto;
-        /* Garante a centralização */
+        /* Garante a centraliza??o */
     }
 
     /* Ajusta a cor de fundo do label flutuante para o novo fundo do card */
@@ -1362,7 +1466,7 @@ html {
 /* Navbar Mobile */
 .mobile-nav {
     display: none;
-    /* Escondido por padrão */
+    /* Escondido por padr?o */
 }
 
 /* Mobile Header */
@@ -1587,7 +1691,7 @@ footer {
 }
 
 main {
-    /* Adiciona padding no topo para não ficar atrás do header fixo 
+    /* Adiciona padding no topo para n?o ficar atr?s do header fixo 
     padding-top: 75px;
     */
     width: 100%;
@@ -1668,17 +1772,17 @@ main {
         border-radius: 10px;
         box-shadow: 0 1px 6px var(--c-shadow);
         padding: 1.5rem;
-        /* Aumentar o padding para dar mais espaço */
+        /* Aumentar o padding para dar mais espa?o */
         text-align: center;
         min-height: auto;
-        /* Reseta a altura mínima para o conteúdo */
+        /* Reseta a altura m?nima para o conte?do */
     }
 
     .contact-icon {
         width: 60px;
-        /* Aumentar o tamanho do ícone */
+        /* Aumentar o tamanho do ?cone */
         height: 60px;
-        /* Aumentar o tamanho do ícone */
+        /* Aumentar o tamanho do ?cone */
         margin-bottom: 0.75rem;
         /* Ajustar margem */
     }
@@ -1686,14 +1790,14 @@ main {
     .contact-icon img,
     .contact-icon svg {
         width: 36px;
-        /* Aumentar o tamanho da imagem/svg dentro do ícone */
+        /* Aumentar o tamanho da imagem/svg dentro do ?cone */
         height: 36px;
-        /* Aumentar o tamanho da imagem/svg dentro do ícone */
+        /* Aumentar o tamanho da imagem/svg dentro do ?cone */
     }
 
     .contact-title {
         font-size: 1.2rem;
-        /* Aumentar o tamanho da fonte do título */
+        /* Aumentar o tamanho da fonte do t?tulo */
     }
 
     .contact-detail {
@@ -1702,7 +1806,7 @@ main {
     }
 }
 
-/* Header fixo e glass effect só no desktop */
+/* Header fixo e glass effect s? no desktop */
 @media (min-width: 901px) {
     header {
         position: fixed;
@@ -1711,7 +1815,7 @@ main {
         width: 100vw;
         z-index: 100;
         background: transparent;
-        /* Removido o rgba, agora é transparente */
+        /* Removido o rgba, agora ? transparente */
         backdrop-filter: blur(16px) saturate(1.2);
         box-shadow: 0 2px 24px rgba(34, 197, 94, 0.08);
         border-bottom: 1.5px solid rgba(123, 216, 143, 0.12);
@@ -1728,7 +1832,7 @@ main {
     }
 }
 
-/* No mobile, header normal, não fixo */
+/* No mobile, header normal, n?o fixo */
 @media (max-width: 900px) {
     header {
         position: static;
@@ -1754,7 +1858,7 @@ main {
 /* O texto do tooltip (a "nuvem") */
 .tooltip-text {
     visibility: hidden;
-    /* Escondido por padrão */
+    /* Escondido por padr?o */
     width: 120px;
     background-color: #333;
     /* Cor de fundo da nuvem */
@@ -1769,17 +1873,17 @@ main {
     position: absolute;
     z-index: 1;
     bottom: 110%;
-    /* Posição acima da imagem */
+    /* Posi??o acima da imagem */
     left: 50%;
     margin-left: -60px;
     /* Metade da largura (width) para centralizar */
 
-    /* Efeito de transição suave */
+    /* Efeito de transi??o suave */
     opacity: 0;
     transition: opacity 0.3s;
 }
 
-/* Flecha para baixo (opcional, mas dá um visual legal) */
+/* Flecha para baixo (opcional, mas d? um visual legal) */
 .tooltip-text::after {
     content: "";
     position: absolute;
@@ -1800,7 +1904,7 @@ main {
 /* Container do Modal */
 .modal-container {
     display: none;
-    /* Escondido por padrão */
+    /* Escondido por padr?o */
     position: fixed;
     z-index: 9999;
     left: 0;
@@ -1828,15 +1932,15 @@ main {
     image-rendering: crisp-edges;
     /* Evita desfoque em redimensionamento */
     transform: translateZ(0);
-    /* Força aceleração de hardware (GPU) */
+    /* For?a acelera??o de hardware (GPU) */
     backface-visibility: hidden;
-    /* Evita flickering em animações */
+    /* Evita flickering em anima??es */
 
     animation: zoomIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-    /* Animação mais suave */
+    /* Anima??o mais suave */
 }
 
-/* Botão Fechar */
+/* Bot?o Fechar */
 .modal-close {
     position: absolute;
     top: 20px;
@@ -1851,17 +1955,17 @@ main {
 [data-zoom] {
     cursor: zoom-in;
     transition: 0.3s;
-    /* Melhora a renderização geral mesmo em tamanho pequeno */
+    /* Melhora a renderiza??o geral mesmo em tamanho pequeno */
     image-rendering: auto;
     object-fit: cover;
-    /* Garante que a imagem preencha o espaço sem distorcer */
+    /* Garante que a imagem preencha o espa?o sem distorcer */
 }
 
 [data-zoom]:hover {
     opacity: 0.8;
 }
 
-/* Animação */
+/* Anima??o */
 @keyframes zoomIn {
     from {
         transform: scale(0.7);
@@ -1871,5 +1975,799 @@ main {
     to {
         transform: scale(1);
         opacity: 1;
+    }
+}
+
+/* =========================
+   About Stats Section
+   ========================= */
+
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 1.15rem;
+    margin: 3rem auto 0;
+    padding: 1.15rem;
+    max-width: 760px;
+    border-radius: 22px;
+    border: 1px solid rgba(124, 255, 196, 0.14);
+    background:
+        radial-gradient(circle at top right, rgba(124, 255, 196, 0.12), transparent 45%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
+        var(--c-bg-soft);
+    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.24), 0 4px 26px var(--c-shadow-brand);
+    backdrop-filter: blur(8px);
+}
+
+.stat-item {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    min-height: 156px;
+    padding: 1.35rem 1.3rem;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(175deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.stat-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(124, 255, 196, 0.08), transparent 55%);
+    opacity: 0.85;
+    pointer-events: none;
+}
+
+.stat-item::after {
+    content: '';
+    position: absolute;
+    top: -32px;
+    right: -24px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(124, 255, 196, 0.2), rgba(124, 255, 196, 0));
+    pointer-events: none;
+}
+
+.stat-item:hover {
+    transform: translateY(-4px);
+    border-color: rgba(124, 255, 196, 0.4);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.24);
+}
+
+.stat-item[data-tone="experience"] .stat-icon {
+    background: linear-gradient(135deg, rgba(255, 210, 122, 0.24), rgba(255, 210, 122, 0.08));
+    color: #ffd27a;
+}
+
+.stat-item[data-tone="projects"] .stat-icon {
+    background: linear-gradient(135deg, rgba(124, 255, 196, 0.24), rgba(124, 255, 196, 0.08));
+    color: var(--c-brand);
+}
+
+.stat-icon {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 0.95rem;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 1rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.stat-number {
+    position: relative;
+    z-index: 1;
+    font-size: clamp(2.1rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--c-brand);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    text-shadow: 0 0 18px rgba(124, 255, 196, 0.16);
+}
+
+.stat-label {
+    position: relative;
+    z-index: 1;
+    margin-top: 0.45rem;
+    font-size: clamp(0.98rem, 1.6vw, 1.05rem);
+    font-weight: 600;
+    color: var(--c-text);
+}
+
+.stat-helper {
+    position: relative;
+    z-index: 1;
+    margin-top: 0.5rem;
+    font-size: 0.83rem;
+    line-height: 1.45;
+    color: var(--c-text-soft);
+}
+
+@media (max-width: 700px) {
+    .about-stats {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+    }
+}
+
+/* =========================
+   About Text Readability
+   ========================= */
+
+.about .about-text {
+    max-width: 78ch;
+    margin: 2.2rem auto;
+    padding: clamp(1.2rem, 2.4vw, 2.1rem);
+    border-radius: 16px;
+    border: 1px solid rgba(124, 255, 196, 0.22);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
+        linear-gradient(135deg, var(--c-bg-soft) 70%, rgba(124, 255, 196, 0.08) 100%);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+    text-align: left;
+}
+
+.about .about-text p {
+    margin: 0;
+    font-size: clamp(1.02rem, 1.45vw, 1.16rem);
+    line-height: 1.9;
+    color: var(--c-text);
+    letter-spacing: 0.01em;
+    text-wrap: pretty;
+}
+
+.about .about-text p+p {
+    margin-top: 1.1rem;
+}
+
+.about .about-text p:first-child {
+    font-size: clamp(1.08rem, 1.6vw, 1.24rem);
+    color: var(--c-brand);
+    font-weight: 600;
+}
+
+.about .about-text abbr {
+    color: var(--c-brand);
+    text-decoration-color: rgba(124, 255, 196, 0.45);
+    text-underline-offset: 2px;
+}
+
+@media (max-width: 700px) {
+    .about .about-text {
+        margin: 1.1rem 0.55rem;
+        padding: 1rem 0.95rem;
+        border-radius: 12px;
+    }
+
+    .about .about-text p {
+        line-height: 1.75;
+    }
+}
+
+/* =========================
+   Project README Modal
+   ========================= */
+
+body.readme-modal-open {
+    overflow: hidden;
+}
+
+.project-readme-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(6, 10, 12, 0.72);
+    backdrop-filter: blur(4px);
+}
+
+.project-readme-modal.is-open {
+    display: flex;
+}
+
+.project-readme-dialog {
+    position: relative;
+    width: min(980px, 100%);
+    max-height: min(90vh, 860px);
+    overflow: auto;
+    border-radius: 16px;
+    border: 1px solid rgba(124, 255, 196, 0.24);
+    background:
+        radial-gradient(circle at top right, rgba(124, 255, 196, 0.14), transparent 35%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01)),
+        #0f171b;
+    box-shadow: 0 24px 52px rgba(0, 0, 0, 0.5);
+}
+
+.project-readme-close {
+    position: absolute;
+    top: 0.65rem;
+    right: 0.85rem;
+    border: 0;
+    background: transparent;
+    color: var(--c-text-soft);
+    font-size: 1.8rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.project-readme-close:hover {
+    color: var(--c-brand);
+}
+
+.project-readme-header {
+    padding: 1.1rem 1.2rem 1rem;
+    border-bottom: 1px solid rgba(124, 255, 196, 0.15);
+}
+
+.project-readme-kicker {
+    margin: 0;
+    color: var(--c-brand);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+#projectReadmeTitle {
+    margin: 0.35rem 0 0;
+    color: var(--c-text);
+    font-size: clamp(1.1rem, 2.3vw, 1.55rem);
+}
+
+.project-readme-media {
+    padding: 1rem 1.2rem 0.8rem;
+    border-bottom: 1px solid rgba(124, 255, 196, 0.14);
+}
+
+#projectReadmeImage {
+    width: 100%;
+    max-height: 310px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid rgba(124, 255, 196, 0.22);
+    background: rgba(16, 22, 26, 0.8);
+}
+
+.project-readme-actions {
+    margin-top: 0.85rem;
+    display: flex;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+}
+
+.project-readme-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 170px;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    font-size: 0.94rem;
+    font-weight: 600;
+    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.project-readme-action.is-live {
+    background: var(--c-brand);
+    color: #0f1513;
+    border-color: var(--c-brand);
+}
+
+.project-readme-action.is-repo {
+    background: transparent;
+    color: var(--c-text);
+    border-color: rgba(124, 255, 196, 0.4);
+}
+
+.project-readme-action:hover {
+    transform: translateY(-2px);
+}
+
+.project-readme-action.is-live:hover {
+    background: #9cf0b1;
+}
+
+.project-readme-action.is-repo:hover {
+    border-color: var(--c-brand);
+    color: var(--c-brand);
+    background: rgba(124, 255, 196, 0.08);
+}
+
+.project-readme-body {
+    padding: 1.1rem 1.2rem 1.35rem;
+    color: #e5ece9;
+    line-height: 1.75;
+}
+
+.project-readme-body h1,
+.project-readme-body h2,
+.project-readme-body h3 {
+    margin: 1.1rem 0 0.6rem;
+    color: var(--c-brand);
+    font-weight: 700;
+}
+
+.project-readme-body h1 {
+    font-size: 1.3rem;
+}
+
+.project-readme-body h2 {
+    font-size: 1.1rem;
+}
+
+.project-readme-body h3 {
+    font-size: 1rem;
+}
+
+.project-readme-body p {
+    margin: 0.65rem 0;
+}
+
+.project-readme-body ul {
+    margin: 0.6rem 0 0.9rem 1.1rem;
+}
+
+.project-readme-body li {
+    margin: 0.35rem 0;
+}
+
+.project-readme-body code {
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
+    background: rgba(151, 237, 170, 0.14);
+    color: #c8f9d3;
+    font-size: 0.92em;
+}
+
+@media (max-width: 700px) {
+    .project-readme-modal {
+        padding: 0.55rem;
+    }
+
+    .project-readme-dialog {
+        max-height: 90vh;
+        border-radius: 12px;
+    }
+
+    .project-readme-header {
+        padding: 0.9rem 0.95rem 0.75rem;
+    }
+
+    .project-readme-media {
+        padding: 0.8rem 0.95rem 0.7rem;
+    }
+
+    #projectReadmeImage {
+        max-height: 190px;
+        border-radius: 10px;
+    }
+
+    .project-readme-actions {
+        gap: 0.55rem;
+    }
+
+    .project-readme-action {
+        min-width: 0;
+        width: calc(50% - 0.3rem);
+        padding: 0.48rem 0.65rem;
+        font-size: 0.87rem;
+    }
+
+    .project-readme-body {
+        padding: 0.9rem 0.95rem 1rem;
+        line-height: 1.65;
+    }
+}
+
+/* =========================
+   Skill Details Modal
+   ========================= */
+
+body.skill-modal-open {
+    overflow: hidden;
+}
+
+.skill-details-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1300;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(6, 10, 12, 0.74);
+    backdrop-filter: blur(4px);
+}
+
+.skill-details-modal.is-open {
+    display: flex;
+}
+
+.skill-details-dialog {
+    position: relative;
+    width: min(620px, 100%);
+    max-height: min(88vh, 680px);
+    overflow: auto;
+    border-radius: 16px;
+    border: 1px solid rgba(124, 255, 196, 0.28);
+    background:
+        radial-gradient(circle at top right, rgba(124, 255, 196, 0.14), transparent 42%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+        #0f171b;
+    box-shadow: 0 24px 52px rgba(0, 0, 0, 0.55);
+}
+
+.skill-details-close {
+    position: absolute;
+    top: 0.65rem;
+    right: 0.85rem;
+    border: 0;
+    background: transparent;
+    color: var(--c-text-soft);
+    font-size: 1.8rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.skill-details-close:hover {
+    color: var(--c-brand);
+}
+
+.skill-details-header {
+    padding: 1.1rem 1.2rem 1rem;
+    border-bottom: 1px solid rgba(124, 255, 196, 0.15);
+}
+
+.skill-details-kicker {
+    margin: 0;
+    color: var(--c-brand);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+#skillDetailsTitle {
+    margin: 0.35rem 0 0;
+    color: var(--c-text);
+    font-size: clamp(1.1rem, 2.3vw, 1.5rem);
+}
+
+.skill-details-body {
+    padding: 1rem 1.2rem 1.3rem;
+    color: #e5ece9;
+    line-height: 1.7;
+}
+
+.skill-details-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 0.95rem;
+}
+
+#skillDetailsIcon {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    border: 1px solid rgba(124, 255, 196, 0.28);
+    border-radius: 12px;
+    padding: 0.7rem;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+#skillDetailsDescription,
+#skillDetailsUsage {
+    margin: 0;
+}
+
+.skill-details-extras {
+    margin-top: 0.9rem;
+    display: grid;
+    gap: 0.55rem;
+}
+
+.skill-detail-panel {
+    border: 1px solid rgba(124, 255, 196, 0.18);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    overflow: hidden;
+}
+
+.skill-detail-panel summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 0.8rem 0.95rem;
+    font-size: 0.94rem;
+    font-weight: 600;
+    color: #f3fff8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.skill-detail-panel summary::-webkit-details-marker {
+    display: none;
+}
+
+.skill-detail-panel summary::after {
+    content: '+';
+    font-size: 1rem;
+    color: var(--c-text-soft);
+}
+
+.skill-detail-panel[open] summary::after {
+    content: '-';
+}
+
+#skillDetailsUsage,
+#skillDetailsTechTerms,
+#skillDetailsSimple {
+    margin: 0;
+    padding: 0 0.95rem 0.9rem;
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+#skillDetailsUsage {
+    color: var(--c-text-soft);
+}
+
+#skillDetailsTechTerms {
+    color: #d9fce2;
+}
+
+#skillDetailsSimple {
+    color: #d9e9ff;
+}
+
+
+.skill-details-badges {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.skill-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.34rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    border: 1px solid transparent;
+}
+
+.skill-badge-area {
+    background: rgba(124, 255, 196, 0.16);
+    border-color: rgba(124, 255, 196, 0.34);
+    color: #c8f9d3;
+}
+
+.skill-badge-category {
+    background: rgba(105, 198, 255, 0.16);
+    border-color: rgba(105, 198, 255, 0.35);
+    color: #d0eeff;
+}
+
+@media (max-width: 700px) {
+    .skill-details-modal {
+        padding: 0.55rem;
+    }
+
+    .skill-details-dialog {
+        border-radius: 12px;
+    }
+
+    .skill-details-header {
+        padding: 0.9rem 0.95rem 0.75rem;
+    }
+
+    .skill-details-body {
+        padding: 0.9rem 0.95rem 1rem;
+        line-height: 1.62;
+    }
+
+    #skillDetailsIcon {
+        width: 64px;
+        height: 64px;
+    }
+}
+
+/* Services alignment fixes */
+.box-grid[data-service] {
+    cursor: pointer;
+    min-height: 220px;
+    height: auto;
+}
+
+.box-grid[data-service]:focus-visible {
+    outline: 2px solid var(--c-brand);
+    outline-offset: 4px;
+}
+
+.box-grid[data-service] .box-grid-inner {
+    justify-content: flex-start;
+}
+
+.box-grid[data-service] h2 {
+    font-size: 1.18rem;
+    line-height: 1.25;
+}
+
+.box-description {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--c-text-soft);
+}
+
+.service-card-hint {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.28rem 0.65rem;
+    border-radius: 999px;
+    border: 1px solid rgba(124, 255, 196, 0.18);
+    background: rgba(124, 255, 196, 0.08);
+    color: var(--c-brand);
+    font-size: 0.76rem;
+    font-weight: 600;
+}
+
+@media (max-width: 900px) {
+    .box-grid[data-service] {
+        min-height: 0;
+        height: auto;
+    }
+}
+
+/* Service details modal */
+body.service-modal-open {
+    overflow: hidden;
+}
+
+.service-details-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1280;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(6, 10, 12, 0.72);
+    backdrop-filter: blur(4px);
+}
+
+.service-details-modal.is-open {
+    display: flex;
+}
+
+.service-details-dialog {
+    position: relative;
+    width: min(680px, 100%);
+    max-height: min(88vh, 720px);
+    overflow: auto;
+    border-radius: 16px;
+    border: 1px solid rgba(124, 255, 196, 0.24);
+    background:
+        radial-gradient(circle at top right, rgba(124, 255, 196, 0.14), transparent 40%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+        #0f171b;
+    box-shadow: 0 24px 52px rgba(0, 0, 0, 0.5);
+}
+
+.service-details-close {
+    position: absolute;
+    top: 0.65rem;
+    right: 0.85rem;
+    border: 0;
+    background: transparent;
+    color: var(--c-text-soft);
+    font-size: 1.8rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.service-details-close:hover {
+    color: var(--c-brand);
+}
+
+.service-details-header {
+    padding: 1.1rem 1.2rem 1rem;
+    border-bottom: 1px solid rgba(124, 255, 196, 0.15);
+}
+
+.service-details-kicker {
+    margin: 0;
+    color: var(--c-brand);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+#serviceDetailsTitle {
+    margin: 0.35rem 0 0;
+    color: var(--c-text);
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+}
+
+.service-details-body {
+    padding: 1rem 1.2rem 1.3rem;
+    color: #e5ece9;
+    line-height: 1.7;
+}
+
+#serviceDetailsDescription {
+    margin: 0;
+    color: var(--c-text-soft);
+}
+
+.service-details-points,
+.service-details-note {
+    margin-top: 1rem;
+    padding: 0.95rem 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(124, 255, 196, 0.14);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.service-details-points h4,
+.service-details-note h4 {
+    margin: 0 0 0.6rem;
+    color: var(--c-text);
+    font-size: 0.98rem;
+}
+
+#serviceDetailsIncludes {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--c-text-soft);
+}
+
+#serviceDetailsIncludes li+li {
+    margin-top: 0.45rem;
+}
+
+#serviceDetailsFaq {
+    margin: 0;
+    color: var(--c-text-soft);
+}
+
+@media (max-width: 700px) {
+    .service-details-modal {
+        padding: 0.55rem;
+    }
+
+    .service-details-dialog {
+        border-radius: 12px;
+    }
+
+    .service-details-header {
+        padding: 0.9rem 0.95rem 0.75rem;
+    }
+
+    .service-details-body {
+        padding: 0.9rem 0.95rem 1rem;
     }
 }

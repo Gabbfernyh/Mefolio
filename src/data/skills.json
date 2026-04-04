@@ -1,0 +1,144 @@
+﻿{
+    "skills": {
+        "html5": {
+            "name": "HTML5",
+            "icon": "src/assets/img/icons/html.svg",
+            "description": "Linguagem de marcação para estruturar páginas e componentes semânticos na web.",
+            "usage": "Uso para organizar conteúdo, SEO técnico, acessibilidade e a base de qualquer interface Front-end.",
+            "techTerms": "Semântica, tags, DOM, SEO on-page.",
+            "simpleExplanation": "Web (estrutura da página).",
+            "area": "Web (estrutura da página)",
+            "category": "Frontend"
+        },
+        "css3": {
+            "name": "CSS3",
+            "icon": "src/assets/img/icons/css.svg",
+            "description": "Folha de estilos para layout, responsividade, animações e identidade visual.",
+            "usage": "Uso para construir Design System, adaptar interfaces a diferentes telas e aplicar microinterações.",
+            "techTerms": "Flexbox, Grid, media queries, keyframes.",
+            "simpleExplanation": "É a parte visual: cores, espaçamento, tamanho dos elementos e aparência em cada tela.",
+            "area": "UI | UX",
+            "category": "Frontend | Design"
+        },
+        "javascript": {
+            "name": "JavaScript",
+            "icon": "src/assets/img/icons/javascript.svg",
+            "description": "Linguagem de programação principal do ecossistema web para criar interatividade.",
+            "usage": "Uso para lógica de interface, consumo de APIs, validações e comportamentos dinâmicos no cliente e no servidor.",
+            "techTerms": "Eventos, funções, promises, fetch, async/await.",
+            "simpleExplanation": "Front-end e Back-end (lógica e vida da página).",
+            "area": "Front-end | Back-end (lógica e vida da página)",
+            "category": "Frontend | Backend"
+        },
+        "typescript": {
+            "name": "TypeScript",
+            "icon": "src/assets/img/icons/icons8-typescript.svg",
+            "description": "Superset do JavaScript que adiciona tipagem estática para deixar o código mais previsível e seguro.",
+            "usage": "Uso para reduzir erros em projetos maiores, melhorar a manutenção do código e trazer mais clareza para componentes, funções e dados.",
+            "techTerms": "Tipagem estática, interfaces, types, generics e inferência.",
+            "simpleExplanation": "É como um JavaScript com regras extras que ajudam a evitar erros antes mesmo de rodar o projeto.",
+            "area": "Front-end | Back-end | Escalabilidade",
+            "category": "Frontend | Backend"
+        },
+        "react": {
+            "name": "React",
+            "icon": "src/assets/img/icons/react.svg",
+            "description": "Biblioteca para desenvolvimento de interfaces componentizadas e reativas.",
+            "usage": "Uso para criar UIs escaláveis, reaproveitar componentes e gerenciar estado em aplicações web.",
+            "techTerms": "Componentes, props, state, hooks, SPA.",
+            "simpleExplanation": "Ajuda a montar telas em blocos reutilizáveis, deixando o projeto mais organizado.",
+            "area": "Aplicações Web | SPA",
+            "category": "Frontend"
+        },
+        "bootstrap": {
+            "name": "Bootstrap CSS",
+            "icon": "src/assets/img/icons/logos--bootstrap.svg",
+            "description": "Framework CSS com grid, utilitários e componentes prontos para acelerar entregas.",
+            "usage": "Uso em prototipação rápida e padronização visual quando preciso ganhar velocidade no desenvolvimento.",
+            "techTerms": "Grid system, utilities, breakpoints, componentes.",
+            "simpleExplanation": "É um kit pronto de estilos para montar páginas rápidas e responsivas.",
+            "area": "UI | Prototipação",
+            "category": "Frontend | Design"
+        },
+        "nodejs": {
+            "name": "Node.js",
+            "icon": "src/assets/img/icons/node-js-brands-solid-full.svg",
+            "description": "Runtime JavaScript para executar código no servidor e criar APIs.",
+            "usage": "Uso para construir Backends, automações, scripts de build e integrações com bancos de dados.",
+            "techTerms": "Runtime, API REST, NPM, módulos.",
+            "simpleExplanation": "Permite usar JavaScript no servidor para processar dados e responder requisições.",
+            "area": "Servidor | APIs | Automação",
+            "category": "Backend | Ferramenta"
+        },
+        "git": {
+            "name": "Git",
+            "icon": "src/assets/img/icons/git-alt-brands-solid-full.svg",
+            "description": "Sistema de controle de versão distribuído para histórico e colaboração.",
+            "usage": "Uso para versionamento de código, revisão de alterações e fluxo com branches em projetos.",
+            "techTerms": "Commit, branch, merge, pull request.",
+            "simpleExplanation": "Guarda o histórico do projeto e permite voltar versões sem perder trabalho.",
+            "area": "Colaboração | Versionamento",
+            "category": "Ferramenta | DevOps"
+        },
+        "figma": {
+            "name": "Figma",
+            "icon": "src/assets/img/icons/figma.svg",
+            "description": "Ferramenta de design de interface e prototipação colaborativa.",
+            "usage": "Uso para criar layouts, componentes visuais e handoff para implementação Front-end.",
+            "techTerms": "Wireframe, protótipo, design system, handoff.",
+            "simpleExplanation": "É onde o visual do produto é desenhado antes de virar código.",
+            "area": "Produto Digital | UI | UX",
+            "category": "Design | Frontend"
+        },
+        "mysql": {
+            "name": "MySQL",
+            "icon": "src/assets/img/icons/simple-icons--mysql.svg",
+            "description": "Banco de dados relacional orientado a tabelas e consultas SQL.",
+            "usage": "Uso para armazenar dados estruturados, relações entre entidades e consultas transacionais.",
+            "techTerms": "SQL, tabela, relacionamento, índice, query.",
+            "simpleExplanation": "É um lugar para guardar dados organizados, como usuários, pedidos e produtos.",
+            "area": "Dados | Persistência",
+            "category": "Backend | Banco de Dados"
+        },
+        "mongodb": {
+            "name": "MongoDB",
+            "icon": "src/assets/img/icons/flowbite--mongo-db-solid.svg",
+            "description": "Banco de dados NoSQL orientado a documentos (JSON/BSON).",
+            "usage": "Uso quando o schema precisa de flexibilidade e evolução rápida, sem migrações complexas.",
+            "techTerms": "NoSQL, documento, coleção, BSON.",
+            "simpleExplanation": "Guarda dados em formato parecido com JSON, com estrutura mais flexível.",
+            "area": "Dados | Persistência",
+            "category": "Backend | Banco de Dados"
+        },
+        "postgresql": {
+            "name": "PostgreSQL",
+            "icon": "src/assets/img/icons/akar-icons--postgresql-fill.svg",
+            "description": "Banco de dados relacional avançado, com foco em consistência e recursos SQL robustos.",
+            "usage": "Uso para sistemas que exigem integridade, consultas complexas e boa escalabilidade de dados.",
+            "techTerms": "SQL avançado, constraints, joins, transações.",
+            "simpleExplanation": "É um banco de dados forte para sistemas que precisam de alta confiabilidade.",
+            "area": "Dados | Persistência",
+            "category": "Backend | Banco de Dados"
+        },
+        "docker": {
+            "name": "Docker",
+            "icon": "src/assets/img/icons/devicon-plain--docker-wordmark.svg",
+            "description": "Plataforma de conteinerização para padronizar ambientes de desenvolvimento e deploy.",
+            "usage": "Uso para empacotar apps e dependências, reduzir erros de ambiente e facilitar CI/CD.",
+            "techTerms": "Container, imagem, Dockerfile, compose.",
+            "simpleExplanation": "Empacota o projeto com tudo que ele precisa para rodar igual em qualquer máquina.",
+            "area": "Infraestrutura | Deploy",
+            "category": "DevOps | Backend"
+        },
+        "axios": {
+            "name": "Axios",
+            "icon": "src/assets/img/icons/simple-icons--axios.svg",
+            "description": "Biblioteca HTTP para requisições assíncronas no navegador e no Node.js.",
+            "usage": "Uso para integrar APIs REST com tratamento de erros, interceptors e configuração centralizada.",
+            "techTerms": "HTTP client, request/response, interceptors.",
+            "simpleExplanation": "É uma forma prática de buscar e enviar dados para APIs.",
+            "area": "Integração | APIs",
+            "category": "Frontend | Backend"
+        }
+    }
+}

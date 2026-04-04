@@ -1,0 +1,42 @@
+{
+  "newtech-store": {
+    "title": "NewTech-store",
+    "readme": "# NewTech-store\n\n## Sobre\nE-commerce front-end focado em vitrine de produtos e navegação fluida.\n\n## Destaques\n- Layout responsivo para mobile e desktop\n- Estrutura de componentes simples e reutilizável\n- Fluxo visual orientado para conversão\n\n## Stack\n- HTML5\n- CSS3\n- JavaScript\n\n## Status\nProjeto publicado e em evolução contínua."
+  },
+  "previsao-do-tempo": {
+    "title": "Previsão do Tempo",
+    "readme": "# Previsão do Tempo\n\n## Sobre\nAplicação que consulta API meteorológica e apresenta clima atual por cidade.\n\n## Destaques\n- Busca dinâmica por localidade\n- Feedback visual para condições de clima\n- Tratamento de cenários sem resultado\n\n## Stack\n- HTML5\n- CSS3\n- JavaScript\n- API HTTP\n\n## Status\nProjeto funcional com foco em consumo de API."
+  },
+  "pokedevs": {
+    "title": "PokeDevs",
+    "readme": "# PokeDevs\n\n## Sobre\nProjeto interativo de cards temáticos com foco em animações e UX.\n\n## Destaques\n- Troca de estado visual ao interagir\n- Organização de informações em cards\n- Boas práticas de semântica no HTML\n\n## Stack\n- HTML5\n- CSS3\n- JavaScript\n\n## Status\nProjeto finalizado e publicado."
+  },
+  "my-card-linktree": {
+    "title": "Meu Cartão Pessoal Digital",
+    "readme": "# Meu Cartão Pessoal Digital\n\n## Sobre\nProjeto desenvolvido para apresentar minha identidade profissional de forma visual, moderna e objetiva, reunindo tecnologias, redes sociais e um resumo da minha trajetória como desenvolvedor.\n\n## Destaques\n- Layout responsivo e personalizado\n- Apresentação das principais stacks e redes sociais\n- Avatar com transição automática entre fotos\n- Estatísticas do GitHub sincronizadas com GitHub Actions e JSON local\n- Interface pensada para apresentação profissional rápida e clara\n\n## Stack\n- HTML\n- CSS\n- JavaScript\n- Bootstrap\n- GitHub Actions\n- JSON local\n\n## Status\nProjeto ativo, personalizado e pronto para uso."
+  },
+  "mefolio": {
+    "title": "Mefolio",
+    "readme": "# Mefolio\n\n## Sobre\nPortfólio pessoal com seções de projetos, skills, contato e integrações.\n\n## Destaques\n- Integração com GitHub para métricas\n- Animações de entrada e interações de UI\n- Estrutura modular de estilos e scripts\n\n## Stack\n- HTML5\n- CSS3\n- JavaScript\n- Tailwind CSS\n- Bootstrap CSS\n\n## Status\nProjeto ativo, com melhorias frequentes."
+  },
+  "jordan-shoes": {
+    "title": "Jordan Shoes",
+    "readme": "# Jordan Shoes\n\n## Sobre\nLanding page para produto com foco em apresentação visual.\n\n## Destaques\n- Hero forte com chamada para ação\n- Seção de produtos com layout limpo\n- Responsividade para diferentes telas\n\n## Stack\n- HTML5\n- CSS3\n- JavaScript\n- Figma\n\n## Status\nProjeto finalizado."
+  },
+  "food-jp": {
+    "title": "FOOD-JP",
+    "readme": "# FOOD-JP\n\n## Sobre\nLanding page de restaurante com proposta visual moderna.\n\n## Destaques\n- Seções de menu e apresentação de marca\n- Design orientado a conversão\n- Adaptação para mobile\n\n## Stack\n- HTML5\n- CSS3\n- JavaScript\n- Figma\n\n## Status\nProjeto publicado."
+  },
+  "house-of-the-dragon": {
+    "title": "House of the Dragon",
+    "readme": "# House of the Dragon\n\n## Sobre\nProjeto temático com foco em narrativa visual e ambientação.\n\n## Destaques\n- Uso de imagem e contraste para atmosfera\n- Estrutura simples de navegação\n- Experiência responsiva\n\n## Stack\n- HTML5\n- CSS3\n- JavaScript\n\n## Status\nProjeto finalizado."
+  },
+  "pobre-livre": {
+    "title": "Pobre Livre",
+    "readme": "# Pobre Livre\n\n## Sobre\nSite institucional com estrutura clara e componentes reutilizáveis.\n\n## Destaques\n- Arquitetura de seções objetiva\n- Tipografia com boa legibilidade\n- Iconografia com Font Awesome\n\n## Stack\n- HTML5\n- CSS3\n- JavaScript\n- Font Awesome\n\n## Status\nProjeto publicado."
+  },
+  "burguer-house": {
+    "title": "Burguer-House",
+    "readme": "# Burguer-House\n\n## Sobre\nLanding page para hamburgueria, com foco em cardápio e chamada de pedido.\n\n## Destaques\n- Seções com hierarquia visual consistente\n- Botão de ação destacado\n- Layout adaptado para mobile\n\n## Stack\n- HTML5\n- CSS3\n- JavaScript\n- Font Awesome\n\n## Status\nProjeto finalizado e publicado."
+  }
+}

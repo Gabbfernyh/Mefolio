@@ -23,6 +23,10 @@ function typeWriter(element, text, speed = 75, callback) {
  * Configura as animações de revelação de elementos ao rolar a página.
  */
 function initScrollReveal() {
+    if (typeof ScrollReveal !== 'function') {
+        return;
+    }
+
     const defaultOptions = {
         origin: 'bottom',
         distance: '30px', // Reduzido para um efeito mais "leve"
@@ -344,6 +348,241 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /**
+ * Inicializa modal de detalhes das skills a partir de um arquivo JSON.
+ */
+async function initSkillDetailsModal() {
+    const skillBoxes = Array.from(document.querySelectorAll('.skills-container .skill-box[data-skill]'));
+    if (!skillBoxes.length) return;
+
+    const modal = document.getElementById('skillDetailsModal');
+    const closeButton = document.getElementById('skillDetailsClose');
+    const title = document.getElementById('skillDetailsTitle');
+    const icon = document.getElementById('skillDetailsIcon');
+    const description = document.getElementById('skillDetailsDescription');
+    const usage = document.getElementById('skillDetailsUsage');
+    const techTerms = document.getElementById('skillDetailsTechTerms');
+    const simpleText = document.getElementById('skillDetailsSimple');
+    const detailPanels = Array.from(document.querySelectorAll('.skill-detail-panel'));
+    const areaBadge = document.getElementById('skillAreaBadge');
+    const categoryBadge = document.getElementById('skillCategoryBadge');
+
+    if (!modal || !closeButton || !title || !icon || !description || !usage || !techTerms || !simpleText || !areaBadge || !categoryBadge) return;
+
+    let skillsById = {};
+    let lastFocusedElement = null;
+    let activeSkillBox = null;
+
+    try {
+        const response = await fetch('src/data/skills.json');
+        if (!response.ok) {
+            throw new Error(`Falha ao carregar skills.json: ${response.status}`);
+        }
+
+        const payload = await response.json();
+        skillsById = payload.skills || {};
+    } catch (error) {
+        console.error('Não foi possível inicializar o modal de skills:', error);
+        return;
+    }
+
+    const closeModal = () => {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('skill-modal-open');
+
+        if (activeSkillBox) {
+            activeSkillBox.classList.remove('is-active');
+            activeSkillBox = null;
+        }
+
+        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+            lastFocusedElement.focus();
+        }
+
+        lastFocusedElement = null;
+    };
+
+    const openModal = (skillBox) => {
+        const skillId = skillBox.dataset.skill;
+        const data = skillsById[skillId];
+        if (!data) return;
+
+        lastFocusedElement = skillBox;
+
+        if (activeSkillBox && activeSkillBox !== skillBox) {
+            activeSkillBox.classList.remove('is-active');
+        }
+
+        activeSkillBox = skillBox;
+        activeSkillBox.classList.add('is-active');
+
+        const skillBoxImage = skillBox.querySelector('img');
+        const iconSrc = data.icon || (skillBoxImage ? skillBoxImage.getAttribute('src') : '');
+        const iconAlt = `Ícone da tecnologia ${data.name || 'selecionada'}`;
+
+        title.textContent = data.name || 'Tecnologia';
+        icon.src = iconSrc || '';
+        icon.alt = iconAlt;
+        description.textContent = data.description || '';
+        usage.textContent = data.usage || '';
+        techTerms.textContent = data.techTerms || 'Não informado';
+        simpleText.textContent = data.simpleExplanation || 'Não informado';
+        areaBadge.textContent = `Área: ${data.area || 'Não definida'}`;
+        categoryBadge.textContent = `Categoria: ${data.category || 'Não definida'}`;
+        detailPanels.forEach((panel, index) => {
+            panel.open = index === 0;
+        });
+
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('skill-modal-open');
+    };
+
+    skillBoxes.forEach((skillBox) => {
+        skillBox.addEventListener('click', () => openModal(skillBox));
+        skillBox.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                openModal(skillBox);
+            }
+        });
+    });
+
+    closeButton.addEventListener('click', closeModal);
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+            closeModal();
+        }
+    });
+}
+
+function initServiceDetailsModal() {
+    const serviceCards = Array.from(document.querySelectorAll('.servicos-container .box-grid[data-service]'));
+    if (!serviceCards.length) return;
+
+    const modal = document.getElementById('serviceDetailsModal');
+    const closeButton = document.getElementById('serviceDetailsClose');
+    const title = document.getElementById('serviceDetailsTitle');
+    const description = document.getElementById('serviceDetailsDescription');
+    const includes = document.getElementById('serviceDetailsIncludes');
+    const faq = document.getElementById('serviceDetailsFaq');
+
+    if (!modal || !closeButton || !title || !description || !includes || !faq) return;
+
+    const serviceContent = {
+        website: {
+            title: 'Criação de Sites',
+            description: 'Desenvolvo páginas sob medida para apresentar sua marca, produto ou serviço com mais clareza, presença digital e foco no objetivo do projeto.',
+            includes: [
+                'Estrutura visual e conteúdo bem organizados',
+                'Desenvolvimento front-end com atenção à performance',
+                'Páginas institucionais, portfólios e landing pages'
+            ],
+            faq: 'Se você ainda não tiver o layout pronto, posso estruturar a interface e alinhar uma direção visual antes da implementação.'
+        },
+        responsive: {
+            title: 'Sites Responsivos',
+            description: 'Ajusto o projeto para funcionar bem em diferentes tamanhos de tela, deixando a navegação mais confortável e consistente no mobile e no desktop.',
+            includes: [
+                'Adaptação para celular, tablet e desktop',
+                'Melhor hierarquia visual em telas menores',
+                'Ajustes de espaçamento, tipografia e interação'
+            ],
+            faq: 'Isso pode ser feito tanto em projetos novos quanto em sites que já existem e precisam de melhorias.'
+        },
+        hosting: {
+            title: 'Hospedagem',
+            description: 'Posso ajudar na etapa de publicação para colocar o site no ar com mais segurança e menos atrito técnico.',
+            includes: [
+                'Orientação sobre deploy e publicação',
+                'Ajustes básicos para ambiente de produção',
+                'Suporte na organização do fluxo de entrega'
+            ],
+            faq: 'Se você ainda não souber onde publicar, posso indicar a opção mais adequada ao tipo de projeto.'
+        },
+        maintenance: {
+            title: 'Manutencao de Sites & Suporte Tecnico',
+            description: 'Atendo manutencao de sites e suporte tecnico para computadores, desktops e notebooks, com foco em correcao, ajuste e funcionamento.',
+            includes: [
+                'Correcoes e ajustes em sites',
+                'Suporte para computadores, desktops e notebooks',
+                'Atendimento pontual ou acompanhamento recorrente'
+            ],
+            faq: 'Esse suporte pode cobrir desde problemas em um site ate necessidades praticas em computadores de uso pessoal ou profissional.'
+        },
+        seo: {
+            title: 'SEO & Performance',
+            description: 'Organizo a página com boas práticas técnicas para melhorar carregamento, estrutura e experiência de navegação.',
+            includes: [
+                'Otimização básica de performance',
+                'Melhor uso de semântica e estrutura da página',
+                'Ajustes que ajudam visibilidade e experiência'
+            ],
+            faq: 'SEO aqui não é promessa de posição imediata, e sim uma base técnica melhor para o site crescer de forma saudável.'
+        }
+    };
+
+    let lastFocusedElement = null;
+
+    const closeModal = () => {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('service-modal-open');
+
+        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+            lastFocusedElement.focus();
+        }
+
+        lastFocusedElement = null;
+    };
+
+    const openModal = (card) => {
+        const serviceId = card.dataset.service;
+        const data = serviceContent[serviceId];
+        if (!data) return;
+
+        lastFocusedElement = card;
+        title.textContent = data.title;
+        description.textContent = data.description;
+        faq.textContent = data.faq;
+        includes.innerHTML = data.includes.map((item) => `<li>${item}</li>`).join('');
+
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('service-modal-open');
+    };
+
+    serviceCards.forEach((card) => {
+        card.addEventListener('click', () => openModal(card));
+        card.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                openModal(card);
+            }
+        });
+    });
+
+    closeButton.addEventListener('click', closeModal);
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+            closeModal();
+        }
+    });
+}
+
+/**
  * Configura o scroll suave com deslocamento para o header fixo.
  */
 function initSmoothScroll() {
@@ -399,12 +638,13 @@ function addEventListeners() {
 function initContactForm() {
     const form = document.getElementById('contact-form');
     const statusDiv = document.getElementById('form-status');
-    const allInputs = Array.from(form.querySelectorAll('input, textarea'));
 
     if (!form || !statusDiv) {
         console.error("O formulário de contato ou a div de status não foram encontrados.");
         return;
     }
+
+    const allInputs = Array.from(form.querySelectorAll('input, textarea, select'));
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -428,6 +668,7 @@ function initContactForm() {
                 statusDiv.textContent = "Opaa... Mensagem enviada com sucesso! Muito obrigado por enviar seu contato! Em breve retornarei. 🚀";
                 statusDiv.className = "success";
                 form.reset();
+                allInputs.forEach((input) => input.classList.remove('has-content'));
             } else {
                 const responseData = await response.json();
                 if (Object.hasOwn(responseData, 'errors')) {
@@ -477,9 +718,17 @@ function initContactForm() {
                 input.classList.remove('has-content');
             }
         });
+
+        input.addEventListener('change', () => {
+            if (input.value) {
+                input.classList.add('has-content');
+            } else {
+                input.classList.remove('has-content');
+            }
+        });
     });
 
-    document.querySelectorAll('.form-group input, .form-group textarea').forEach(input => {
+    document.querySelectorAll('.form-group input, .form-group textarea, .form-group select').forEach(input => {
         input.addEventListener('focus', function () {
             if (!this.value) {
                 this.setAttribute('placeholder', this.dataset.placeholder || '');
@@ -532,13 +781,23 @@ function initThemeToggle() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    initScrollReveal();
+    try {
+        initScrollReveal();
+    } catch (error) {
+        console.warn('ScrollReveal indisponivel:', error);
+    }
 
     initMobileNav();
     initSmoothScroll();
+    initServiceDetailsModal();
+    initSkillDetailsModal();
     initContactForm();
     initThemeToggle();
     addEventListeners();
+
+    if (typeof updateGithubStats === 'function') {
+        updateGithubStats();
+    }
 });
 
 (function () {
@@ -621,3 +880,6 @@ document.addEventListener('DOMContentLoaded', () => {
         attachGmailFallback();
     }
 })();
+
+
+

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Meta Tags Essenciais -->
     <title>Gabriel Fernandes | Developer Front-End</title>
     <meta name="description"
@@ -135,26 +135,24 @@
     </header>
     <main>
         <section class="hero" id="hero">
+            <!-- <div class="status flex items-center space-x-2 z-50 p-2 rounded-md bg-green-100 dark:bg-green-900/20 border border-green-300 dark:border-green-700">
+                <span class="status-indicator"></span>
+                <span class="status-text">Disponivel para freelas e projetos!</span>
+            </div> -->
             <div class="hero-content efeito-hero-content">
                 <div class="content-hero efeito-hero-content-textimg">
                     <div class="hero-text-container">
                         <p class="hero-text-sup" style="opacity: 0; transition: opacity 0.5s;">Olá, eu sou</p>
                         <h1 class="typing-effect" data-text="Gabriel Fernandes">&nbsp;</h1>
-                        <p class="hero-text-sub typing-effect" data-text="Desenvolvedor Front-end...">&nbsp;</p>
+                        <p class="hero-text-sub typing-effect" data-text="Desenvolvedor Web...">&nbsp;</p>
                     </div>
                     <a class="curriculo-download js-curriculo-alert" href="#"
                         download="Curriculo-Gabriel-Fernandes.pdf">
+                        <i class="fas fa-download" aria-hidden="true"></i>
                         Baixar Currículo
                     </a>
 
                     <div class="hero-socials desktop-only">
-                        <!-- <a href="https://www.linkedin.com/in/gabbfernyh/" target="_blank" rel="noopener noreferrer"
-                            aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-
-                        <a href="https://github.com/Gabbfernyh" target="_blank" rel="noopener noreferrer"
-                            aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a> -->
-
-
                         <a href="https://www.linkedin.com/in/gabbfernyh/" aria-label="LinkedIn Profile" target="_blank"
                             rel="noopener noreferrer" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium
                         h-10 w-10 border border-gray-200 dark:border-gray-700
@@ -180,6 +178,7 @@
                         </a>
                     </div>
                 </div>
+
                 <img src="src/assets/img/icons/image.svg" alt="Avatar" class="avatar-img">
                 <div class="scroll-down-arrow">
                     <svg class="size-6 animate-bounce" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
@@ -201,8 +200,23 @@
                     foco em performance, animações, responsividade e SEO.</p>
                 <p>Além disso, estou constantemente buscando expandir meus conhecimentos em diversas áreas da
                     tecnologia, incluindo cibersegurança, Quality Assurance (<abbr title="Quality Assurance">QA</abbr>),
-                    DevOps, desenvolvimento Full-Stack...</p> <p>Meu objetivo é integrar essas habilidades para criar soluções
+                    DevOps, desenvolvimento Full-Stack...</p>
+                <p>Meu objetivo é integrar essas habilidades para criar soluções
                     eficientes e inovadoras.</p>
+            </div>
+            <div class="about-stats">
+                <div class="stat-item" data-tone="projects">
+                    <span class="stat-icon" aria-hidden="true"><i class="fa-solid fa-diagram-project"></i></span>
+                    <span class="stat-number" id="projects-count">0</span>
+                    <span class="stat-label">Projetos Concluidos</span>
+                    <span class="stat-helper">Repositorios publicos sincronizados</span>
+                </div>
+                <div class="stat-item" data-tone="experience">
+                    <span class="stat-icon" aria-hidden="true"><i class="fa-regular fa-calendar"></i></span>
+                    <span class="stat-number" id="experience-years">4</span>
+                    <span class="stat-label">Anos de Experiencia</span>
+                    <span class="stat-helper">Atuação pratica em desenvolvimento web</span>
+                </div>
             </div>
             <div class="contacts efeito-about-icons contact-container">
                 <div class="contact-item">
@@ -284,16 +298,16 @@
                 </div>
                 <div class="project-item project-card">
                     <div class="project-image">
-                        <img src="src/assets/img/projects/prev-MyLinktree.png" alt="My Linktree" loading="lazy"
+                        <img src="src/assets/img/projects/prev-CardGabbfernyh.png" alt="My Card Linktree" loading="lazy"
                             data-zoom>
                     </div>
-                    <h3 class="project-title">My Linktree</h3>
-                    <p class="project-techs">HTML5, CSS3, JavaScript</p>
+                    <h3 class="project-title">My Card Linktree</h3>
+                    <p class="project-techs">HTML5, CSS3, Bootstrap, JavaScript, Github API </p>
                     <div class="project-buttons">
-                        <a href="https://mylinktree-conectecomgabb.vercel.app/" class="access-project" target="_blank"
+                        <a href="https://card-gabbfernyh.vercel.app/" class="access-project" target="_blank"
                             rel="noopener noreferrer">Acessar o
                             projeto</a>
-                        <a href="https://github.com/Gabbfernyh/Linktree2" class="access-repo" target="_blank"
+                        <a href="https://github.com/Gabbfernyh/cardGabbfernyh" class="access-repo" target="_blank"
                             rel="noopener noreferrer">Acessar repositório</a>
                     </div>
                 </div>
@@ -303,11 +317,9 @@
                             data-zoom>
                     </div>
                     <h3 class="project-title">Mefolio</h3>
-                    <p class="project-techs">HTML5, CSS3, JavaScript, Tailwind CSS, Figma, </p>
+                    <p class="project-techs">HTML5, CSS3, JavaScript, Tailwind CSS, Figma, <br>Bootstrap CSS, API Github
+                    </p>
                     <div class="project-buttons">
-                        <!-- <a href="https://gabbfernyh.github.io/Mefolio/" class="access-project" target="_blank"
-                            rel="noopener noreferrer">Acessar o
-                            projeto</a> -->
                         <a href="https://github.com/Gabbfernyh/Mefolio" class="access-repo" target="_blank"
                             rel="noopener noreferrer">Acessar repositório</a>
                     </div>
@@ -427,35 +439,55 @@
         <h2 class="tags" id="servicos">Serviços</h2>
         <section class="servicos">
             <div class="servicos-container">
-                <div class="box-grid">
+                <div class="box-grid" data-service="website" role="button" tabindex="0"
+                    aria-label="Ver detalhes sobre criação de sites">
                     <div class="box-grid-inner">
                         <img src="src/assets/img/icons/code.svg" alt="code-icon" class="box-icon" loading="lazy">
                         <h2 class="box-title">Criação<br>de Sites</h2>
+                        <p class="box-description">Desenvolvo sites institucionais, landing pages e páginas sob medida
+                            com foco em clareza, performance e conversão.</p>
+                        <span class="service-card-hint">Clique para ver detalhes</span>
                     </div>
                 </div>
-                <div class="box-grid">
+                <div class="box-grid" data-service="responsive" role="button" tabindex="0"
+                    aria-label="Ver detalhes sobre sites responsivos">
                     <div class="box-grid-inner">
                         <img src="src/assets/img/icons/smartphone.svg" alt="mobile" class="box-icon" loading="lazy">
                         <h2 class="box-title">Sites<br>Responsivos</h2>
+                        <p class="box-description">Seu projeto funciona bem no celular, tablet e desktop, com navegação
+                            fluida e visual consistente em cada tela.</p>
+                        <span class="service-card-hint">Clique para ver detalhes</span>
                     </div>
                 </div>
-                <div class="box-grid">
+                <div class="box-grid" data-service="hosting" role="button" tabindex="0"
+                    aria-label="Ver detalhes sobre hospedagem">
                     <div class="box-grid-inner">
                         <img src="src/assets/img/icons/network.svg" alt="hospedagem" class="box-icon" loading="lazy">
                         <h2 class="box-title">Hospedagem</h2>
+                        <p class="box-description">Posso orientar e configurar a publicação do site para deixar tudo
+                            pronto para ir ao ar com mais segurança.</p>
+                        <span class="service-card-hint">Clique para ver detalhes</span>
                     </div>
                 </div>
-                <div class="box-grid">
+                <div class="box-grid" data-service="maintenance" role="button" tabindex="0"
+                    aria-label="Ver detalhes sobre manutenção e suporte">
                     <div class="box-grid-inner">
                         <img src="src/assets/img/icons/hugeicons--license-maintenance.svg" alt="Manutenção"
                             class="box-icon" loading="lazy">
                         <h2 class="box-title">Manutenção & Suporte</h2>
+                        <p class="box-description">Manutenção de sites e suporte técnico para computadores, desktops e
+                            notebooks.</p>
+                        <span class="service-card-hint">Clique para ver detalhes</span>
                     </div>
                 </div>
-                <div class="box-grid">
+                <div class="box-grid" data-service="seo" role="button" tabindex="0"
+                    aria-label="Ver detalhes sobre SEO e performance">
                     <div class="box-grid-inner">
                         <img src="src/assets/img/icons/chart-trend.svg" alt="SEO" class="box-icon" loading="lazy">
                         <h2 class="box-title">SEO &<br>Performance</h2>
+                        <p class="box-description">Estruturo páginas com boas práticas de carregamento, semântica e
+                            otimização para melhorar alcance e experiência.</p>
+                        <span class="service-card-hint">Clique para ver detalhes</span>
                     </div>
                 </div>
             </div>
@@ -463,23 +495,25 @@
         <h2 class="tags" id="skills">Habilidades</h2>
         <section class="skills">
             <div class="skills-container">
-                <div class="skill-box">
+                <!-- <div class="skill-box" data-skill="html5" role="button" tabindex="0" aria-label="Ver detalhes de HTML5">
                     <img src="src/assets/img/icons/html.svg" alt="HTML5" loading="lazy">
                     <span class="tooltip-text">HTML5</span>
                 </div>
-                <div class="skill-box">
+                <div class="skill-box" data-skill="css3" role="button" tabindex="0" aria-label="Ver detalhes de CSS3">
                     <img src="src/assets/img/icons/css.svg" alt="CSS3" loading="lazy">
                     <span class="tooltip-text">CSS3</span>
-                </div>
-                <div class="skill-box">
+                </div> -->
+                <div class="skill-box" data-skill="javascript" role="button" tabindex="0"
+                    aria-label="Ver detalhes de JavaScript">
                     <img src="src/assets/img/icons/javascript.svg" alt="JavaScript" loading="lazy">
                     <span class="tooltip-text">JavaScript</span>
                 </div>
-                <!-- <div class="skill-box">
+                <div class="skill-box" data-skill="typescript" role="button" tabindex="0"
+                    aria-label="Ver detalhes de TypeScript">
                     <img src="src/assets/img/icons/icons8-typescript.svg" alt="TypeScript" loading="lazy">
                     <span class="tooltip-text">TypeScript</span>
-                </div> -->
-                <div class="skill-box">
+                </div>
+                <div class="skill-box" data-skill="react" role="button" tabindex="0" aria-label="Ver detalhes de React">
                     <img src="src/assets/img/icons/react.svg" alt="React" loading="lazy">
                     <span class="tooltip-text">React</span>
                 </div>
@@ -487,29 +521,46 @@
                     <img src="src/assets/img/icons/cib--next-js.svg" alt="Next.js" loading="lazy">
                     <span class="tooltip-text">Next.js</span>
                 </div> -->
-                <div class="skill-box">
+                <div class="skill-box" data-skill="bootstrap" role="button" tabindex="0"
+                    aria-label="Ver detalhes de Bootstrap CSS">
                     <img src="src/assets/img/icons/logos--bootstrap.svg" alt="Bootstrap CSS" loading="lazy">
                     <span class="tooltip-text">Bootstrap CSS</span>
                 </div>
-                <div class="skill-box">
+                <div class="skill-box" data-skill="nodejs" role="button" tabindex="0"
+                    aria-label="Ver detalhes de Node.js">
                     <img src="src/assets/img/icons/node-js-brands-solid-full.svg" alt="Node.js" loading="lazy">
                     <span class="tooltip-text">Node.js</span>
                 </div>
-                <div class="skill-box">
+                <div class="skill-box" data-skill="git" role="button" tabindex="0" aria-label="Ver detalhes de Git">
                     <img src="src/assets/img/icons/git-alt-brands-solid-full.svg" alt="Git" loading="lazy">
                     <span class="tooltip-text">Git</span>
                 </div>
-                <div class="skill-box">
+                <div class="skill-box" data-skill="figma" role="button" tabindex="0" aria-label="Ver detalhes de Figma">
                     <img src="src/assets/img/icons/figma.svg" alt="Figma" loading="lazy">
                     <span class="tooltip-text">Figma</span>
                 </div>
-                <div class="skill-box">
-                    <img src="src/assets/img/icons/simple-icons--mysql.svg" alt="MySql" loading="lazy">
-                    <span class="tooltip-text">MySql</span>
+                <div class="skill-box" data-skill="mongodb" role="button" tabindex="0"
+                    aria-label="Ver detalhes de MongoDB">
+                    <img src="src/assets/img/icons/flowbite--mongo-db-solid.svg" alt="MongoDB" loading="lazy">
+                    <span class="tooltip-text">MongoDB</span>
                 </div>
-                <div class="skill-box">
-                    <img src="src/assets/img/icons/cib--wordpress.svg" alt="Wordpress" loading="lazy">
-                    <span class="tooltip-text">Wordpress</span>
+                <div class="skill-box" data-skill="postgresql" role="button" tabindex="0"
+                    aria-label="Ver detalhes de PostgreSQL">
+                    <img src="src/assets/img/icons/akar-icons--postgresql-fill.svg" alt="PostgreSQL" loading="lazy">
+                    <span class="tooltip-text">PostgreSQL</span>
+                </div>
+                <div class="skill-box" data-skill="docker" role="button" tabindex="0"
+                    aria-label="Ver detalhes de Docker">
+                    <img src="src/assets/img/icons/devicon-plain--docker-wordmark.svg" alt="Docker" loading="lazy">
+                    <span class="tooltip-text">Docker</span>
+                </div>
+                <div class="skill-box" data-skill="mysql" role="button" tabindex="0" aria-label="Ver detalhes de MySQL">
+                    <img src="src/assets/img/icons/simple-icons--mysql.svg" alt="MySQL" loading="lazy">
+                    <span class="tooltip-text">MySQL</span>
+                </div>
+                <div class="skill-box" data-skill="axios" role="button" tabindex="0" aria-label="Ver detalhes de Axios">
+                    <img src="src/assets/img/icons/simple-icons--axios.svg" alt="Axios" loading="lazy">
+                    <span class="tooltip-text">Axios</span>
                 </div>
 
             </div>
@@ -520,19 +571,20 @@
                 <!-- Coluna da Esquerda: Informações e Links Sociais -->
                 <div class="contact-info-left">
                     <div class="contact-text-container">
-                        <h3 class="contact-title">Vamos conversar!</>
+                        <h3 class="contact-title">Vamos conversar!</h3>
                         <p class="contact-text">
-                            Se você tem um projeto em mente, uma pergunta ou apenas quer dizer um "oi", adoraria ouvir
+                            Se você tem um projeto em mente, uma pergunta ou apenas quer dizer um "oi", adoraria
+                            ouvir
                             de
                             você. Preencha o formulário ao lado ou me encontre nas redes sociais.
                             <span class="only-mobile">Para um contato mais rápido, use o botão flutuante.</span>
                         </p>
                     </div>
                     <div class="social-buttons desktop-only">
-                        <!-- <a href="https://www.instagram.com/gabe__fernyh/" target="_blank" rel="noopener noreferrer"
+                        <a href="https://www.instagram.com/gabbfernyh.dev/" target="_blank" rel="noopener noreferrer"
                             class="social-btn instagram" aria-label="Instagram">
                             <i class="fab fa-instagram"></i> <span class="social-label">Instagram</span>
-                        </a> -->
+                        </a>
                         <a href="https://github.com/Gabbfernyh" target="_blank" rel="noopener noreferrer"
                             class="social-btn github" aria-label="GitHub">
                             <i class="fab fa-github"></i> <span class="social-label">GitHub</span>
@@ -573,6 +625,19 @@
                             <label for="phone">Telefone (Opcional)</label>
                         </div>
                         <div class="form-group">
+                            <select id="services" name="services">
+                                <option value="" selected disabled hidden></option>
+                                <option value="Desenvolvimento Web">Desenvolvimento Web</option>
+                                <option value="Landing Page">Landing Page</option>
+                                <option value="HUB Digital">HUB Digital</option>
+                                <option value="Portfólio Profissional">Portfólio Profissional</option>
+                                <option value="UI/UX e Prototipação">UI/UX e Prototipação</option>
+                                <option value="Manutenção e Melhorias">Manutenção e Melhorias</option>
+                                <option value="Outro">Outro</option>
+                            </select>
+                            <label for="services">Serviço Desejado</label>
+                        </div>
+                        <div class="form-group">
                             <textarea id="message" name="message" required placeholder="Digite sua mensagem aqui..."
                                 rows="5"></textarea>
                             <label for="message">Mensagem <span class="required-indicator">*</span></label>
@@ -587,7 +652,7 @@
 
     </main>
     <footer>
-        <p class="footer-text footer-text-right">© 2025 - Gabbfernyh</p>
+        <p class="footer-text footer-text-right">&copy; 2025 - Gabbfernyh</p>
         <p class="text-xs text-gray-500 dark:text-gray-500 footer-text-center">todos direitos reservados</p>
         <span class="footer-powered">
             Powered by <img src="src/assets/img/icons/logo.svg" alt="logo" loading="lazy">
@@ -601,10 +666,10 @@
             <i class="fas fa-share-alt"></i>
         </label>
         <div class="fab-links">
-            <!-- <a href="https://www.instagram.com/gabe__fernyh/" class="fab-link instagram" target="_blank"
+            <a href="https://www.instagram.com/gabbfernyh.dev/" class="fab-link instagram" target="_blank"
                 aria-label="Instagram">
                 <i class="fab fa-instagram"></i> <span class="social-label">Instagram</span>
-            </a> -->
+            </a>
             <a href="https://github.com/Gabbfernyh" class="fab-link github" target="_blank" aria-label="GitHub">
                 <i class="fab fa-github"></i> <span class="social-label">GitHub</span>
             </a>
@@ -627,10 +692,95 @@
         <img id="imgModalTarget" class="modal-content" src="">
     </div>
 
+    <div id="projectReadmeModal" class="project-readme-modal" aria-hidden="true">
+        <div class="project-readme-dialog" role="dialog" aria-modal="true" aria-labelledby="projectReadmeTitle">
+            <button id="projectReadmeClose" class="project-readme-close" type="button" aria-label="Fechar descrição">
+                &times;
+            </button>
+            <div class="project-readme-header">
+                <p class="project-readme-kicker">Projeto</p>
+                <h3 id="projectReadmeTitle">Descrição do Projeto</h3>
+            </div>
+            <div class="project-readme-media">
+                <img id="projectReadmeImage" src="" alt="Preview do projeto">
+                <div class="project-readme-actions">
+                    <a id="projectReadmeLive" class="project-readme-action is-live" href="#" target="_blank"
+                        rel="noopener noreferrer">Acessar projeto</a>
+                    <a id="projectReadmeRepo" class="project-readme-action is-repo" href="#" target="_blank"
+                        rel="noopener noreferrer">Acessar repositório</a>
+                </div>
+            </div>
+            <div id="projectReadmeBody" class="project-readme-body"></div>
+        </div>
+    </div>
+
+    <div id="serviceDetailsModal" class="service-details-modal" aria-hidden="true">
+        <div class="service-details-dialog" role="dialog" aria-modal="true" aria-labelledby="serviceDetailsTitle">
+            <button id="serviceDetailsClose" class="service-details-close" type="button"
+                aria-label="Fechar modal de serviço">
+                &times;
+            </button>
+            <div class="service-details-header">
+                <p class="service-details-kicker">Serviço</p>
+                <h3 id="serviceDetailsTitle">Detalhes do serviço</h3>
+            </div>
+            <div class="service-details-body">
+                <p id="serviceDetailsDescription"></p>
+                <div class="service-details-points">
+                    <h4>O que está incluso</h4>
+                    <ul id="serviceDetailsIncludes"></ul>
+                </div>
+                <div class="service-details-note">
+                    <h4>Dúvida comum</h4>
+                    <p id="serviceDetailsFaq"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="skillDetailsModal" class="skill-details-modal" aria-hidden="true">
+        <div class="skill-details-dialog" role="dialog" aria-modal="true" aria-labelledby="skillDetailsTitle">
+            <button id="skillDetailsClose" class="skill-details-close" type="button"
+                aria-label="Fechar modal de habilidade">
+                &times;
+            </button>
+            <div class="skill-details-header">
+                <p class="skill-details-kicker">Skill</p>
+                <h3 id="skillDetailsTitle">Tecnologia</h3>
+            </div>
+            <div class="skill-details-body">
+                <div class="skill-details-media">
+                    <img id="skillDetailsIcon" src="" alt="Ícone da tecnologia selecionada" loading="lazy">
+                </div>
+                <p id="skillDetailsDescription"></p>
+                <div class="skill-details-badges">
+                    <span id="skillAreaBadge" class="skill-badge skill-badge-area"></span>
+                    <span id="skillCategoryBadge" class="skill-badge skill-badge-category"></span>
+                </div>
+                <div class="skill-details-extras">
+                    <details class="skill-detail-panel" open>
+                        <summary>Como eu uso</summary>
+                        <p id="skillDetailsUsage"></p>
+                    </details>
+                    <details class="skill-detail-panel">
+                        <summary>Em palavras simples</summary>
+                        <p id="skillDetailsSimple"></p>
+                    </details>
+                    <details class="skill-detail-panel">
+                        <summary>Termos tech</summary>
+                        <p id="skillDetailsTechTerms"></p>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/scrollreveal" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="src/js/alert.js" defer></script>
     <script src="src/js/script.js" defer></script>
+    <script src="src/js/project-readme-modal.js" defer></script>
+    <script src="src/js/API-github.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,51 @@
+name: Update GitHub Stats
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Get repository count
+        env:
+          GH_STATS_TOKEN: ${{ secrets.GH_STATS_TOKEN }}
+          GITHUB_USERNAME: Gabbfernyh
+        run: |
+          if [ -z "$GH_STATS_TOKEN" ]; then
+            echo "Secret GH_STATS_TOKEN is not configured."
+            exit 1
+          fi
+
+          response=$(curl -sS \
+            -H "Authorization: Bearer $GH_STATS_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/users/$GITHUB_USERNAME")
+
+          repos=$(echo "$response" | jq -r '.public_repos')
+
+          if ! [[ "$repos" =~ ^[0-9]+$ ]]; then
+            echo "Could not parse public_repos from GitHub API response."
+            echo "$response"
+            exit 1
+          fi
+
+          mkdir -p src/data
+          printf '{\n  "repos": %s\n}\n' "$repos" > src/data/github-stats.json
+
+      - name: Commit updated JSON
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/github-stats.json
+          git diff --cached --quiet || git commit -m "chore: update github stats"
+          git push
