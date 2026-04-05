@@ -632,6 +632,236 @@ function addEventListeners() {
     }
 }
 
+function initProjectFilters() {
+    const filterBar = document.querySelector('.project-filters');
+    if (!filterBar) return;
+
+    const buttons = Array.from(filterBar.querySelectorAll('button[data-filter]'));
+    if (!buttons.length) return;
+
+    const cards = Array.from(document.querySelectorAll('.project-grid .project-card[data-project-category]'));
+    if (!cards.length) return;
+
+    const grid = document.querySelector('.project-grid');
+    const soonCard = document.querySelector('.project-grid .col-span-full');
+
+    const normalizeCategory = (value) => (value || '')
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9]+/g, '');
+
+    const getCardCategories = (card) => {
+        const raw = (card.getAttribute('data-project-category') || '')
+            .toString()
+            .toLowerCase()
+            .trim();
+
+        if (!raw) return [];
+
+        // Aceita: "landing ecommerce", "landing, ecommerce", "landing, ecommerce webapp" etc.
+        return raw
+            .split(/[,;|\/\s]+/g)
+            .map((value) => normalizeCategory(value))
+            .filter(Boolean);
+    };
+
+    const matchesFilter = (card, filter) => {
+        if (!filter || filter === 'all') return true;
+        return getCardCategories(card).includes(normalizeCategory(filter));
+    };
+
+    let activeFilter = buttons.find((button) => button.classList.contains('is-active'))?.dataset.filter || 'all';
+    let rafHandle = null;
+
+    const setActiveButton = (activeFilter) => {
+        buttons.forEach((button) => {
+            const isActive = button.dataset.filter === activeFilter;
+            button.classList.toggle('is-active', isActive);
+            button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+    };
+
+    const getRowTops = (elements) => {
+        if (!grid || !elements.length) return [];
+
+        // Força um reflow para garantir posições atualizadas
+        void grid.offsetHeight;
+
+        const gridRect = grid.getBoundingClientRect();
+        const colCount = getGridColumnCount();
+
+        // Calcula os tops e agrupa por linha
+        const rowMap = new Map();
+        elements.forEach((el, index) => {
+            const top = Math.round(el.getBoundingClientRect().top - gridRect.top);
+            if (Number.isFinite(top)) {
+                if (!rowMap.has(top)) {
+                    rowMap.set(top, []);
+                }
+                rowMap.get(top).push(index);
+            }
+        });
+
+        return Array.from(rowMap.keys()).sort((a, b) => a - b);
+    };
+
+    const calculateCollapsedHeight = (visibleItems) => {
+        if (!grid) return null;
+
+        // Força um reflow para garantir posições atualizadas
+        void grid.offsetHeight;
+
+        const colCount = getGridColumnCount();
+        const itemsPerRow = colCount;
+
+        // Se há menos itens que uma linha, não aplica scroll
+        if (visibleItems.length <= itemsPerRow) return null;
+
+        // Calcula o índice do último item da segunda linha
+        const lastItemSecondLine = Math.min(itemsPerRow * 2 - 1, visibleItems.length - 1);
+
+        if (lastItemSecondLine < 0) return null;
+
+        const lastVisibleElement = visibleItems[lastItemSecondLine];
+        if (!lastVisibleElement) return null;
+
+        // Força reflow novamente antes de medir
+        void grid.offsetHeight;
+
+        // Calcula a altura até o fim do último elemento visível
+        const gridRect = grid.getBoundingClientRect();
+        const elementRect = lastVisibleElement.getBoundingClientRect();
+        const elementBottom = Math.round(elementRect.bottom - gridRect.top);
+
+        // Adiciona um pequeno padding para garantir que o scroll seja visível
+        return Math.max(elementBottom + 12, 0);
+    };
+
+    const setGridCollapsed = (collapsedHeight) => {
+        if (!grid) return;
+        if (collapsedHeight == null) {
+            grid.classList.remove('projects-collapsed');
+            grid.style.removeProperty('--projects-collapsed-max-height');
+            return;
+        }
+
+        grid.classList.add('projects-collapsed');
+        grid.style.setProperty('--projects-collapsed-max-height', `${collapsedHeight}px`);
+    };
+
+    const getGridColumnCount = () => {
+        if (!grid) return 2;
+
+        // Força um reflow para ter valores atualizados
+        void grid.offsetHeight;
+
+        const styles = window.getComputedStyle(grid);
+        const template = styles.gridTemplateColumns || '';
+
+        if (!template) return 2; // Default to 2 columns
+
+        // Handle repeat(2, 1fr) and repeat(2, minmax(0, 1fr))
+        if (template.includes('repeat(2')) {
+            return 2;
+        }
+
+        // Se temos uma template válida, conta os espaços
+        const cols = template.split(' ').filter(col => col !== '');
+        if (cols.length > 0) {
+            return cols.length;
+        }
+
+        // Fallback para 2 colunas
+        return 2;
+    };
+
+    const positionSoonCard = (visibleCount) => {
+        if (!soonCard) return;
+        const colCount = getGridColumnCount();
+        const remainder = visibleCount % colCount;
+
+        if (colCount <= 1 || remainder === 0) {
+            soonCard.style.gridColumn = '1 / -1';
+            return;
+        }
+
+        const span = Math.max(colCount - remainder, 1);
+        soonCard.style.gridColumn = `span ${span}`;
+    };
+
+    const animateVisibleCards = () => {
+        const visibleCards = cards.filter((card) => !card.hidden);
+        visibleCards.forEach((card) => {
+            card.classList.remove('project-card--pop');
+            // Force reflow to restart animation consistently
+            void card.offsetWidth;
+            card.classList.add('project-card--pop');
+        });
+    };
+
+    const render = (scrollToTop = false) => {
+        setActiveButton(activeFilter);
+
+        cards.forEach((card) => {
+            card.hidden = !matchesFilter(card, activeFilter);
+        });
+
+        const matchingCards = cards.filter((card) => !card.hidden);
+        positionSoonCard(matchingCards.length);
+
+        if (grid && scrollToTop) {
+            grid.scrollTop = 0;
+        }
+
+        if (rafHandle) {
+            cancelAnimationFrame(rafHandle);
+        }
+
+        rafHandle = requestAnimationFrame(() => {
+            rafHandle = null;
+
+            if (!grid) return;
+
+            // Reseta o scroll para o topo para cálculos precisos
+            const previousScrollTop = grid.scrollTop;
+            grid.scrollTop = 0;
+
+            // Aguarda um pouco para que o layout se estabilize
+            setTimeout(() => {
+                const visibleItems = [...matchingCards];
+                if (soonCard && !soonCard.hidden) {
+                    visibleItems.push(soonCard);
+                }
+
+                // Calcula a altura do collapsed
+                const collapsedHeight = calculateCollapsedHeight(visibleItems);
+
+                // Restaura a posição anterior apenas se não está scrollToTop
+                if (!scrollToTop && collapsedHeight != null) {
+                    // Não restaura para deixar a transição limpa
+                    grid.scrollTop = 0;
+                }
+
+                setGridCollapsed(collapsedHeight);
+                animateVisibleCards();
+            }, 0);
+        });
+    };
+
+    buttons.forEach((button) => {
+        button.setAttribute('aria-pressed', button.classList.contains('is-active') ? 'true' : 'false');
+        button.addEventListener('click', () => {
+            activeFilter = button.dataset.filter || 'all';
+            render(true);
+        });
+    });
+
+    window.addEventListener('resize', () => render());
+
+    render();
+}
+
 /**
  * Lida com o envio do formulário de contato usando AJAX para exibir mensagens de sucesso/erro.
  */
@@ -789,6 +1019,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initMobileNav();
     initSmoothScroll();
+    initProjectFilters();
     initServiceDetailsModal();
     initSkillDetailsModal();
     initContactForm();

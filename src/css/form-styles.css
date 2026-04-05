@@ -3,10 +3,10 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 2.5rem;
+    padding: 1.8rem;
     background: linear-gradient(135deg, var(--c-bg-input) 80%, var(--c-brand) 120%);
-    border-radius: 18px;
-    box-shadow: 0 8px 32px var(--c-shadow-brand), 0 1.5px 8px var(--c-shadow);
+    border-radius: 16px;
+    box-shadow: 0 6px 24px var(--c-shadow-brand), 0 1px 6px var(--c-shadow);
     border: 1.5px solid var(--c-border);
     backdrop-filter: blur(2px);
 }
@@ -24,30 +24,30 @@
 /* --- Floating Label Logic --- */
 .form-group {
     position: relative;
-    margin-bottom: 1.5rem; /* Espaço para o label flutuante */
+    margin-bottom: 1.1rem; /* Espaço para o label flutuante */
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 1.1rem 1.3rem;
-    border-radius: 12px;
+    padding: 0.95rem 1.1rem;
+    border-radius: 10px;
     border: 1.5px solid var(--c-border);
     background-color: var(--c-bg-soft);
     color: var(--c-text);
     font-family: 'Archivo', sans-serif;
-    font-size: 1.05rem;
+    font-size: 1rem;
     transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
-    box-shadow: 0 2px 8px var(--c-shadow);
+    box-shadow: 0 1px 6px var(--c-shadow);
 }
 
 .form-group label {
     position: absolute;
     top: 50%;
-    left: 1.3rem;
+    left: 1.1rem;
     transform: translateY(-50%);
-    font-size: 1.05rem;
+    font-size: 1rem;
     color: var(--c-text-soft);
     pointer-events: none;
     transition: all 0.3s ease;
@@ -87,7 +87,7 @@
 .form-group select.has-content+label,
 .form-group textarea.has-content+label {
     top: 0;
-    left: 1rem;
+    left: 0.85rem;
     transform: translateY(-50%) scale(0.85);
     color: var(--c-brand);
     font-weight: 600;
@@ -118,7 +118,7 @@
         linear-gradient(45deg, transparent 50%, var(--c-text-soft) 50%),
         linear-gradient(135deg, var(--c-text-soft) 50%, transparent 50%);
     background-position:
-        calc(100% - 1.3rem) calc(50% - 2px),
+        calc(100% - 1.1rem) calc(50% - 2px),
         calc(100% - 0.9rem) calc(50% - 2px);
     background-size: 0.45rem 0.45rem, 0.45rem 0.45rem;
     background-repeat: no-repeat;
@@ -126,27 +126,27 @@
 }
 
 .contact-form-container textarea {
-    min-height: 120px;
+    min-height: 110px;
     resize: vertical;
     line-height: 1.5;
 }
 
 .contact-form-container button {
     width: 100%;
-    padding: 1.1rem 2rem;
-    margin-top: 1rem;
+    padding: 0.95rem 2rem;
+    margin-top: 0.85rem;
     /* Espaço adicional acima do botão */
-    border-radius: 12px;
+    border-radius: 10px;
     border: none;
     background: linear-gradient(90deg, var(--c-brand), var(--c-brand-dark));
     color: var(--c-text-inverse);
-    font-size: 1.13rem;
+    font-size: 1.05rem;
     font-weight: 700;
     cursor: pointer;
     transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
-    box-shadow: 0 4px 16px var(--c-shadow-brand);
+    box-shadow: 0 4px 14px var(--c-shadow-brand);
     text-transform: uppercase;
-    letter-spacing: 0.7px;
+    letter-spacing: 0.6px;
 }
 
 .contact-form-container button:hover {
@@ -163,20 +163,20 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .contact-form-container {
-        padding: 1.3rem;
+        padding: 1.15rem;
         margin: 0 auto;
-        border-radius: 14px;
+        border-radius: 13px;
     }
 
     .contact-form-container button {
-        font-size: 1.08rem;
-        padding: 1rem 1.9rem;
+        font-size: 1.02rem;
+        padding: 0.95rem 1.7rem;
     }
 }
 
 @media (max-width: 480px) {
     .contact-form-container {
-        padding: 1rem;
+        padding: 0.9rem;
         border-radius: 10px;
         box-shadow: 0 2px 8px var(--c-shadow-brand);
         margin: 0.5rem;
@@ -189,24 +189,24 @@
 
     .contact-form-container input,
     .contact-form-container textarea {
-        font-size: 0.98rem;
-        padding: 0.9rem 1.1rem;
+        font-size: 0.96rem;
+        padding: 0.85rem 1rem;
     }
 
     .form-group label {
-        left: 1.1rem;
+        left: 1rem;
     }
 
     .form-group input:focus+label,
     .form-group textarea:focus+label,
     .form-group input.has-content+label,
     .form-group textarea.has-content+label {
-        left: 0.8rem;
+        left: 0.75rem;
     }
 
     .contact-form-container button {
-        font-size: 1rem;
-        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+        padding: 0.75rem 1.3rem;
         box-shadow: 0 2px 8px var(--c-shadow-brand);
     }
 }

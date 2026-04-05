@@ -193,6 +193,8 @@
 
         <h2 class="tags" id="about">Sobre Mim</h2>
         <section class="about">
+            <!-- <img src="src/assets/img/my-image/profileImg.jpeg" alt="My Profile Picture"
+                class="about-profile-img efeito-about-img" loading="lazy"> -->
             <div class="about-text efeito-about-text">
                 <p>Meu nome é Gabriel Fernandes, conhecido como “Gabbfernyh”. Atualmente atuo como
                     freelancer nas áreas de Frontend Development e Suporte de TI.</p>
@@ -219,22 +221,22 @@
                 </div>
             </div>
             <div class="contacts efeito-about-icons contact-container">
-                <div class="contact-item">
+                <!-- <div class="contact-item">
                     <img src="src/assets/img/icons/smile.svg" alt="Avatar" class="contact-icon" loading="lazy">
                     <h3 class="contact-title">Nome</h3>
                     <p class=" contact-detail">Gabriel Fernandes</p>
-                </div>
+                </div> -->
                 <div class="contact-item">
                     <img src="src/assets/img/icons/mail.svg" alt="Email Icon" class="contact-icon" loading="lazy">
                     <h3 class="contact-title">E-mail</h3>
-                    <p class=" contact-detail">Gabbfernyh@gmail.com</p>
+                    <p class=" contact-detail">Gabbfernyh<br@gmail.com< /p>
                 </div>
-                <!-- <div class="contact-item">
+                <div class="contact-item">
                     <img src="src/assets/img/icons/instagram.svg" alt="Instagram Icon" class="contact-icon"
                         loading="lazy">
                     <h3 class="contact-title">Instagram</h3>
-                    <p class="contact-detail">@gabe__fernyh</p>
-                </div> -->
+                    <p class="contact-detail">@gabbfernyh.dev</p>
+                </div>
                 <div class="contact-item">
                     <img src="src/assets/img/icons/linkedin-brands-solid-full.svg" alt="LinkedIn Icon"
                         class="contact-icon" loading="lazy">
@@ -251,8 +253,18 @@
 
         <h2 class="tags" id="projects">Projetos</h2>
         <Section class="projects">
-            <div class="project-grid efeito-prejects">
-                <div class="project-item project-card">
+            <div class="projects-toolbar" aria-label="Projetos">
+                <div class="project-filters" role="tablist" aria-label="Filtrar projetos">
+                    <button class="project-filter is-active" type="button" data-filter="all">Todos</button>
+                    <button class="project-filter" type="button" data-filter="hub">Hub Digital / Portifólio</button>
+                    <button class="project-filter" type="button" data-filter="landing">Landing Page</button>
+                    <button class="project-filter" type="button" data-filter="ecommerce">E-commerce</button>
+                    <button class="project-filter" type="button" data-filter="webapp">Web App</button>
+                    <button class="project-filter" type="button" data-filter="estudos">Estudos / Práticas</button>
+                </div>
+            </div>
+            <div class="project-grid efeito-prejects" id="projectsGrid">
+                <div class="project-item project-card" data-project-category="landing, ecommerce, estudos">
                     <div class="project-image">
                         <img src="src/assets/img/projects/prev-newtech.png" alt="NewTech-store" loading="lazy"
                             data-zoom>
@@ -266,7 +278,7 @@
                             rel="noopener noreferrer">Acessar repositório</a>
                     </div>
                 </div>
-                <div class="project-item project-card">
+                <div class="project-item project-card" data-project-category="webapp">
                     <div class="project-image">
                         <img src="src/assets/img/projects/prev-previsao-do-tempo.png" alt="Previsão do Tempo"
                             loading="lazy" data-zoom>
@@ -282,7 +294,7 @@
                             repositório</a>
                     </div>
                 </div>
-                <div class="project-item project-card">
+                <div class="project-item project-card" data-project-category="landing, estudos">
                     <div class="project-image">
                         <img src="src/assets/img/projects/prev-pokedev.png" alt="PokeDevs" loading="lazy" data-zoom>
                     </div>
@@ -296,7 +308,7 @@
                             repositório</a>
                     </div>
                 </div>
-                <div class="project-item project-card">
+                <div class="project-item project-card" data-project-category="hub">
                     <div class="project-image">
                         <img src="src/assets/img/projects/prev-CardGabbfernyh.png" alt="My Card Linktree" loading="lazy"
                             data-zoom>
@@ -311,7 +323,7 @@
                             rel="noopener noreferrer">Acessar repositório</a>
                     </div>
                 </div>
-                <div class="project-item project-card">
+                <div class="project-item project-card" data-project-category="hub">
                     <div class="project-image">
                         <img src="src/assets/img/projects/portifolio-Preto&Branco.png" alt="Mefolio" loading="lazy"
                             data-zoom>
@@ -324,7 +336,7 @@
                             rel="noopener noreferrer">Acessar repositório</a>
                     </div>
                 </div>
-                <div class="project-item project-card">
+                <div class="project-item project-card" data-project-category="landing ecommerce">
                     <div class="project-image">
                         <img src="src/assets/img/projects/prev-jordanshoes.png" alt="Jordan Shoes" loading="lazy"
                             data-zoom>
@@ -340,7 +352,7 @@
                             repositório</a>
                     </div>
                 </div>
-                <div class="project-item project-card">
+                <div class="project-item project-card" data-project-category="landing ecommerce">
                     <div class="project-image">
                         <img src="src/assets/img/projects/prev-FOODJP.png" alt="My Linktree" loading="lazy" data-zoom>
                     </div>
@@ -355,7 +367,7 @@
                             repositório</a>
                     </div>
                 </div>
-                <div class="project-item project-card">
+                <div class="project-item project-card" data-project-category="landing, estudos">
                     <div class="project-image">
                         <img src="src/assets/img/projects/prev-Hods-spzc.png" alt="House of the Dragon" loading="lazy"
                             data-zoom>
@@ -371,7 +383,7 @@
                             repositório</a>
                     </div>
                 </div>
-                <div class="project-item project-card">
+                <div class="project-item project-card" data-project-category="landing, estudos">
                     <div class="project-image">
                         <img src="src/assets/img/projects/prev-PobreLivre.png" alt="Pobre Livre" loading="lazy"
                             data-zoom>
@@ -387,7 +399,7 @@
                             repositório</a>
                     </div>
                 </div>
-                <div class="project-item project-card">
+                <div class="project-item project-card" data-project-category="landing, ecommerce, estudos">
                     <div class="project-image">
                         <img src="src/assets/img/projects/prev-BurguerHouse.png" alt="Burguer House" loading="lazy"
                             data-zoom>
@@ -435,6 +447,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </Section>
         <h2 class="tags" id="servicos">Serviços</h2>
         <section class="servicos">
