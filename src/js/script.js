@@ -751,7 +751,7 @@ function initProjectFilters() {
     };
 
     const getGridColumnCount = () => {
-        if (!grid) return 2;
+        if (!grid) return 1;
 
         // Força um reflow para ter valores atualizados
         void grid.offsetHeight;
@@ -759,11 +759,18 @@ function initProjectFilters() {
         const styles = window.getComputedStyle(grid);
         const template = styles.gridTemplateColumns || '';
 
-        if (!template) return 2; // Default to 2 columns
+        if (!template) return 1; // Default to 1 column
 
         // Handle repeat(2, 1fr) and repeat(2, minmax(0, 1fr))
         if (template.includes('repeat(2')) {
             return 2;
+        }
+
+        // Handle auto-fill patterns for responsive grids
+        if (template.includes('repeat(auto-fill')) {
+            // Count the number of actual columns being rendered
+            const cols = template.split(' ').filter(col => col !== '');
+            return Math.max(1, cols.length);
         }
 
         // Se temos uma template válida, conta os espaços
@@ -772,8 +779,8 @@ function initProjectFilters() {
             return cols.length;
         }
 
-        // Fallback para 2 colunas
-        return 2;
+        // Fallback para 1 coluna
+        return 1;
     };
 
     const positionSoonCard = (visibleCount) => {
