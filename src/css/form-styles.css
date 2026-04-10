@@ -160,26 +160,56 @@
     box-shadow: 0 2px 8px var(--c-shadow-brand);
 }
 
+/* Desktop: deixa o card mais compacto sem mexer na lógica do formulário */
+@media (min-width: 901px) {
+    .contact-form-container {
+        padding: 1.35rem;
+        border-radius: 14px;
+    }
+
+    .form-group {
+        margin-bottom: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.85rem 1rem;
+        font-size: 0.98rem;
+    }
+
+    .contact-form-container textarea {
+        min-height: 96px;
+    }
+
+    .contact-form-container button {
+        padding: 0.85rem 1.6rem;
+        font-size: 1rem;
+        margin-top: 0.75rem;
+        letter-spacing: 0.5px;
+    }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .contact-form-container {
-        padding: 1.15rem;
+        padding: 1.05rem;
         margin: 0 auto;
         border-radius: 13px;
     }
 
     .contact-form-container button {
-        font-size: 1.02rem;
-        padding: 0.95rem 1.7rem;
+        font-size: 1rem;
+        padding: 0.9rem 1.6rem;
     }
 }
 
 @media (max-width: 480px) {
     .contact-form-container {
-        padding: 0.9rem;
+        padding: 0.82rem;
         border-radius: 10px;
         box-shadow: 0 2px 8px var(--c-shadow-brand);
-        margin: 0.5rem;
+        margin: 0.4rem;
         gap: 0.5rem;
     }
 
@@ -189,8 +219,8 @@
 
     .contact-form-container input,
     .contact-form-container textarea {
-        font-size: 0.96rem;
-        padding: 0.85rem 1rem;
+        font-size: 0.95rem;
+        padding: 0.82rem 0.95rem;
     }
 
     .form-group label {
@@ -205,8 +235,8 @@
     }
 
     .contact-form-container button {
-        font-size: 0.95rem;
-        padding: 0.75rem 1.3rem;
+        font-size: 0.93rem;
+        padding: 0.72rem 1.25rem;
         box-shadow: 0 2px 8px var(--c-shadow-brand);
     }
 }
