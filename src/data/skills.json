@@ -30,6 +30,16 @@
             "area": "Front-end | Back-end (lógica e vida da página)",
             "category": "Frontend | Backend"
         },
+        "php": {
+            "name": "PHP",
+            "icon": "src/assets/img/icons/cib--php.svg",
+            "description": "Linguagem de programação server-side muito usada na web para criar sistemas, sites dinâmicos e APIs.",
+            "usage": "Uso para desenvolver back-end, integrar banco de dados, criar rotas/endpoints e automatizar rotinas no servidor.",
+            "techTerms": "PHP 8+, Composer, MVC, PDO, CRUD.",
+            "simpleExplanation": "É a parte do servidor que processa dados e entrega o conteúdo para o navegador.",
+            "area": "Servidor | Sistemas Web",
+            "category": "Backend"
+        },
         "typescript": {
             "name": "TypeScript",
             "icon": "src/assets/img/icons/icons8-typescript.svg",
@@ -139,6 +149,26 @@
             "simpleExplanation": "É uma forma prática de buscar e enviar dados para APIs.",
             "area": "Integração | APIs",
             "category": "Frontend | Backend"
+        },
+        "cypress": {
+            "name": "Cypress",
+            "icon": "src/assets/img/icons/catppuccin--cypress.svg",
+            "description": "Framework de testes End-to-End (E2E) para aplicações web, com execução no navegador e feedback rápido.",
+            "usage": "Uso para validar fluxos reais do usuário, detectar regressões de interface e garantir que o sistema funcione de ponta a ponta.",
+            "techTerms": "E2E, asserts, fixtures, intercept, CI.",
+            "simpleExplanation": "Testa o site simulando um usuário navegando e interagindo com a aplicação.",
+            "area": "Qualidade | Testes E2E",
+            "category": "QA | Ferramenta"
+        },
+        "postman": {
+            "name": "Postman",
+            "icon": "src/assets/img/icons/simple-icons--postman.svg",
+            "description": "Ferramenta para testar, documentar e automatizar chamadas de APIs durante o desenvolvimento.",
+            "usage": "Uso para criar coleções de requisições, validar endpoints, organizar ambientes e acelerar a depuração de integrações.",
+            "techTerms": "HTTP, REST, JSON, collections, environments, autenticação (Bearer/JWT).",
+            "simpleExplanation": "Ajuda a enviar requisições para uma API e ver se a resposta está correta.",
+            "area": "Integração | APIs",
+            "category": "Ferramenta | Backend"
         }
     }
 }
