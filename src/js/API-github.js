@@ -1,23 +1,53 @@
+const GITHUB_USERNAME = 'Gabbfernyh';
+const LOCAL_STATS_PATH = 'src/data/github-stats.json';
+
+async function getLocalGithubStats() {
+    const response = await fetch(LOCAL_STATS_PATH, {
+        cache: 'no-store'
+    });
+
+    if (!response.ok) {
+        throw new Error(`Failed to load github-stats.json: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    if (typeof data.repos !== 'number') {
+        throw new Error('Invalid repos field in github-stats.json');
+    }
+
+    return data.repos;
+}
+
 async function getGithubStats() {
     try {
-        const response = await fetch('src/data/github-stats.json', {
+        const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`, {
+            headers: {
+                Accept: 'application/vnd.github+json'
+            },
             cache: 'no-store'
         });
 
         if (!response.ok) {
-            throw new Error(`Failed to load github-stats.json: ${response.status}`);
+            throw new Error(`GitHub API request failed: ${response.status}`);
         }
 
         const data = await response.json();
 
-        if (typeof data.repos !== 'number') {
-            throw new Error('Invalid repos field in github-stats.json');
+        if (typeof data.public_repos !== 'number') {
+            throw new Error('Invalid public_repos field returned by GitHub API');
         }
 
-        return data.repos;
-    } catch (error) {
-        console.error('Failed to load local GitHub stats:', error);
-        return null;
+        return data.public_repos;
+    } catch (apiError) {
+        console.warn('Failed to load GitHub stats from API, falling back to local JSON.', apiError);
+
+        try {
+            return await getLocalGithubStats();
+        } catch (localError) {
+            console.error('Failed to load fallback GitHub stats:', localError);
+            return null;
+        }
     }
 }
 
