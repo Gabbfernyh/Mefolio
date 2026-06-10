@@ -391,7 +391,7 @@ body.light-theme .theme-toggle-btn .fa-moon {
     justify-content: center;
     color: var(--c-brand);
     font-weight: 400;
-    padding: 10px 0 20px;
+    padding: 10px 0 15px;
     font-size: 1.875rem;
     /* Restored font size */
     z-index: 20;
@@ -558,7 +558,7 @@ body.light-theme .theme-toggle-btn .fa-moon {
    ========================= */
 
 /* --- Grid de Projetos --- */
-.projects-toolbar {
+/* .projects-toolbar {
     width: 100%;
     max-width: 1100px;
     margin: 1.25rem auto 0.9rem;
@@ -733,103 +733,38 @@ body.light-theme .theme-toggle-btn .fa-moon {
         background: rgba(124, 255, 196, 0.3);
         border-radius: 6px;
     }
-}
+} */
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2.5rem;
     align-items: start;
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
-    padding: 1.5rem 0 0.75rem;
-    padding-left: 1rem;
+    padding: 2rem 0;
+    /* padding-left: 1rem;
     padding-right: 1rem;
-    box-sizing: border-box;
-}
-
-.project-grid.projects-collapsed {
-    max-height: var(--projects-collapsed-max-height, 520px);
-    overflow-y: auto;
-    scroll-behavior: smooth;
-    padding-right: 0.3rem;
-    position: relative;
-    padding-bottom: 0.5rem;
-}
-
-.project-grid.projects-collapsed::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    height: 24px;
-    background: linear-gradient(180deg, transparent 0%, var(--c-bg) 70%, var(--c-bg) 100%);
-    pointer-events: none;
-    z-index: 10;
-}
-
-.project-grid.projects-collapsed::-webkit-scrollbar {
-    width: 10px;
-}
-
-.project-grid.projects-collapsed::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.project-grid.projects-collapsed::-webkit-scrollbar-thumb {
-    background: rgba(124, 255, 196, 0.22);
-    border-radius: 999px;
-    border: 3px solid transparent;
-    background-clip: content-box;
+    box-sizing: border-box; */
 }
 
 /* --- Card de Projeto --- */
 .project-card {
     background: var(--c-bg-soft);
     border-radius: 12px;
-    padding: 0.9rem;
+    padding: 1rem;
     border: 1px solid rgba(124, 255, 196, 0.12);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     max-width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 0.9rem;
-    transition: all 0.25s ease;
-    height: 100%;
-    position: relative;
-}
-
-.project-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--c-brand), transparent);
-    opacity: 0.3;
-}
-
-.project-card.project-card--pop {
-    animation: projectCardPop 420ms ease both;
-}
-
-@keyframes projectCardPop {
-    from {
-        opacity: 0;
-        transform: translateY(6px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    gap: 1.2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-2px);
+    transform: translateY(-4px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
     border-color: rgba(124, 255, 196, 0.2);
 }
@@ -837,15 +772,15 @@ body.light-theme .theme-toggle-btn .fa-moon {
 /* Imagem do projeto */
 .project-image {
     width: 100%;
-    height: 125px;
+    height: 160px;
     background: var(--c-bg-mute);
     color: var(--c-brand-dark);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
+    /* border-radius: 8px;
     overflow: hidden;
-    position: relative;
+    position: relative; */
 }
 
 .project-image img {
@@ -858,9 +793,9 @@ body.light-theme .theme-toggle-btn .fa-moon {
 
 /* Título e tecnologias alinhados à esquerda */
 .project-title {
-    font-weight: 700;
-    font-size: 1rem;
-    margin-bottom: 0.12rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
     text-align: left;
     line-height: 1.35;
     color: var(--c-text);
@@ -1583,7 +1518,7 @@ html {
         text-align: center;
         position: relative;
         /* Necess?rio para o posicionamento absoluto da seta */
-        min-height: auto;
+        min-height: 100vh;
         /* Remove min-height excessivo */
     }
 

@@ -1,0 +1,12 @@
+  "house-of-the-dragon": {
+    "title": "House of the Dragon",
+    "readme": "# House of the Dragon\n\n## Sobre\nProjeto temático com foco em narrativa visual e ambientação.\n\n## Destaques\n- Uso de imagem e contraste para atmosfera\n- Estrutura simples de navegação\n- Experiência responsiva\n\n## Stack\n- HTML5\n- CSS3\n- JavaScript\n\n## Status\nProjeto finalizado."
+  },
+  "pobre-livre": {
+    "title": "Pobre Livre",
+    "readme": "# Pobre Livre\n\n## Sobre\nSite institucional com estrutura clara e componentes reutilizáveis.\n\n## Destaques\n- Arquitetura de seções objetiva\n- Tipografia com boa legibilidade\n- Iconografia com Font Awesome\n\n## Stack\n- HTML5\n- CSS3\n- JavaScript\n- Font Awesome\n\n## Status\nProjeto publicado."
+  },
+    "pokedevs": {
+    "title": "PokeDevs",
+    "readme": "# PokeDevs\n\n## Sobre\nProjeto interativo de cards temáticos com foco em animações e UX.\n\n## Destaques\n- Troca de estado visual ao interagir\n- Organização de informações em cards\n- Boas práticas de semântica no HTML\n\n## Stack\n- HTML5\n- CSS3\n- JavaScript\n\n## Status\nProjeto finalizado e publicado."
+  },
