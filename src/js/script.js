@@ -797,10 +797,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initThemeToggle();
     addEventListeners();
-
-    if (typeof updateGithubStats === 'function') {
-        updateGithubStats();
-    }
 });
 
 (function () {

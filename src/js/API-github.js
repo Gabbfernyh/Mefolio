@@ -1,6 +1,21 @@
 const GITHUB_USERNAME = 'Gabbfernyh';
 const LOCAL_STATS_PATH = 'src/data/github-stats.json';
 
+function getProjectsCountElement() {
+    return document.getElementById('projects-count');
+}
+
+function setProjectsCount(value) {
+    const projectsCountEl = getProjectsCountElement();
+
+    if (!projectsCountEl || typeof value !== 'number' || Number.isNaN(value)) {
+        return false;
+    }
+
+    projectsCountEl.textContent = String(value);
+    return true;
+}
+
 async function getLocalGithubStats() {
     const response = await fetch(LOCAL_STATS_PATH, {
         cache: 'no-store'
@@ -12,11 +27,19 @@ async function getLocalGithubStats() {
 
     const data = await response.json();
 
-    if (typeof data.repos !== 'number') {
-        throw new Error('Invalid repos field in github-stats.json');
+    if (typeof data.repos === 'number') {
+        return data.repos;
     }
 
-    return data.repos;
+    if (typeof data.public_repos === 'number') {
+        return data.public_repos;
+    }
+
+    if (typeof data.count === 'number') {
+        return data.count;
+    }
+
+    throw new Error('Invalid repository count field in github-stats.json');
 }
 
 async function getGithubStats() {
@@ -52,20 +75,30 @@ async function getGithubStats() {
 }
 
 async function updateGithubStats() {
-    const projectsCountEl = document.getElementById('projects-count');
     const experienceYearsEl = document.getElementById('experience-years');
-    const MANUAL_EXPERIENCE = 4;
+    const MANUAL_EXPERIENCE = 5;
 
     if (experienceYearsEl) {
         experienceYearsEl.textContent = String(MANUAL_EXPERIENCE);
     }
 
-    if (!projectsCountEl) return;
+    if (!getProjectsCountElement()) return;
+
+    try {
+        const localRepos = await getLocalGithubStats();
+        setProjectsCount(localRepos);
+    } catch (localError) {
+        console.warn('Failed to load local GitHub stats before API sync.', localError);
+    }
 
     const totalRepos = await getGithubStats();
     if (totalRepos !== null) {
-        projectsCountEl.textContent = String(totalRepos);
+        setProjectsCount(totalRepos);
     }
 }
 
-document.addEventListener('DOMContentLoaded', updateGithubStats);
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateGithubStats, { once: true });
+} else {
+    updateGithubStats();
+}
