@@ -484,9 +484,9 @@ body.light-theme .theme-toggle-btn .fa-moon {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 170px;
+    width: 155px;
     /* Largura fixa para garantir o mesmo tamanho */
-    height: 170px;
+    height: 155px;
     /* Fixed height to ensure consistent size */
     /* Altura m?nima para todos os cards */
     padding: 1rem 1rem;
@@ -2040,7 +2040,7 @@ main {
     .contact-container {
         flex-direction: column;
         align-items: center;
-        gap: 1.2rem;
+        gap: 1rem;
         margin-top: 1.2rem;
     }
 
@@ -2050,7 +2050,7 @@ main {
         background: var(--c-bg-soft);
         border-radius: 8px;
         box-shadow: 0 1px 4px var(--c-shadow);
-        padding: 1.1rem;
+        padding: 1rem;
         /* Aumentar o padding para dar mais espa?o */
         text-align: center;
         min-height: auto;
@@ -2058,9 +2058,9 @@ main {
     }
 
     .contact-icon {
-        width: 52px;
+        width: 50px;
         /* Aumentar o tamanho do ?cone */
-        height: 52px;
+        height: 50px;
         /* Aumentar o tamanho do ?cone */
         margin-bottom: 0.6rem;
         /* Ajustar margem */
@@ -2068,9 +2068,9 @@ main {
 
     .contact-icon img,
     .contact-icon svg {
-        width: 32px;
+        width: 30px;
         /* Aumentar o tamanho da imagem/svg dentro do ?cone */
-        height: 32px;
+        height: 30px;
         /* Aumentar o tamanho da imagem/svg dentro do ?cone */
     }
 
@@ -2614,16 +2614,16 @@ main {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 0.8rem;
-        width: min(100%, 520px);
-        margin: 0.75rem auto 0;
+        width: min(90%, 350px);
+        margin: 0.70rem auto 0;
         padding: 0;
     }
 
     section.about .contact-item {
         width: 100%;
         max-width: none;
-        min-height: 112px;
-        padding: 0.9rem 0.85rem;
+        min-height: 110px;
+        padding: 1.1rem 0.85rem;
     }
 
     section.about .contact-icon {
