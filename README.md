@@ -9,7 +9,7 @@
 
 Este é o código-fonte do meu portfólio pessoal, "Mefolio". Ele foi criado para apresentar meus projetos, habilidades e informações de contato de uma forma moderna, animada e totalmente responsiva.
 
-O site está disponível em: **[https://gabbfernyh.github.io/Mefolio/](https://gabbfernyh.github.io/Mefolio/)**
+O site está disponível em: **[https://gabbfernyh.vercel.app](https://gabbfernyh.vercel.app)**
 
 ## ✨ Recursos
 
@@ -27,26 +27,6 @@ O site está disponível em: **[https://gabbfernyh.github.io/Mefolio/](https://g
 - **CSS3:** Estilização customizada com variáveis, Flexbox e Grid Layout.
 - **JavaScript (ES6+):** Interatividade, manipulação do DOM e lógica dos componentes.
 - **ScrollReveal.js:** Para as animações de scroll.
-
-## 🏁 Como Executar Localmente
-
-Este é um projeto frontend estático. Para executá-lo, siga os passos:
-
-1. Clone o repositório:
-
-   ```sh
-   git clone https://github.com/Gabbfernyh/Mefolio.git
-   ```
-
-2. Navegue até o diretório do projeto:
-
-   ```sh
-   cd Mefolio
-   ```
-
-3. Abra o arquivo `index.html` diretamente no seu navegador de preferência.
-
-E pronto! O site estará rodando localmente.
 
 ## 📄 Licença
 
