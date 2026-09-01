@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>404 — Página não encontrada</title>
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="src/css/style.css?v=2">
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            font-family: system-ui, Arial;
+            background: #f7f7fb;
+            color: #111
+        }
+
+        .card {
+            text-align: center;
+            padding: 3rem;
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 10px 30px rgba(2, 6, 23, .06);
+            max-width: 720px
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin: 0
+        }
+
+        p {
+            color: #555
+        }
+
+        a.btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: .75rem 1.25rem;
+            border-radius: 8px;
+            background: #97edaa;
+            color: #002;
+            border: none;
+            text-decoration: none
+        }
+    </style>
+</head>
+
+<body>
+    <main role="main" class="card" aria-labelledby="title">
+        <h1 id="title">404</h1>
+        <p>Página não encontrada. O endereço pode estar errado ou a página foi removida.</p>
+        <p><a href="/" class="btn">Voltar ao início</a></p>
+        <p style="margin-top:1rem;color:#888;font-size:.9rem">Se achar necessário, abra uma issue no repositório com o
+            link que causou o erro.</p>
+    </main>
+</body>
+
+</html>

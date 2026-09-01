@@ -20,6 +20,60 @@ function typeWriter(element, text, speed = 75, callback) {
 }
 
 /**
+ * Loader: mantém tela de carregamento até o evento `load` finalizar.
+ */
+function initLoader() {
+    const loader = document.getElementById('site-loader');
+    if (!loader) return;
+
+    // Caso o load já tenha acontecido antes do script (edge case), esconda imediatamente
+    if (document.readyState === 'complete') {
+        loader.style.display = 'none';
+        loader.setAttribute('aria-hidden', 'true');
+        // sinaliza que a aplicação está pronta (loader já oculto)
+        document.dispatchEvent(new Event('app:ready'));
+        return;
+    }
+
+    // Se o evento `load` demorar (recursos bloqueados), usamos um fallback para não travar o loader.
+    const fallbackHide = setTimeout(() => {
+        try {
+            loader.style.transition = 'opacity 320ms ease';
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+                loader.setAttribute('aria-hidden', 'true');
+                document.dispatchEvent(new Event('app:ready'));
+            }, 360);
+        } catch (e) {
+            loader.style.display = 'none';
+            document.dispatchEvent(new Event('app:ready'));
+        }
+    }, 5000); // fallback após 5s
+
+    // Esconde com transição quando a página terminar de carregar (atraso adicional para melhorar percepção)
+    window.addEventListener('load', () => {
+        clearTimeout(fallbackHide);
+        try {
+            loader.setAttribute('aria-hidden', 'true');
+            // transição mais longa para suavizar
+            loader.style.transition = 'opacity 600ms ease';
+            // Aguardar um pequeno delay extra antes de iniciar o fade-out
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    // sinaliza que a aplicação está pronta (loader finalizado)
+                    document.dispatchEvent(new Event('app:ready'));
+                }, 650); // garante que o fade de 600ms finalize
+            }, 800); // atraso adicional antes do fade
+        } catch (e) {
+            loader.style.display = 'none';
+        }
+    }, { once: true });
+}
+
+/**
  * Configura as animações de revelação de elementos ao rolar a página.
  */
 function initScrollReveal() {
@@ -622,14 +676,9 @@ function initSmoothScroll() {
  * Adiciona os event listeners para elementos interativos, como os alertas.
  */
 function addEventListeners() {
-    document.querySelectorAll('.js-linkedin-alert').forEach(link => {
-        link.addEventListener('click', linkedinAlert);
-    });
-
-    const curriculoBtn = document.querySelector('.js-curriculo-alert');
-    if (curriculoBtn) {
-        curriculoBtn.addEventListener('click', curriculoAlert);
-    }
+    // Os handlers de alerta (curriculo/linkedin) são registrados em `alert.js`
+    // para garantir que sejam acionados somente após o loader (evento `app:ready`).
+    // Manter este espaço para outros event listeners do script principal.
 }
 
 // Filtragem de projetos removida — toolbar e lógica desativadas
@@ -783,6 +832,9 @@ function initThemeToggle() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // init loader (esconde somente após window.load)
+    try { initLoader(); } catch (e) { /* silent */ }
+
     try {
         initScrollReveal();
     } catch (error) {

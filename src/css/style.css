@@ -3250,3 +3250,23 @@ body.service-modal-open {
         padding: 0.9rem 0.95rem 1rem;
     }
 }
+
+/* Skip link padrão: escondido visualmente, visível ao focar */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--c-brand);
+    color: var(--c-text-inverse, #121212);
+    padding: 8px 12px;
+    z-index: 10000;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.skip-link:focus {
+    left: 16px;
+    top: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    outline: none;
+}
