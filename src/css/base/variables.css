@@ -1,0 +1,52 @@
+/* =========================
+VARIÁVEIS CSS
+========================= */
+:root {
+    /* Dark Theme (default) */
+    --c-brand: #97edaa;
+    --c-brand-dark: #7bd88f;
+    --c-bg: #121212;
+    --c-bg-soft: #181818;
+    --c-bg-mute: #1f1f1f;
+    --c-bg-input: #101010;
+    --c-border: #2e2e2e;
+    --c-text: #ffffff;
+    --c-text-soft: #eeeeee;
+    --c-text-inverse: #121212;
+    --c-shadow: rgba(0, 0, 0, 0.2);
+    --c-shadow-brand: rgba(151, 237, 170, 0.2);
+    --c-bg-progress-bar: rgba(255, 255, 255, 0.3);
+    --c-bg-header-mobile: rgba(24, 24, 24, 0.75);
+
+    /* Typography */
+    --font-primary: "Archivo", sans-serif;
+    --font-mono: "Fira Code", monospace;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-xxl: 4rem;
+
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-full: 50%;
+
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    /* Z-Index */
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+    --z-tooltip: 1070;
+}
