@@ -791,46 +791,6 @@ function initContactForm() {
     });
 }
 
-/**
- * Inicializa o botão de alternância de tema (claro/escuro).
- */
-function initThemeToggle() {
-    const themeToggleBtns = document.querySelectorAll('.theme-toggle-btn');
-    const body = document.body;
-
-    if (themeToggleBtns.length === 0) return;
-
-    // Função para aplicar o tema e salvar a preferência
-    const applyTheme = (theme) => {
-        if (theme === 'light') {
-            body.classList.add('light-theme');
-        } else {
-            body.classList.remove('light-theme');
-        }
-        localStorage.setItem('theme', theme);
-    };
-
-    // Função para alternar o tema
-    const toggleTheme = () => {
-        const currentTheme = body.classList.contains('light-theme') ? 'dark' : 'light';
-        applyTheme(currentTheme);
-    };
-
-    // Adiciona o evento de clique a todos os botões de tema
-    themeToggleBtns.forEach(btn => {
-        btn.addEventListener('click', toggleTheme);
-    });
-
-    // No carregamento inicial, verifica o tema salvo ou a preferência do sistema
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        applyTheme(savedTheme);
-    } else {
-        // Define o tema escuro como padrão se nenhuma preferência for encontrada
-        applyTheme('dark');
-    }
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     // init loader (esconde somente após window.load)
     try { initLoader(); } catch (e) { /* silent */ }
@@ -847,7 +807,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initServiceDetailsModal();
     initSkillDetailsModal();
     initContactForm();
-    initThemeToggle();
     addEventListeners();
 });
 
