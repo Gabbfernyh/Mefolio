@@ -1,30 +1,52 @@
 {
   "newtech-store": {
     "title": "NewTech-store",
-    "readme": "# NewTech-store\n\n## Sobre\nE-commerce front-end focado em vitrine de produtos e navegação fluida.\n\n## Destaques\n- Layout responsivo para mobile e desktop\n- Estrutura de componentes simples e reutilizável\n- Fluxo visual orientado para conversão\n\n## Stack\n- HTML5\n- CSS3\n- JavaScript\n\n## Status\nProjeto publicado e em evolução contínua."
+    "description": "Vitrine animada de três produtos eletrônicos, com navegação manual e troca automática de destaque.",
+    "readme": "# NewTech Store\n\n## Sobre\nVitrine animada de produtos eletrônicos. A página apresenta três destaques: Apple Watch Series 10, AirPods Max e Vision Pro. É um exercício de front-end focado em animação e navegação entre produtos, não uma loja com checkout.\n\n## Como funciona\n- Setas permitem avançar e voltar entre os produtos.\n- Indicadores mostram o item ativo.\n- O destaque muda automaticamente a cada cinco segundos.\n\n## Tecnologias\n- HTML5\n- CSS3\n- JavaScript\n\n## Status\nProtótipo de estudos. Os botões “Saiba Mais” são parte da apresentação visual."
   },
   "previsao-do-tempo": {
     "title": "Previsão do Tempo",
-    "readme": "# Previsão do Tempo\n\n## Sobre\nAplicação que consulta API meteorológica e apresenta clima atual por cidade.\n\n## Destaques\n- Busca dinâmica por localidade\n- Feedback visual para condições de clima\n- Tratamento de cenários sem resultado\n\n## Stack\n- HTML5\n- CSS3\n- JavaScript\n- API HTTP\n\n## Status\nProjeto funcional com foco em consumo de API."
+    "description": "Aplicação de consulta do clima que busca as condições atuais a partir da cidade informada.",
+    "readme": "# Previsão do Tempo\n\n## Sobre\nAplicação de consulta meteorológica por cidade. O resultado apresenta as condições atuais para a localidade pesquisada.\n\n## Recursos\n- Busca de cidades.\n- Exibição das condições do tempo.\n- Mensagem para buscas sem resultado.\n\n## Tecnologias\n- HTML5\n- CSS3\n- JavaScript\n- API HTTP"
   },
   "my-card-linktree": {
-    "title": "Meu Cartão Pessoal Digital",
-    "readme": "# Meu Cartão Pessoal Digital\n\n## Sobre\nProjeto desenvolvido para apresentar minha identidade profissional de forma visual, moderna e objetiva, reunindo tecnologias, redes sociais e um resumo da minha trajetória como desenvolvedor.\n\n## Destaques\n- Layout responsivo e personalizado\n- Apresentação das principais stacks e redes sociais\n- Avatar com transição automática entre fotos\n- Estatísticas do GitHub sincronizadas com GitHub Actions e JSON local\n- Interface pensada para apresentação profissional rápida e clara\n\n## Stack\n- HTML\n- CSS\n- JavaScript\n- Bootstrap\n- GitHub Actions\n- JSON local\n\n## Status\nProjeto ativo, personalizado e pronto para uso."
+    "title": "My Card Linktree",
+    "description": "Cartão digital pessoal que reúne apresentação, tecnologias, estatísticas e links de contato.",
+    "readme": "# My Card Linktree\n\n## Sobre\nCartão digital pessoal para reunir, em uma página, minha apresentação profissional, tecnologias e formas de contato. O projeto parte de uma base existente que personalizei com meus próprios dados e identidade visual.\n\n## Recursos\n- Links para redes sociais e perfis profissionais.\n- Alternância entre temas claro e escuro.\n- Avatar que alterna entre fotos.\n- Indicadores ligados ao perfil do GitHub.\n\n## Tecnologias\n- HTML5\n- CSS3\n- JavaScript\n- Bootstrap\n- API do GitHub\n\n## Status\nProjeto de cartão pessoal e hub de links; não é uma plataforma de criação de páginas para terceiros."
   },
   "mefolio": {
     "title": "Mefolio",
-    "readme": "# Mefolio\n\n## Sobre\nPortfólio pessoal com seções de projetos, skills, contato e integrações.\n\n## Destaques\n- Integração com GitHub para métricas\n- Animações de entrada e interações de UI\n- Estrutura modular de estilos e scripts\n\n## Stack\n- HTML5\n- CSS3\n- JavaScript\n- Tailwind CSS\n- Bootstrap CSS\n\n## Status\nProjeto ativo, com melhorias frequentes."
+    "description": "Portfólio pessoal com projetos, serviços, habilidades e caminhos para contato.",
+    "readme": "# Mefolio\n\n## Sobre\nEste é meu portfólio pessoal. Ele organiza meus projetos, serviços, habilidades e informações de contato em uma única página.\n\n## O que você encontra\n- Projetos com links para demonstrações e repositórios, além de descrições em modal.\n- Seções de serviços e habilidades com detalhes interativos.\n- Formulário de contato integrado ao Formspree.\n- Métricas públicas do GitHub e animações de entrada.\n\n## Tecnologias\n- HTML5\n- CSS3\n- JavaScript\n- Tailwind CSS\n- Bootstrap CSS\n- ScrollReveal.js\n\n## Status\nPortfólio pessoal em evolução."
   },
   "jordan-shoes": {
     "title": "Jordan Shoes",
-    "readme": "# Jordan Shoes\n\n## Sobre\nLanding page para produto com foco em apresentação visual.\n\n## Destaques\n- Hero forte com chamada para ação\n- Seção de produtos com layout limpo\n- Responsividade para diferentes telas\n\n## Stack\n- HTML5\n- CSS3\n- JavaScript\n- Figma\n\n## Status\nProjeto finalizado."
+    "description": "Loja conceitual de tênis Jordan com catálogo e demonstração de compra simulada.",
+    "readme": "# Jordan Shoes\n\n## Sobre\nLanding page responsiva para uma loja fictícia de tênis Jordan. O projeto apresenta os produtos e demonstra uma navegação de compra no próprio front-end.\n\n## Recursos\n- Grade de produtos.\n- Modal com detalhes e seleção de tamanho.\n- Fluxo de compra simulado, sem processamento real de pagamento.\n- Transições e adaptação para celular, tablet e desktop.\n\n## Tecnologias\n- HTML5\n- CSS3\n- JavaScript\n- Figma\n\n## Status\nProjeto demonstrativo de interface; não processa pedidos ou pagamentos reais."
   },
   "food-jp": {
     "title": "FOOD-JP",
-    "readme": "# FOOD-JP\n\n## Sobre\nLanding page de restaurante com proposta visual moderna.\n\n## Destaques\n- Seções de menu e apresentação de marca\n- Design orientado a conversão\n- Adaptação para mobile\n\n## Stack\n- HTML5\n- CSS3\n- JavaScript\n- Figma\n\n## Status\nProjeto publicado."
+    "description": "Landing page conceitual de restaurante japonês, baseada em um layout do Figma.",
+    "readme": "# FOOD-JP\n\n## Sobre\nLanding page conceitual para um restaurante de comida japonesa, recriada a partir de uma referência do Figma. A página apresenta a marca, pratos populares e avaliações em uma experiência adaptada para telas menores.\n\n## Seções e interações\n- Apresentação principal e seção sobre o restaurante.\n- Cards de pratos populares e avaliações.\n- Menu de navegação para dispositivos móveis.\n\n## Tecnologias\n- HTML5\n- CSS3\n- JavaScript\n- Figma\n\n## Status\nProtótipo de front-end. Os botões de cardápio e aplicativo são elementos de apresentação; não há fluxo de pedido implementado."
+  },
+  "pobre-livre": {
+    "title": "Pobre Livre",
+    "description": "Catálogo de ofertas inspirado no Mercado Livre, com produtos locais e busca pelo nome.",
+    "readme": "# Pobre Livre\n\n## Sobre\nProtótipo de catálogo de ofertas inspirado no Mercado Livre, criado como exercício de aula. Os produtos são definidos em uma lista JavaScript e exibidos em cards com preço e desconto.\n\n## Como funciona\n- A busca filtra os produtos pelo nome.\n- A lista inclui itens fictícios de eletrônicos, jogos, acessórios e outros.\n- Os cards são gerados no navegador a partir dos dados locais do projeto.\n\n## Tecnologias\n- HTML5\n- CSS3\n- JavaScript\n- Font Awesome\n\n## Limites do protótipo\nA busca funciona sobre a lista local. Não há integração com o Mercado Livre, carrinho ou checkout."
   },
   "burguer-house": {
     "title": "Burguer-House",
-    "readme": "# Burguer-House\n\n## Sobre\nLanding page para hamburgueria, com foco em cardápio e chamada de pedido.\n\n## Destaques\n- Seções com hierarquia visual consistente\n- Botão de ação destacado\n- Layout adaptado para mobile\n\n## Stack\n- HTML5\n- CSS3\n- JavaScript\n- Font Awesome\n\n## Status\nProjeto finalizado e publicado."
+    "description": "Landing page demonstrativa para uma hamburgueria fictícia, com cardápio e chamadas de pedido.",
+    "readme": "# Burguer-House\n\n## Sobre\nLanding page demonstrativa para a hamburgueria fictícia DevBurger. O conteúdo apresenta o cardápio, a proposta da marca e chamadas para iniciar um pedido.\n\n## Recursos\n- Menu de hambúrgueres, acompanhamentos e bebidas com preços de exemplo.\n- Navegação móvel expansível.\n- Chamadas de pedido direcionadas ao WhatsApp.\n- Janela com informações de outras unidades fictícias.\n\n## Tecnologias\n- HTML5\n- CSS3\n- JavaScript\n- Font Awesome\n\n## Status\nProtótipo de portfólio. Textos, preços, contatos e unidades são demonstrativos."
+  },
+  "studionails-hub-digital": {
+    "title": "StudioNails Hub Digital",
+    "description": "Hub digital para um estúdio de unhas com apresentação visual, serviços, links e gatilho para agendamento.",
+    "readme": "# StudioNails Hub Digital\n\n## Visão Geral\nPágina compacta de presença digital para um estúdio de unhas, criada para reunir identidade visual, serviços e canais de contato em um único ambiente.\n\n## Objetivo\nCentralizar a divulgação do negócio em um layout enxuto, com foco em facilitar o contato e direcionar agendamentos de forma direta.\n\n## Recursos\n- Apresentação do estúdio e diferenciais de atendimento\n- Cards com serviços e preços demonstrativos\n- Links para redes sociais, site e WhatsApp\n- Chamada para agendamento com fluxo simples\n\n## Tecnologias\n- HTML5\n- CSS3\n- JavaScript\n- Font Awesome\n\n## Status\nProtótipo conceitual de hub digital para um salão de beleza. Dados, preços e contatos são ilustrativos."
+  },
+  "studionails-landing-page": {
+    "title": "StudioNails Landing Page",
+    "description": "Landing page institucional para estúdio de unhas com foco em serviços, diferenciais, confiança e conversão para agendamento.",
+    "readme": "# StudioNails Landing Page\n\n## Visão Geral\nVersão mais completa da presença digital do estúdio, desenvolvida como landing page para apresentar serviços, proposta de valor e chamar o cliente para fazer contato ou agendar.\n\n## Objetivo\nTransmitir profissionalismo e criar uma experiência visual clara, moderna e responsiva, com foco em conversão.\n\n## Recursos\n- Hero section com proposta da marca\n- Seções de serviços, diferenciais e apresentação do espaço\n- Galeria de trabalhos e depoimentos\n- CTA para agendamento pelo WhatsApp\n- Layout responsivo para mobile e desktop\n\n## Tecnologias\n- HTML5\n- CSS3\n- JavaScript\n- Font Awesome\n\n## Status\nProtótipo conceitual de landing page para estúdio de unhas. Números, avaliações e contatos são demonstrativos."
   }
 }
